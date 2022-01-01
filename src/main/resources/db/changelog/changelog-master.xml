@@ -38,10 +38,28 @@
             <column name="organizator" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="selectedUsers" type="varchar(65000)">
+        </createTable>
+
+        <createTable tableName="ActiveToUser">
+            <column name="activityid" type="tinyint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="activeId" type="tinyint">
                 <constraints nullable="false"/>
             </column>
+            <column name="id" type="tinyint">
+                <constraints nullable="false"/>
+            </column>
+
         </createTable>
+
+        <addForeignKeyConstraint constraintName="fk_user_activity"
+                                 baseTableName="ActiveToUser"
+                                 baseColumnNames="id"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"/>
+
+
 
         <createTable tableName="activityevaluation">
             <column name="id" type="tinyint">
@@ -57,6 +75,7 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
 
     </changeSet>
 
