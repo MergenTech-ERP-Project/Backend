@@ -41,13 +41,13 @@
         </createTable>
 
         <createTable tableName="ActiveToUser">
-            <column name="activityid" type="tinyint">
+            <column name="id" type="tinyint">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="activeId" type="tinyint">
+            <column name="activityId" type="tinyint">
                 <constraints nullable="false"/>
             </column>
-            <column name="id" type="tinyint">
+            <column name="userID" type="tinyint">
                 <constraints nullable="false"/>
             </column>
 
@@ -55,10 +55,15 @@
 
         <addForeignKeyConstraint constraintName="fk_user_activity"
                                  baseTableName="ActiveToUser"
-                                 baseColumnNames="id"
+                                 baseColumnNames="userID"
                                  referencedTableName="user"
                                  referencedColumnNames="id"/>
 
+        <addForeignKeyConstraint constraintName="fk_active_activity"
+                                 baseTableName="ActiveToUser"
+                                 baseColumnNames="activityId"
+                                 referencedTableName="activity"
+                                 referencedColumnNames="id"/>
 
 
         <createTable tableName="activityevaluation">
