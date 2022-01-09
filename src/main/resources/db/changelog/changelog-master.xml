@@ -94,6 +94,22 @@
 <!--        END-->
 <!--        $$;-->
 <!--        </sql>-->
+            <!--        stored procedure-->
+<!--        END-->
+<!--        $$;-->
+<!--        </sql>-->
+<!--        CREATE PROCEDURE add_users_bytitle-->
+<!--        (param varchar(50))-->
+<!--        LANGUAGE plpgsql AS-->
+<!--        $$-->
+<!--        BEGIN-->
+<!--        INSERT INTO activetouser(userid)-->
+<!--        SELECT "id"-->
+<!--        FROM "user"-->
+<!--        WHERE "user".title = param;-->
+
+<!--        END;-->
+<!--        $$-->
 
     </changeSet>
 
