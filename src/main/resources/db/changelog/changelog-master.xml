@@ -81,6 +81,19 @@
             </column>
         </createTable>
 
+<!--        <sql>        CREATE PROCEDURE list_datetime_activity-->
+<!--            (param varchar(50), param2 varchar(50))-->
+<!--            LANGUAGE plpgsql AS-->
+<!--        $$-->
+<!--        BEGIN-->
+<!--        SELECT *-->
+<!--        FROM activity-->
+<!--        WHERE activity.datetime BETWEEN param and param2-->
+<!--        ORDER BY datetime DESC-->
+
+<!--        END-->
+<!--        $$;-->
+<!--        </sql>-->
 
     </changeSet>
 
