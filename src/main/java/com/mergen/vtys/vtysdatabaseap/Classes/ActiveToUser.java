@@ -4,14 +4,15 @@ package com.mergen.vtys.vtysdatabaseap.Classes;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "ActiveToUser", schema="public")
+@Table(name= "activetouser", schema="public")
 public class ActiveToUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private Long activityId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    private  Activity activity;
 
     @Column
     private Long userID;
@@ -19,8 +20,8 @@ public class ActiveToUser {
     public ActiveToUser() {
     }
 
-    public ActiveToUser(Long activityId, Long userID) {
-        this.activityId = activityId;
+    public ActiveToUser(Activity activity, Long userID) {
+        this.activity = activity;
         this.userID = userID;
     }
 
@@ -32,12 +33,12 @@ public class ActiveToUser {
         this.id = id;
     }
 
-    public Long getActivityId() {
-        return activityId;
+    public Activity getActivity() {
+        return activity;
     }
 
-    public void setActivityId(Long activityId) {
-        this.activityId = activityId;
+    public void setActivity(Activity activity) {
+        this.activity = activity;
     }
 
     public Long getUserID() {
