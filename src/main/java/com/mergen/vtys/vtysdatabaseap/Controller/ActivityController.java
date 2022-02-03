@@ -24,6 +24,11 @@ public class ActivityController {
         return (List<Activity>) activityRepository.findAll();
     }
 
+    @GetMapping("activities/activeusers/{id}")
+    public List<Activity> getActivityListByUserID(@PathVariable Long id) {
+        return (List<Activity>) activityRepository.findActivitiesByUserID(id);
+    }
+
     @GetMapping("activities/{id}")
     public Optional<Activity> getActivityById(@PathVariable Long id) {
         return activityRepository.findById(id);
@@ -46,4 +51,5 @@ public class ActivityController {
         activityRepository.deleteById(id);
         return id + "th Activity deleted!";
     }
+
 }

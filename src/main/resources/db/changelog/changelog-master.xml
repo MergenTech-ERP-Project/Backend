@@ -40,30 +40,19 @@
             </column>
         </createTable>
 
-        <createTable tableName="ActiveToUser">
+        <createTable tableName="activetouser">
             <column name="id" type="tinyint">
                 <constraints primaryKey="true"/>
             </column>
             <column name="activityId" type="tinyint">
-                <constraints nullable="false"/>
+                <constraints nullable="false" foreignKeyName="fk_active_activity" references="activity(id)"/>
             </column>
             <column name="userID" type="tinyint">
-                <constraints nullable="false"/>
+                <constraints nullable="false" foreignKeyName="fk_user_activity" references="user(id)"/>
             </column>
 
         </createTable>
 
-        <addForeignKeyConstraint constraintName="fk_user_activity"
-                                 baseTableName="ActiveToUser"
-                                 baseColumnNames="userID"
-                                 referencedTableName="user"
-                                 referencedColumnNames="id"/>
-
-        <addForeignKeyConstraint constraintName="fk_active_activity"
-                                 baseTableName="ActiveToUser"
-                                 baseColumnNames="activityId"
-                                 referencedTableName="activity"
-                                 referencedColumnNames="id"/>
 
 
         <createTable tableName="activityevaluation">
@@ -81,35 +70,50 @@
             </column>
         </createTable>
 
-<!--        <sql>        CREATE PROCEDURE list_datetime_activity-->
-<!--            (param varchar(50), param2 varchar(50))-->
-<!--            LANGUAGE plpgsql AS-->
-<!--        $$-->
-<!--        BEGIN-->
-<!--        SELECT *-->
-<!--        FROM activity-->
-<!--        WHERE activity.datetime BETWEEN param and param2-->
-<!--        ORDER BY datetime DESC-->
+        <createTable tableName="company">
+            <column name="id" type="tinyint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="company_name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="company_phone" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="domain_name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mersis_no" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sgk_company_no" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
 
-<!--        END-->
-<!--        $$;-->
-<!--        </sql>-->
-            <!--        stored procedure-->
-<!--        END-->
-<!--        $$;-->
-<!--        </sql>-->
-<!--        CREATE PROCEDURE add_users_bytitle-->
-<!--        (param varchar(50))-->
-<!--        LANGUAGE plpgsql AS-->
-<!--        $$-->
-<!--        BEGIN-->
-<!--        INSERT INTO activetouser(userid)-->
-<!--        SELECT "id"-->
-<!--        FROM "user"-->
-<!--        WHERE "user".title = param;-->
 
-<!--        END;-->
-<!--        $$-->
+        <createTable tableName="branch">
+            <column name="id" type="tinyint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="branch_name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="branch_upper" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rules" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vacation_dates" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+
+
+
+
 
     </changeSet>
 
