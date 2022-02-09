@@ -60,4 +60,20 @@ public class User {
     public void setTitle(String title) {
         this.title = title;
     }
+    /*
+
+    {
+    "id":2,
+    "name":"ceyJ",
+    "title":"none",
+    "password":"a123456"
+    }
+
+    ----------------------------------------
+    Query Editor
+    insert into user (id,name,password,title) values (1, ceyhun, 123456, test)
+
+    select * from user
+
+    */
 }
