@@ -27,7 +27,7 @@ public class UserController {
         return userRepository.findById(id);
     }
 
-    @RequestMapping(value ="/user/users/{name}/{password}",method = RequestMethod.GET)
+    @GetMapping("/users/{name}/{password}")
     @ResponseBody
     public Optional<User> getUsersCheck(
             @PathVariable("name") String name,@PathVariable("password") String password) {
