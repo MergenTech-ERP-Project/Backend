@@ -27,8 +27,13 @@ public class UserController {
         return userRepository.findById(id);
     }
 
-    @GetMapping("/users/{name}/{password}")
-    @ResponseBody
+    @GetMapping("/{name}")
+    public Optional<User> getUsersCheck(
+            @PathVariable("name") String name){
+        return  userRepository.findByName(name) ;
+    }
+
+    @GetMapping(value ="/{name}/{password}")
     public Optional<User> getUsersCheck(
             @PathVariable("name") String name,@PathVariable("password") String password) {
         return  userRepository.findByNameAndPassword(name,password) ;

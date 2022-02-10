@@ -1,15 +1,17 @@
 package com.mergen.vtys.vtysdatabaseap.Classes;
 
 
-
 import javax.persistence.*;
+import javax.servlet.annotation.HttpMethodConstraint;
 
 @Entity
 @Table(name="user", schema = "public")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Column(name = "id",nullable = false,updatable = false)
     private Long id;
+
 
     @Column
     private String name;
