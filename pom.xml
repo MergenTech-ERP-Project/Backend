@@ -71,7 +71,7 @@
                 <configuration>
                     <changeLogFile>db/changelog/changelog-master.xml</changeLogFile>
                     <url>jdbc:postgresql://localhost:5432/test</url>
-                    <username>postgres</username>
+                    <username>fatih</username>
                     <password>9898</password>
                 </configuration>
             </plugin>
