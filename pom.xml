@@ -71,8 +71,8 @@
                 <configuration>
                     <changeLogFile>db/changelog/changelog-master.xml</changeLogFile>
                     <url>jdbc:postgresql://localhost:5432/test</url>
-                    <username>dzeep@protonmail.com</username>
-                    <password>fatihce</password>
+                    <username>mergen</username>
+                    <password>staj123!.</password>
                 </configuration>
             </plugin>
         </plugins>
