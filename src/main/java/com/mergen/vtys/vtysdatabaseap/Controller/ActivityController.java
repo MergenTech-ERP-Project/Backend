@@ -3,53 +3,53 @@ package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
 
-import com.mergen.vtys.vtysdatabaseap.Classes.Activity;
+import com.mergen.vtys.vtysdatabaseap.Model.Activity;
 import com.mergen.vtys.vtysdatabaseap.Repository.ActivityRepository;
+import com.mergen.vtys.vtysdatabaseap.Service.ActivityService;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+@Data
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("activity")
+@RequiredArgsConstructor
 public class ActivityController {
 
     @Autowired
-    private ActivityRepository activityRepository;
+    private ActivityService activityService;
 
-    @GetMapping("activities")
-    public List<Activity> getActivityList() {
-        return (List<Activity>) activityRepository.findAll();
+    @GetMapping(value = "activities")
+    public ResponseEntity<List<Activity>> getActivityList() {
+        return ResponseEntity.ok((List<Activity>) activityService.getActivityList());
     }
 
-    @GetMapping("activities/activeusers/{id}")
-    public List<Activity> getActivityListByUserID(@PathVariable Long id) {
-        return (List<Activity>) activityRepository.findActivitiesByUserID(id);
+    @GetMapping(value = "activities/{id}")
+    public ResponseEntity<Optional<Activity>> getActivityById(@PathVariable Long id) {
+        return ResponseEntity.ok(activityService.getActivityById(id));
     }
 
-    @GetMapping("activities/{id}")
-    public Optional<Activity> getActivityById(@PathVariable Long id) {
-        return activityRepository.findById(id);
+    @PostMapping(value = "post")
+    public ResponseEntity<String> createActivity(@RequestBody Activity activity) {
+        activityService.Create(activity);
+        return ResponseEntity.ok(activity.getName() + " Saved Succesfully");
     }
 
-    @PostMapping("post")
-    public String createActivity(@RequestBody Activity activity) {
-        activityRepository.save(activity);
-        return  activity.getName() + " Saved Succesfully";
+    @PutMapping(value = "put/{id}")
+    public ResponseEntity<String> updateActivity(@PathVariable Long id, @RequestBody Activity activity) {
+        activityService.Update(id,activity);
+        return ResponseEntity.ok(activity.getName() + " updated!");
     }
 
-    @PutMapping("put/{id}")
-    public String updateActivity(@PathVariable Long id, @RequestBody Activity activity) {
-        activityRepository.save(activity);
-        return activity.getName() + " updated!";
-    }
-
-    @DeleteMapping("delete/{id}")
-    public String deleteActivity(@PathVariable() Long id) {
-        activityRepository.deleteById(id);
-        return id + "th Activity deleted!";
+    @DeleteMapping(value = "delete/{id}")
+    public ResponseEntity<String> deleteActivity(@PathVariable() Long id) {
+        activityService.Delete(id);
+        return ResponseEntity.ok(id + "th Activity deleted!");
     }
 
 }
