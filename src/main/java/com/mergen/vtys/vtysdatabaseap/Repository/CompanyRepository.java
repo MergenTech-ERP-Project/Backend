@@ -1,7 +1,7 @@
 package com.mergen.vtys.vtysdatabaseap.Repository;
 
 
-import com.mergen.vtys.vtysdatabaseap.Classes.Company;
+import com.mergen.vtys.vtysdatabaseap.Model.Company;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

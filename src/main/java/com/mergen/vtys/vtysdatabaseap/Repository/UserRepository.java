@@ -1,6 +1,6 @@
 package com.mergen.vtys.vtysdatabaseap.Repository;
 
-import com.mergen.vtys.vtysdatabaseap.Classes.User;
+import com.mergen.vtys.vtysdatabaseap.Model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
