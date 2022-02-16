@@ -1,11 +1,12 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
+import com.mergen.vtys.vtysdatabaseap.Advice.ExpectionResponse;
 import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 //import org.springframework.web.bind.annotation.*;
 
@@ -20,25 +21,41 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
+    @Query(value = "SELECT * from user", nativeQuery = true)
     @Override
-    public List<User> getUserList(){return (List<User>) userRepository.findAll();}
+    public List<User> getUserLists(){return (List<User>) userRepository.findAll();}
 
     @Override
     public Optional<User> getUserById(Long id){
         Optional<User> user = userRepository.findById(id);
-        return user.isPresent() ? user : null;
+        if (user.isPresent()){
+            return user;
+        }
+
+        throw new IllegalArgumentException("Get User by ID Failed");
+
     }
 
     @Override
     public Optional<User> getUserByName(String name){
         Optional<User> user = userRepository.findByName(name);
-        return user.isPresent() ? user : null;
+        if (user.isPresent()){
+            return user;
+        }
+
+        throw new IllegalArgumentException("");
+
     }
 
     @Override
-    public Optional<User> getUserByNameAndPassword(String name, String password) {
-        Optional<User> user = userRepository.findByNameAndPassword(name,password);
-        return user.isPresent() ? user : null;
+    public Optional<User> getUserNameAndPassword(String name, String password) {
+        Optional<User> user = userRepository.findNameAndPassword(name,password);
+        if (user.isPresent()){
+            return user;
+        }
+
+        throw new IllegalArgumentException("User Name and Password Auth Failed");
+
     }
 
     /*@Override
@@ -68,8 +85,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String Create(User model) {
-        userRepository.save(model);
-        return model.getName();
+        Optional<User> _user = userRepository.findNameAndPassword(model.getName(),model.getPassword());
+
+        if (!_user.isPresent()) {
+            userRepository.save(model);
+
+            return model.getName();
+        } else
+            throw new IllegalArgumentException("USER  already exist");
     }
 
     @Override
@@ -78,15 +101,17 @@ public class UserServiceImpl implements UserService {
         if(_user.isPresent()){
             userRepository.save(model);
             return model.getName();}
-        return null;
+        else
+        throw new IllegalArgumentException("USER Failed to Update");
     }
 
     @Override
     public String Delete(Long id) {
         Optional<User> user = userRepository.findById(id);
+
         if(user.isPresent()){
             userRepository.deleteById(id);
             return id.toString();}
-        return null;
+        throw new IllegalArgumentException("Delete Option Fails");
     }
 }

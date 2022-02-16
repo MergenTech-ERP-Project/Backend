@@ -20,6 +20,9 @@
             <column name="title" type="varchar(30)">
                 <constraints nullable="false"/>
             </column>
+            <column name="user_activity" type="tinyint">
+             <constraints nullable="false"/>
+            </column>
         </createTable>
 
         <createTable tableName="activity">

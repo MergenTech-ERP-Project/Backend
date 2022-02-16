@@ -5,7 +5,6 @@ import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Service.UserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +24,7 @@ public class UserController {
 
     @GetMapping(value = "users")
     public ResponseEntity<List<User>> getUserList(){
-        return ResponseEntity.ok(userService.getUserList());
+        return ResponseEntity.ok(userService.getUserLists());
     }
 
     @GetMapping(value = "users/{id}")
@@ -41,7 +40,7 @@ public class UserController {
     @GetMapping(value ="/{name}/{password}")
     public ResponseEntity<Optional<User>> getUsersCheck(
             @PathVariable("name") String name,@PathVariable("password") String password) {
-        return ResponseEntity.ok(userService.getUserByNameAndPassword(name,password));
+        return ResponseEntity.ok(userService.getUserNameAndPassword(name,password));
     }
 
     @PostMapping(value = "post")
@@ -51,9 +50,10 @@ public class UserController {
     }
 
     @PutMapping(value = "put/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User user){
-        userService.Update(id,user);
+    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User user) {
+        userService.Update(id, user);
         return ResponseEntity.ok(user.getName() + " updated!");
+
     }
 
     @DeleteMapping(value = "delete/{id}")
