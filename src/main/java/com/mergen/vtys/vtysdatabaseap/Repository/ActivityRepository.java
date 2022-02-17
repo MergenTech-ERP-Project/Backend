@@ -15,8 +15,9 @@ import java.util.Optional;
 
 @Repository
 public interface ActivityRepository extends CrudRepository<Activity, Long> {
+   @Query(value = "SELECT * from public.activity u Where u.name = ?1", nativeQuery = true)
    Optional<Activity> findByName(String name);
-   @Query(" Select a from Activity a inner join ActiveToUser k on a.id=k.activity.id  ")
-   List<Activity>  findActivitiesByUserID(@Param("userId") Long userID);
-  // SELECT a FROM Activity a left JOIN ActiveToUser on a.id=ActiveToUser.activity.id where ActiveToUser.userID =:userId
+//   @Query(" Select a from Activity a inner join ActiveToUser k on a.id=k.activity.id  ")
+//  List<Activity>  findActivitiesByUserID(@Param("userId") Long userID);
+//  // SELECT a FROM Activity a left JOIN ActiveToUser on a.id=ActiveToUser.activity.id where ActiveToUser.userID =:userId
 }
