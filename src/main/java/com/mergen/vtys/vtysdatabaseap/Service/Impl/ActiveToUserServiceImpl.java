@@ -30,19 +30,29 @@ public class ActiveToUserServiceImpl implements ActiveToUserService {
 
     @Override
     public String Create(ActiveToUser model) {
-        activityToUserRepository.save(model);
-        return model.getActivity().toString();
+        return null;
     }
 
     @Override
     public String Update(Long id, ActiveToUser model) {
-        Optional<ActiveToUser> activeToUser = activityToUserRepository.findById(id);
-        if(activeToUser.isPresent()){
-            activityToUserRepository.save(model);
-            return model.getActivity().toString();}
         return null;
     }
 
+    /* @Override
+        public String Create(ActiveToUser model) {
+            activityToUserRepository.save(model);
+            return model.getActivity().toString();
+        }
+
+        @Override
+        public String Update(Long id, ActiveToUser model) {
+            Optional<ActiveToUser> activeToUser = activityToUserRepository.findById(id);
+            if(activeToUser.isPresent()){
+                activityToUserRepository.save(model);
+                return model.getActivity().toString();}
+            return null;
+        }
+    */
     @Override
     public String Delete(Long id) {
         Optional<ActiveToUser> activeToUser = activityToUserRepository.findById(id);

@@ -2,8 +2,11 @@ package com.mergen.vtys.vtysdatabaseap.Model;
 
 
 import lombok.Data;
+import org.springframework.ui.Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name= "activetouser", schema="public")
@@ -13,12 +16,11 @@ public class ActiveToUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
-    private  Activity activity;
+    @Column
+    private Long user_id;
 
     @Column
-    private Long userID;
+    private Long activity_id;
 
 }
 

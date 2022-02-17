@@ -37,7 +37,7 @@ public class ActiveToUserController {
         return ResponseEntity.ok("ActiveToUser Saved Succesfully");
     }
 
-    @PutMapping(value = "put/{id}")
+    @PutMapping(value = "put/{Us}")
     public ResponseEntity<String> updateActiveToUser(@PathVariable Long id, @RequestBody ActiveToUser activetouser) {
         activeToUserService.Update(id,activetouser);
         return ResponseEntity.ok("ActivityUser updated!");

@@ -9,11 +9,10 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
-    @Query(value= "SELECT * from public.user Where name = ?1",nativeQuery = true)
+    @Query(value = "SELECT * from public.user Where name = ?1", nativeQuery = true)
     Optional<User> findByName(String name);
+
     @Query(value = "SELECT * from public.user u Where u.name = ?1 and u.password = ?2", nativeQuery = true)
-    Optional<User> findNameAndPassword(String name , String password);
-    @Query(value = "SELECT * from public.user u Where u.name = ?1 and u.password = ?2", nativeQuery = true)
-    boolean  isUserExist(String name,String password);
+    Optional<User> findNameAndPassword(String name, String password);
 }
 
