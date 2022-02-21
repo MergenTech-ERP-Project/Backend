@@ -1,3 +1,4 @@
+
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
 import com.mergen.vtys.vtysdatabaseap.Model.ActiveToUser;
@@ -25,16 +26,23 @@ public class ActiveToUserServiceImpl implements ActiveToUserService {
     @Override
     public Optional<ActiveToUser> getActivityById(Long id) {
         Optional<ActiveToUser> activeToUser = activityToUserRepository.findById(id);
-        return activeToUser.isPresent() ? activeToUser : null;
+        if (activeToUser.isPresent()) {
+            return activeToUser;
+
+        }
+        else
+            throw new IllegalArgumentException("there is no activetouser");
     }
 
     @Override
-    public String Create(ActiveToUser model) {
+    public ActiveToUser Create(ActiveToUser model) {
+        activityToUserRepository.save(model);
         return null;
     }
 
     @Override
     public String Update(Long id, ActiveToUser model) {
+        activityToUserRepository.save(model);
         return null;
     }
 
@@ -59,6 +67,8 @@ public class ActiveToUserServiceImpl implements ActiveToUserService {
         if(activeToUser.isPresent()){
             activityToUserRepository.deleteById(id);
             return id.toString();}
-        return null;
+        else
+            throw new IllegalArgumentException();
     }
 }
+

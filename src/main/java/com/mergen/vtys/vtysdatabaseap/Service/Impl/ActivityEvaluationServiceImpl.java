@@ -55,9 +55,9 @@ public class ActivityEvaluationServiceImpl implements ActivityEvaluationService 
     }*/
 
     @Override
-    public String Create(ActivityEvaluation model) {
+    public ActivityEvaluation Create(ActivityEvaluation model) {
         activityEvaluationRepository.save(model);
-        return model.getEvaluation();
+        return model;
     }
 
     @Override

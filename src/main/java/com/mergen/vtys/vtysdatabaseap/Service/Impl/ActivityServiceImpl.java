@@ -34,9 +34,9 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
-    public String Create(Activity model) {
+    public Activity Create(Activity model) {
         activityRepository.save(model);
-        return model.getName();
+        return model;
     }
 
     @Override

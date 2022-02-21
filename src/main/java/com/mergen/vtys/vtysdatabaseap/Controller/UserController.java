@@ -1,11 +1,15 @@
 package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
+import com.mergen.vtys.vtysdatabaseap.Model.Activity;
 import com.mergen.vtys.vtysdatabaseap.Model.User;
+import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
+import com.mergen.vtys.vtysdatabaseap.Service.ActivityService;
 import com.mergen.vtys.vtysdatabaseap.Service.UserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,14 +19,20 @@ import java.util.Optional;
 @Data
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("user")
+@RequestMapping(value = "user")
 @RequiredArgsConstructor
 public class UserController {
 
     @Autowired
     private final UserService userService;
 
-    @GetMapping(value = "users")
+    @Autowired
+    private final ActivityService activityService;
+
+    @Autowired
+    private final UserRepository userRepository;
+
+    @GetMapping(value = "/users")
     public ResponseEntity<List<User>> getUserList(){
         return ResponseEntity.ok(userService.getUserLists());
     }
@@ -43,7 +53,7 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserNameAndPassword(name,password));
     }
 
-    @PostMapping(value = "post")
+    @PostMapping(value = "/post")
     public ResponseEntity<String> createUser(@RequestBody User user){
         userService.Create(user);
         return ResponseEntity.ok(user.getName() + " created!");
@@ -61,4 +71,5 @@ public class UserController {
         userService.Delete(id);
         return ResponseEntity.ok(id + " th deleted!");
     }
-}
+
+    }

@@ -84,13 +84,13 @@ public class UserServiceImpl implements UserService {
     }*/
 
     @Override
-    public String Create(User model) {
+    public User Create(User model) {
         Optional<User> _user = userRepository.findNameAndPassword(model.getName(),model.getPassword());
 
         if (!_user.isPresent()) {
             userRepository.save(model);
 
-            return model.getName();
+            return model;
         } else
             throw new IllegalArgumentException("USER  already exist");
     }
