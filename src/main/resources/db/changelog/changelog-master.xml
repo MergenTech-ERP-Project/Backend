@@ -21,9 +21,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="title" type="varchar(30)">
                 <constraints nullable="false"/>
             </column>
-            <column name="user_activity" type="tinyint">
-             <constraints nullable="false"/>
-            </column>
+
         </createTable>
 
         <createTable tableName="activity">
@@ -47,11 +45,11 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="id" type="tinyint">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="activity_id" type="int">
-                <constraints nullable="false"/>
+            <column name="activity_ids" type="int">
+                <constraints nullable="true"/>
             </column>
-            <column name="user_id" type="int">
-                <constraints nullable="false"/>
+            <column name="user_ids" type="int">
+                <constraints nullable="true"/>
             </column>
 
         </createTable>
@@ -65,10 +63,10 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                 <constraints primaryKey="true"/>
             </column>
             <column name="ActivityId" type="tinyint">
-                <constraints nullable="false" foreignKeyName="fk_activity_id" references="activity(id)"/>
+                <constraints nullable="false" />
             </column>
             <column name="UserId" type="tinyint">
-                <constraints nullable="false" foreignKeyName="fk_user_id" references="user(id)"/>
+                <constraints nullable="false"/>
             </column>
             <column name="evaluation" type="varchar(50)">
                 <constraints nullable="false"/>

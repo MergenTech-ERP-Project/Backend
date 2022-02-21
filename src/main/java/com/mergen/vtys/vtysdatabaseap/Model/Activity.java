@@ -1,9 +1,12 @@
 package com.mergen.vtys.vtysdatabaseap.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,8 +17,9 @@ import java.util.List;
 @Data
 public class Activity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_one_generator")
+    @SequenceGenerator(name = "sequence_one_generator", sequenceName = "sequence_one_id", allocationSize = 1)
+            private Long id;
 
     @Column
     private String name;
@@ -29,8 +33,24 @@ public class Activity {
     @Column
     private String organizator;
 
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "activity_id",cascade = CascadeType.ALL)
+//    public List<ActiveToUser> getActiveToUsers() {
+//        return activeToUsers;
+//    }
+//    public void setActiveToUsers(List<ActiveToUser> activeToUsers) {
+//        this.activeToUsers = activeToUsers;
+//    }
+
+
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "activity_ids",cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SUBSELECT)
-    private List<ActiveToUser> activeToUsers=new ArrayList<>();
+ //   @JsonManagedReference(value = "activity_json")
+    private List<ActiveToUser> activity_enrolled=new ArrayList<>();
+
+
+
+//
+//    @JoinTable
+//    @OneToMany(fetch = FetchType.EAGER)
+//    private List<User> users=new ArrayList<>();
 
 }

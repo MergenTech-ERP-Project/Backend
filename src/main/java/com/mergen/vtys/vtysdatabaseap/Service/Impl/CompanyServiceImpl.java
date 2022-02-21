@@ -55,9 +55,9 @@ public class CompanyServiceImpl implements CompanyService {
     }*/
 
     @Override
-    public String Create(Company model) {
+    public Company Create(Company model) {
         companyRepository.save(model);
-        return model.getCompany_name();
+        return model;
     }
 
     @Override

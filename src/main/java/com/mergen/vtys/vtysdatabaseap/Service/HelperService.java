@@ -1,11 +1,10 @@
 package com.mergen.vtys.vtysdatabaseap.Service;
 
-import com.mergen.vtys.vtysdatabaseap.Model.User;
-
-import java.util.Optional;
+import com.mergen.vtys.vtysdatabaseap.Model.ActiveToUser;
+import org.springframework.ui.Model;
 
 public interface HelperService<T> {
-    String Create(T model);
+    T Create(T model);
     String Update(Long id, T model);
     String Delete(Long id);
 }

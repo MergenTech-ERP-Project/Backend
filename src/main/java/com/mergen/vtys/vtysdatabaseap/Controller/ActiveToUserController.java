@@ -32,7 +32,7 @@ public class ActiveToUserController {
     }
 
     @PostMapping(value = "post")
-    public ResponseEntity<String> createActivity(@RequestBody ActiveToUser activetouser) {
+    public ResponseEntity<String> CreateActiveoUser(@RequestBody ActiveToUser activetouser) {
         activeToUserService.Create(activetouser);
         return ResponseEntity.ok("ActiveToUser Saved Succesfully");
     }
@@ -48,6 +48,8 @@ public class ActiveToUserController {
           activeToUserService.Delete(id);
         return ResponseEntity.ok(id + "ActivityToUser deleted!");
     }
+
+
 
 }
 
