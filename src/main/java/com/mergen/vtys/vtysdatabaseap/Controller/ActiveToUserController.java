@@ -47,8 +47,12 @@ public class ActiveToUserController {
     public ResponseEntity<String> deleteActivityToUser(@PathVariable() Long id) {
           activeToUserService.Delete(id);
         return ResponseEntity.ok(id + "ActivityToUser deleted!");
-    }
 
+    }
+    @GetMapping(value = "/user/{id}")
+    public ResponseEntity<List<Long>> getUsersEnrolled(@PathVariable Long id){
+        return ResponseEntity.ok( activeToUserService.getUsersEnrolled(id));
+    }
 
 
 }

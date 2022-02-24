@@ -31,8 +31,8 @@ public class UserServiceImpl implements UserService {
         if (user.isPresent()){
             return user;
         }
-
-        throw new IllegalArgumentException("Get User by ID Failed");
+        else
+        throw new IllegalArgumentException(id + " failed" + " Get User by ID Failed");
 
     }
 
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
         if (user.isPresent()){
             return user;
         }
-
+        else
         throw new IllegalArgumentException("");
 
     }
@@ -53,8 +53,8 @@ public class UserServiceImpl implements UserService {
         if (user.isPresent()){
             return user;
         }
-
-        throw new IllegalArgumentException("User Name and Password Auth Failed");
+        else
+        throw new IllegalArgumentException(name + password + " Auth Failed");
 
     }
 
@@ -92,7 +92,7 @@ public class UserServiceImpl implements UserService {
 
             return model;
         } else
-            throw new IllegalArgumentException("USER  already exist");
+            throw new IllegalArgumentException(model + "  already exist");
     }
 
     @Override
@@ -102,7 +102,7 @@ public class UserServiceImpl implements UserService {
             userRepository.save(model);
             return model.getName();}
         else
-        throw new IllegalArgumentException("USER Failed to Update");
+        throw new IllegalArgumentException(model + " Failed to Update");
     }
 
     @Override
@@ -112,6 +112,7 @@ public class UserServiceImpl implements UserService {
         if(user.isPresent()){
             userRepository.deleteById(id);
             return id.toString();}
+        else
         throw new IllegalArgumentException("Delete Option Fails");
     }
 }

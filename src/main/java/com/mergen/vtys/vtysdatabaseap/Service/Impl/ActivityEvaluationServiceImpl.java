@@ -66,7 +66,7 @@ public class ActivityEvaluationServiceImpl implements ActivityEvaluationService 
         if(_activityEvaluation.isPresent()){
             activityEvaluationRepository.save(model);
             return model.getEvaluation();}
-        return null;
+       throw new IllegalArgumentException();
     }
 
     @Override
@@ -75,6 +75,6 @@ public class ActivityEvaluationServiceImpl implements ActivityEvaluationService 
         if(activityEvaluation.isPresent()){
             activityEvaluationRepository.deleteById(id);
             return id.toString();}
-        return null;
+        throw  new IllegalArgumentException();
     }
 }

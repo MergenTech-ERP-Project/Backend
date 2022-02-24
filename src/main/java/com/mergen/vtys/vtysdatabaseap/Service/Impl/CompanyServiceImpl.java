@@ -27,7 +27,12 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public Optional<Company> getCompanyByID(Long id) {
         Optional<Company> company = companyRepository.findById(id);
-        return company.isPresent() ? company : null;
+        if(company.isPresent()){
+            return  company;
+        }
+        else
+        throw new IllegalArgumentException("İnternal Server Error" + "Get Company by ID Failed");
+
     }
 
    /* @Override
@@ -60,13 +65,16 @@ public class CompanyServiceImpl implements CompanyService {
         return model;
     }
 
+
+
     @Override
     public String Update(Long id, Company model) {
         Optional<Company> _company = companyRepository.findById(id);
         if(_company.isPresent()){
             companyRepository.save(model);
             return model.getCompany_name();}
-        return null;
+        else
+            throw new IllegalArgumentException();
     }
 
     @Override
@@ -75,6 +83,7 @@ public class CompanyServiceImpl implements CompanyService {
         if(company.isPresent()){
             companyRepository.deleteById(id);
             return id.toString();}
-        return null;
+        else
+        throw new  IllegalArgumentException("Internal Server Error");
     }
 }

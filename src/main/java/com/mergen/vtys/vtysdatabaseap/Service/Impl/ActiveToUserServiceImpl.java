@@ -70,5 +70,10 @@ public class ActiveToUserServiceImpl implements ActiveToUserService {
         else
             throw new IllegalArgumentException();
     }
+
+    @Override
+    public List<Long> getUsersEnrolled(Long id) {
+        return activityToUserRepository.getUsersEnrolled(id);
+    }
 }
 
