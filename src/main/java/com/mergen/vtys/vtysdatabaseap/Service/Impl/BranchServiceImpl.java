@@ -28,9 +28,11 @@ public class BranchServiceImpl implements BranchService {
     @Override
     public Optional<Branch> getBranchById(Long id) {
         Optional<Branch> branch = branchRepository.findById(id);
-        return branch.isPresent() ? branch : null;
+        if (branch.isPresent()) {
+            return branch;
+        }
+        throw new IllegalArgumentException(id + "not found");
     }
-
    /* @Override
     public String createBranch(Branch branch) {
         branchRepository.save(branch);
@@ -66,8 +68,10 @@ public class BranchServiceImpl implements BranchService {
         Optional<Branch> _branch = branchRepository.findById(id);
         if(_branch.isPresent()){
             branchRepository.save(model);
-            return model.getBranch_name();}
-        return null;
+            return model.getBranch_name();
+        }
+        else
+        throw  new IllegalArgumentException();
     }
 
     @Override
@@ -76,6 +80,7 @@ public class BranchServiceImpl implements BranchService {
         if(branch.isPresent()){
             branchRepository.deleteById(id);
             return id.toString();}
-        return null;
+        else
+        throw new IllegalArgumentException();
     }
 }
