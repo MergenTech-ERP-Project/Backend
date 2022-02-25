@@ -19,7 +19,13 @@ public class ActivityServiceImpl implements ActivityService {
     private final ActivityRepository activityRepository;
     @Override
     public List<Activity> getActivityList() {
-        return (List<Activity>) activityRepository.findAll();
+        try {
+            return (List<Activity>) activityRepository.findAll();
+        }
+        catch(Exception e){
+            throw new IllegalArgumentException("internal server error");
+        }
+
     }
 
     @Override

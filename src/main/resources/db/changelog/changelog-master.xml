@@ -54,18 +54,14 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
 
         </createTable>
 
-
-
-
-
         <createTable tableName="activityevaluation">
             <column name="id" type="tinyint">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="ActivityId" type="tinyint">
+            <column name="activities_id" type="tinyint">
                 <constraints nullable="false" />
             </column>
-            <column name="UserId" type="tinyint">
+            <column name="users_id" type="tinyint">
                 <constraints nullable="false"/>
             </column>
             <column name="evaluation" type="varchar(50)">
