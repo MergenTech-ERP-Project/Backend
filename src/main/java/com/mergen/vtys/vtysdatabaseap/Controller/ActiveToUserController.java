@@ -50,10 +50,14 @@ public class ActiveToUserController {
 
     }
     @GetMapping(value = "/user/{id}")
-    public ResponseEntity<List<Long>> getUsersEnrolled(@PathVariable Long id){
+    public ResponseEntity<List<Object>> getUsersEnrolled(@PathVariable Long id){
         return ResponseEntity.ok( activeToUserService.getUsersEnrolled(id));
     }
 
+    @GetMapping(value = "/activity/enrolled/{id}")
+    public ResponseEntity<List<Long>> getUsersEnrolledIDs(@PathVariable Long id){
+        return ResponseEntity.ok(activeToUserService.getUsersEnrolledIDs(id));
+    }
 
 }
 
