@@ -21,8 +21,14 @@ public class ActivityEvaluationServiceImpl implements ActivityEvaluationService 
 
     @Override
     public List<ActivityEvaluation> getActivityEvaluationList() {
-        return (List<ActivityEvaluation>) activityEvaluationRepository.findAll();
-    }
+        try {
+            return (List<ActivityEvaluation>) activityEvaluationRepository.findAll();
+        }
+        catch(Exception e){
+                throw new IllegalArgumentException("internal server error");
+            }
+
+        }
 
     @Override
     public Optional<ActivityEvaluation> getActivityEvaluationById(Long id) {

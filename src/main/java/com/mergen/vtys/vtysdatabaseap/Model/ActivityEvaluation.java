@@ -11,14 +11,15 @@ import javax.persistence.*;
 @Data
 public class ActivityEvaluation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name="identifier", sequenceName="mytable_id_seq", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier")
     private Long id;
 
     @Column
-    private Long activityId;
+    private Long activities_id;
 
     @Column
-    private Long userId;
+    private Long users_id;
 
     @Column
     private String evaluation;
