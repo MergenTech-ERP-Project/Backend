@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface ActiveToUserService extends HelperService<ActiveToUser> {
     List<ActiveToUser> getActivityList();
     Optional<ActiveToUser> getActivityById(Long id);
-    List<Long> getUsersEnrolled(Long id);
+    List<Object> getUsersEnrolled(Long id);
+    List<Long> getUsersEnrolledIDs(Long id);
 }

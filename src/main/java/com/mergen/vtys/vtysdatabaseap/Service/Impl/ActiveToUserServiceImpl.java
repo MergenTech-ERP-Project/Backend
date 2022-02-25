@@ -72,8 +72,12 @@ public class ActiveToUserServiceImpl implements ActiveToUserService {
     }
 
     @Override
-    public List<Long> getUsersEnrolled(Long id) {
+    public List<Object> getUsersEnrolled(Long id) {
         return activityToUserRepository.getUsersEnrolled(id);
+    }
+
+    @Override
+    public List<Long> getUsersEnrolledIDs(Long id){ return  activityToUserRepository.getUsersEnrolledIDs(id);
     }
 }
 
