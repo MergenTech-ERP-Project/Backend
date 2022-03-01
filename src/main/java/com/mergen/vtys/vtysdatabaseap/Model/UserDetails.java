@@ -16,7 +16,7 @@ public class UserDetails {
     @SequenceGenerator(name="identifier", sequenceName="mytable_id_seq", allocationSize=1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier")
     @Column(name = "tcno",nullable = false,updatable = false)
-    private  Long tcno;
+    private  int tcno;
 
     @Column
     private String dateofbirth;
