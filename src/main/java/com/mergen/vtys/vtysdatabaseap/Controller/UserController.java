@@ -43,7 +43,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/{name}")
-    public ResponseEntity<Optional<User>> getUsersCheck(@PathVariable("name") String name){
+    public ResponseEntity<Optional<User>> getUsersCheckByName(@PathVariable("name") String name){
         return  ResponseEntity.ok(userService.getUserByName(name)) ;
     }
 
@@ -52,6 +52,12 @@ public class UserController {
             @PathVariable("name") String name,@PathVariable("password") String password) {
         return ResponseEntity.ok(userService.getUserNameAndPassword(name,password));
     }
+    @GetMapping(value ="/check/{email}/{password}")
+    public ResponseEntity<Optional<User>> getUsersCheckByMailandPass(
+            @PathVariable("email") String email,@PathVariable("password") String password) {
+        return ResponseEntity.ok(userService.getUserEmailAndPassword(email,password));
+    }
+
 
     @PostMapping(value = "/post")
     public ResponseEntity<String> createUser(@RequestBody User user){
