@@ -1,6 +1,5 @@
 package com.mergen.vtys.vtysdatabaseap.Repository;
 
-
 import com.mergen.vtys.vtysdatabaseap.Model.ActivityEvaluation;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

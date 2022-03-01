@@ -31,31 +31,8 @@ public class BranchServiceImpl implements BranchService {
         if (branch.isPresent()) {
             return branch;
         }
-        throw new IllegalArgumentException(id + "not found");
+        throw new IllegalArgumentException(id + " Not Found!");
     }
-   /* @Override
-    public String createBranch(Branch branch) {
-        branchRepository.save(branch);
-        return branch.getBranch_name();
-    }
-
-    @Override
-    public String updateBranch(Long id, Branch branch) {
-        Optional<Branch> _branch = branchRepository.findById(id);
-        if(_branch.isPresent()){
-            branchRepository.save(branch);
-            return branch.getBranch_name();}
-        return null;
-    }
-
-    @Override
-    public String deleteBranch(Long id) {
-        Optional<Branch> branch = branchRepository.findById(id);
-        if(branch.isPresent()){
-            branchRepository.deleteById(id);
-            return id.toString();}
-        return null;
-    }*/
 
     @Override
     public Branch Create(Branch model) {
@@ -71,7 +48,7 @@ public class BranchServiceImpl implements BranchService {
             return model.getBranch_name();
         }
         else
-        throw  new IllegalArgumentException();
+        throw  new IllegalArgumentException(model + " Update Option Fail!");
     }
 
     @Override
@@ -81,6 +58,6 @@ public class BranchServiceImpl implements BranchService {
             branchRepository.deleteById(id);
             return id.toString();}
         else
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException(" Delete Option Fail!");
     }
 }

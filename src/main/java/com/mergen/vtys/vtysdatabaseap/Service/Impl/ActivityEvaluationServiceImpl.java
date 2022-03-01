@@ -26,9 +26,8 @@ public class ActivityEvaluationServiceImpl implements ActivityEvaluationService 
             return (List<ActivityEvaluation>) activityEvaluationRepository.findAll();
         }
         catch(Exception e){
-                throw new IllegalArgumentException("internal server error");
+                throw new IllegalArgumentException(" Internal Server Error!");
             }
-
         }
 
     @Override
@@ -36,30 +35,6 @@ public class ActivityEvaluationServiceImpl implements ActivityEvaluationService 
         Optional<ActivityEvaluation> activityEvaluation = activityEvaluationRepository.findById(id);
         return activityEvaluation.isPresent() ? activityEvaluation : null;
     }
-
-  /*  @Override
-    public String createActivityEvaluation(ActivityEvaluation activityEvaluation) {
-        activityEvaluationRepository.save(activityEvaluation);
-        return activityEvaluation.getEvaluation();
-    }
-
-    @Override
-    public String updateActivityEvaluation(Long id, ActivityEvaluation activityEvaluation) {
-        Optional<ActivityEvaluation> _activityEvaluation = activityEvaluationRepository.findById(id);
-        if(_activityEvaluation.isPresent()){
-            activityEvaluationRepository.save(activityEvaluation);
-            return activityEvaluation.getEvaluation();}
-        return null;
-    }
-
-    @Override
-    public String deleteActivityEvaluation(Long id) {
-        Optional<ActivityEvaluation> activityEvaluation = activityEvaluationRepository.findById(id);
-        if(activityEvaluation.isPresent()){
-            activityEvaluationRepository.deleteById(id);
-            return id.toString();}
-        return null;
-    }*/
 
     @Override
     public ActivityEvaluation Create(ActivityEvaluation model) {
@@ -73,7 +48,7 @@ public class ActivityEvaluationServiceImpl implements ActivityEvaluationService 
         if(_activityEvaluation.isPresent()){
             activityEvaluationRepository.save(model);
             return model.getEvaluation();}
-       throw new IllegalArgumentException();
+       throw new IllegalArgumentException(model + " Update Option Fail!");
     }
 
     @Override
@@ -82,6 +57,6 @@ public class ActivityEvaluationServiceImpl implements ActivityEvaluationService 
         if(activityEvaluation.isPresent()){
             activityEvaluationRepository.deleteById(id);
             return id.toString();}
-        throw  new IllegalArgumentException();
+        throw  new IllegalArgumentException(" Delete Option Fail!");
     }
 }

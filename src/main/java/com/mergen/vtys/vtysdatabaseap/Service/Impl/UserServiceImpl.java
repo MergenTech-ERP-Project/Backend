@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
             return user;
         }
         else
-        throw new IllegalArgumentException(id + " failed" + " Get User by ID Failed");
+        throw new IllegalArgumentException(id + " Fail" + " And Get User by ID Fail!");
 
     }
 
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
             return user;
         }
         else
-        throw new IllegalArgumentException("");
+        throw new IllegalArgumentException(name + " Auth Fail");
 
     }
 
@@ -54,56 +54,31 @@ public class UserServiceImpl implements UserService {
             return user;
         }
         else
-        throw new IllegalArgumentException(name + password + " Auth Failed");
+        throw new IllegalArgumentException(name + password + " Auth Fail!");
 
     }
 
 
     @Override
     public Optional<User> getUserEmailAndPassword(String email, String password) {
-        Optional<User> user = userRepository.findEmailandPassword(email,password);
+        Optional<User> user = userRepository.findEmailAndPassword(email,password);
         if (user.isPresent()){
             return user;
         }
         else
-            throw new IllegalArgumentException(email + password + " Auth Failed");
+            throw new IllegalArgumentException(email + password + " Auth Fail!");
 
     }
-    /*@Override
-    public String createUser(User user){
-        userRepository.save(user);
-        return user.getName();
-    }
-
-    @Override
-    public String updateUser(Long id, User user){
-        Optional<User> _user = userRepository.findById(id);
-        if(_user.isPresent()){
-            userRepository.save(user);
-            return user.getName();}
-        return null;
-
-    }
-
-    @Override
-    public String deleteUser(Long id){
-        Optional<User> user = userRepository.findById(id);
-        if(user.isPresent()){
-            userRepository.deleteById(id);
-            return id.toString();}
-        return null;
-    }*/
 
     @Override
     public User Create(User model) {
-        Optional<User> _user = userRepository.findEmailandPassword(model.getName(),model.getPassword());
+        Optional<User> _user = userRepository.findEmailAndPassword(model.getName(),model.getPassword());
 
         if (!_user.isPresent()) {
             userRepository.save(model);
-
             return model;
         } else
-            throw new IllegalArgumentException(model + "  already exist");
+            throw new IllegalArgumentException(model + " Already Exist!");
     }
 
     @Override
@@ -113,7 +88,7 @@ public class UserServiceImpl implements UserService {
             userRepository.save(model);
             return model.getName();}
         else
-        throw new IllegalArgumentException(model + " Failed to Update");
+        throw new IllegalArgumentException(model + " Update Option Fail!");
     }
 
     @Override
@@ -124,6 +99,6 @@ public class UserServiceImpl implements UserService {
             userRepository.deleteById(id);
             return id.toString();}
         else
-        throw new IllegalArgumentException("Delete Option Fails");
+        throw new IllegalArgumentException(" Delete Option Fail!");
     }
 }
