@@ -20,7 +20,8 @@ public class FiltersConfig {
                 "/branch/branches", "/branch/branches/*", "/branch/post", "/branch/put/*", "/branch/delete/*",
                 "/activityevaluation/evaluations", "/activityevaluation/evaluations/*", "/activityevaluation/post", "/activityevaluation/put/*", "/activityevaluation/delete/*",
                 "/activity/activities", "/activity/activities/*", "/activity/post", "/activity/put/*", "/activity/delete/*",
-                "/activetouser/activetousers", "/activetouser/activetousers/*","/activetouser/user/*","/activetouser/activity/enrolled/*","/activetouser/post","/activetouser/put/*","/activetouser/delete/*"
+                "/activetouser/activetousers", "/activetouser/activetousers/*","/activetouser/user/*","/activetouser/activity/enrolled/*","/activetouser/post","/activetouser/put/*","/activetouser/delete/*,",
+                "/userdetail/userdetails", "/userdetail/userdetails/*", "/userdetail/post", "/userdetail/put/*", "/userdetail/delete/*"
         );
         return registrationBean;
     }

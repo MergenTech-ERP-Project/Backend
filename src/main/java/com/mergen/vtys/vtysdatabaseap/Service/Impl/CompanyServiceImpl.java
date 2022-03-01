@@ -31,41 +31,15 @@ public class CompanyServiceImpl implements CompanyService {
             return  company;
         }
         else
-        throw new IllegalArgumentException("İnternal Server Error" + "Get Company by ID Failed");
+        throw new IllegalArgumentException(" Internal Server Error" + " And Get Company by ID Fail!");
 
     }
-
-   /* @Override
-    public String createCompany(Company company) {
-        companyRepository.save(company);
-        return company.getCompany_name();
-    }
-
-    @Override
-    public String updateCompany(Long id, Company company) {
-        Optional<Company> _company = companyRepository.findById(id);
-        if(_company.isPresent()){
-            companyRepository.save(company);
-            return company.getCompany_name();}
-        return null;
-    }
-
-    @Override
-    public String deleteCompany(Long id) {
-        Optional<Company> company = companyRepository.findById(id);
-        if(company.isPresent()){
-            companyRepository.deleteById(id);
-            return id.toString();}
-        return null;
-    }*/
 
     @Override
     public Company Create(Company model) {
         companyRepository.save(model);
         return model;
     }
-
-
 
     @Override
     public String Update(Long id, Company model) {
@@ -74,7 +48,7 @@ public class CompanyServiceImpl implements CompanyService {
             companyRepository.save(model);
             return model.getCompany_name();}
         else
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(model + " Update Option Fail!");
     }
 
     @Override
@@ -84,6 +58,6 @@ public class CompanyServiceImpl implements CompanyService {
             companyRepository.deleteById(id);
             return id.toString();}
         else
-        throw new  IllegalArgumentException("Internal Server Error");
+        throw new  IllegalArgumentException(" Delete Option Fail!");
     }
 }

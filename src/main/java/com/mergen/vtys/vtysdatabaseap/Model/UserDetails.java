@@ -66,7 +66,9 @@ public class UserDetails {
     private String iban;
     @Column
     private String emergency_contact;
-    @Column String relationship_emergency_contact;
+    @Column
+    private String relationship_emergency_contact;
+    @Column
     private String emergency_contact_phone;
     @Column
     private String quit_date;

@@ -23,7 +23,7 @@ public class ActivityServiceImpl implements ActivityService {
             return (List<Activity>) activityRepository.findAll();
         }
         catch(Exception e){
-            throw new IllegalArgumentException("internal server error");
+            throw new IllegalArgumentException(" Internal Server Error!");
         }
 
     }
@@ -34,7 +34,7 @@ public class ActivityServiceImpl implements ActivityService {
         if (activity.isPresent()) {
             return activity;
         } else
-            throw new IllegalArgumentException(id + "id search error");
+            throw new IllegalArgumentException(id + " ID Search Error!");
     }
 
     @Override
@@ -44,8 +44,7 @@ public class ActivityServiceImpl implements ActivityService {
             return activity;
     }
         else
-            throw new IllegalArgumentException(name + "internal server error");
-
+            throw new IllegalArgumentException(name + " Internal Server Error!");
 
 }
     @Override
@@ -56,11 +55,9 @@ public class ActivityServiceImpl implements ActivityService {
             return model;
         }
         else
-            throw new IllegalArgumentException("internal server error");
+            throw new IllegalArgumentException(" Internal Server Error!");
 
     }
-
-
 
     @Override
     public String Update(Long id, Activity model) {
@@ -69,7 +66,7 @@ public class ActivityServiceImpl implements ActivityService {
             activityRepository.save(model);
             return model.getName();}
        else
-           throw new IllegalArgumentException();
+           throw new IllegalArgumentException(model + " Update Option Fail!");
     }
 
     @Override
@@ -79,6 +76,6 @@ public class ActivityServiceImpl implements ActivityService {
             activityRepository.deleteById(id);
             return id.toString();}
         else
-        throw  new IllegalArgumentException();
+        throw  new IllegalArgumentException(" Delete Option Fail!");
     }
 }

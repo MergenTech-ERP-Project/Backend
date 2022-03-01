@@ -1,8 +1,5 @@
 package com.mergen.vtys.vtysdatabaseap.Repository;
 
-
-
-
 import com.mergen.vtys.vtysdatabaseap.Model.Activity;
 import com.mergen.vtys.vtysdatabaseap.Model.User;
 import org.springframework.data.jpa.repository.Query;

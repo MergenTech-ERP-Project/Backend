@@ -2,6 +2,7 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
 import com.mergen.vtys.vtysdatabaseap.Model.ActiveToUser;
+import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Repository.ActiveToUserRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.ActiveToUserService;
 import lombok.Data;
@@ -16,68 +17,58 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ActiveToUserServiceImpl implements ActiveToUserService {
 
-    private final ActiveToUserRepository activityToUserRepository;
+    private final ActiveToUserRepository activeToUserRepository;
 
     @Override
     public List<ActiveToUser> getActivityList() {
-        return (List<ActiveToUser>) activityToUserRepository.findAll();
+        return (List<ActiveToUser>) activeToUserRepository.findAll();
     }
 
     @Override
     public Optional<ActiveToUser> getActivityById(Long id) {
-        Optional<ActiveToUser> activeToUser = activityToUserRepository.findById(id);
+        Optional<ActiveToUser> activeToUser = activeToUserRepository.findById(id);
         if (activeToUser.isPresent()) {
             return activeToUser;
 
         }
         else
-            throw new IllegalArgumentException("there is no activetouser");
+            throw new IllegalArgumentException(" There Is No ActiveToUser!");
     }
 
     @Override
     public ActiveToUser Create(ActiveToUser model) {
-        activityToUserRepository.save(model);
+        activeToUserRepository.save(model);
         return null;
     }
 
     @Override
     public String Update(Long id, ActiveToUser model) {
-        activityToUserRepository.save(model);
-        return null;
+
+        Optional<ActiveToUser> activeToUser = activeToUserRepository.findById(id);
+        if(activeToUser.isPresent()){
+            activeToUserRepository.save(model);
+            return "User ID:" + model.getUser_ids().toString() + " And Activity ID:" + model.getActivity_ids().toString() + " Updated!";}
+        else
+            throw new IllegalArgumentException(model + " Update Option Fail!");
     }
 
-    /* @Override
-        public String Create(ActiveToUser model) {
-            activityToUserRepository.save(model);
-            return model.getActivity().toString();
-        }
-
-        @Override
-        public String Update(Long id, ActiveToUser model) {
-            Optional<ActiveToUser> activeToUser = activityToUserRepository.findById(id);
-            if(activeToUser.isPresent()){
-                activityToUserRepository.save(model);
-                return model.getActivity().toString();}
-            return null;
-        }
-    */
     @Override
     public String Delete(Long id) {
-        Optional<ActiveToUser> activeToUser = activityToUserRepository.findById(id);
+        Optional<ActiveToUser> activeToUser = activeToUserRepository.findById(id);
         if(activeToUser.isPresent()){
-            activityToUserRepository.deleteById(id);
+            activeToUserRepository.deleteById(id);
             return id.toString();}
         else
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(" Delete Option Fail!");
     }
 
     @Override
     public List<Object> getUsersEnrolled(Long id) {
-        return activityToUserRepository.getUsersEnrolled(id);
+        return activeToUserRepository.getUsersEnrolled(id);
     }
 
     @Override
-    public List<Long> getUsersEnrolledIDs(Long id){ return  activityToUserRepository.getUsersEnrolledIDs(id);
+    public List<Long> getUsersEnrolledIDs(Long id){ return  activeToUserRepository.getUsersEnrolledIDs(id);
     }
 }
 

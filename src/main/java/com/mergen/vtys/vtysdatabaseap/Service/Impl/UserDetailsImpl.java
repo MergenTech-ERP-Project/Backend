@@ -22,7 +22,6 @@ public class UserDetailsImpl implements UserDetailsService {
     private final UserDetailsRepository userDetailsRepository;
 
 
-
  @Override
 public Optional<UserDetails> getUserDetailsById(Long id){
    Optional<UserDetails> userDetails = userDetailsRepository.findById(id);
@@ -30,13 +29,13 @@ public Optional<UserDetails> getUserDetailsById(Long id){
        return userDetails;
    }
    else
-       throw new IllegalArgumentException(id + " failed" + " Get UserDetails by ID Failed");
+       throw new IllegalArgumentException(id + " Fail" + " And Get UserDetails by ID Fail!");
    }
 
 
     @Override
     public UserDetails Create(UserDetails model) {
-     userDetailsRepository.save(model);
+        userDetailsRepository.save(model);
         return null;
     }
 
@@ -47,7 +46,7 @@ public Optional<UserDetails> getUserDetailsById(Long id){
             userDetailsRepository.save(model);
             return model.getAddress();}
         else
-            throw new IllegalArgumentException(model + " Failed to Update");
+            throw new IllegalArgumentException(model + " Update Option Fail!");
     }
 
     @Override
@@ -58,7 +57,7 @@ public Optional<UserDetails> getUserDetailsById(Long id){
             userDetailsRepository.deleteById(id);
             return id.toString();}
         else
-            throw new IllegalArgumentException("Delete Option Fails");
+            throw new IllegalArgumentException(" Delete Option Fail!");
     }
 
 
