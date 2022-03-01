@@ -2,10 +2,13 @@ package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
 import com.mergen.vtys.vtysdatabaseap.Model.ActiveToUser;
+import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Service.ActiveToUserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +19,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("activetouser")
 @RequiredArgsConstructor
+@Slf4j
 public class ActiveToUserController {
 
     @Autowired
@@ -23,42 +27,52 @@ public class ActiveToUserController {
 
     @GetMapping(value = "activetousers")
     public ResponseEntity<List<ActiveToUser>> getActivityList() {
-        return ResponseEntity.ok((List<ActiveToUser>) activeToUserService.getActivityList());
+        List<ActiveToUser> activeToUserList =  activeToUserService.getActivityList();
+        log.info("All ActiveToUsers Returned - {}",activeToUserList);
+        return ResponseEntity.ok(activeToUserList);
     }
 
     @GetMapping(value = "activetouser/{id}")
     public ResponseEntity<Optional<ActiveToUser>> getActivityById(@PathVariable Long id) {
-        return ResponseEntity.ok(activeToUserService.getActivityById(id));
+        Optional<ActiveToUser> status = activeToUserService.getActivityById(id);
+        log.info("ActiveToUser Got by ID Status - {}",status);
+        return ResponseEntity.ok(status);
     }
 
-    @PostMapping(value = "post")
-    public ResponseEntity<String> CreateActiveoUser(@RequestBody ActiveToUser activetouser) {
-        activeToUserService.Create(activetouser);
-        return ResponseEntity.ok("ActiveToUser Saved Succesfully");
-    }
-
-    @PutMapping(value = "put/{Us}")
-    public ResponseEntity<String> updateActiveToUser(@PathVariable Long id, @RequestBody ActiveToUser activetouser) {
-        activeToUserService.Update(id,activetouser);
-        return ResponseEntity.ok("ActivityUser updated!");
-    }
-
-    @DeleteMapping(value = "delete/{id}")
-    public ResponseEntity<String> deleteActivityToUser(@PathVariable() Long id) {
-          activeToUserService.Delete(id);
-        return ResponseEntity.ok(id + "ActivityToUser deleted!");
-
-    }
     @GetMapping(value = "/user/{id}")
     public ResponseEntity<List<Object>> getUsersEnrolled(@PathVariable Long id){
-        return ResponseEntity.ok( activeToUserService.getUsersEnrolled(id));
+        List<Object> objectList = activeToUserService.getUsersEnrolled(id);
+        log.info("All Enrolled Users Returned - {}",objectList);
+        return ResponseEntity.ok(objectList);
     }
 
     @GetMapping(value = "/activity/enrolled/{id}")
     public ResponseEntity<List<Long>> getUsersEnrolledIDs(@PathVariable Long id){
-        return ResponseEntity.ok(activeToUserService.getUsersEnrolledIDs(id));
+        List<Long> longList = activeToUserService.getUsersEnrolledIDs(id);
+        log.info("All Enrolled Users Returned by ID - {}",longList);
+        return ResponseEntity.ok(longList);
     }
 
+    @PostMapping(value = "post")
+    public ResponseEntity<ActiveToUser> CreateActiveoUser(@RequestBody ActiveToUser activetouser) {
+        ActiveToUser status = activeToUserService.Create(activetouser);
+        log.info("ActiveToUser Added Status - {}",status);
+        return ResponseEntity.status(HttpStatus.CREATED).body(activetouser);
+    }
+
+    @PutMapping(value = "put/{id}")
+    public ResponseEntity<String> updateActiveToUser(@PathVariable Long id, @RequestBody ActiveToUser activetouser) {
+        String status = activeToUserService.Update(id,activetouser);
+        log.info("ActiveToUser Updated Status - {}",status);
+        return ResponseEntity.ok("ActiveToUser updated!");
+    }
+
+    @DeleteMapping(value = "delete/{id}")
+    public ResponseEntity<String> deleteActivityToUser(@PathVariable() Long id) {
+        String status = activeToUserService.Delete(id);
+        log.info("ActiveToUser Deleted Status - {}",status);
+        return ResponseEntity.ok(id + "ActiveToUser deleted!");
+    }
 }
 
     

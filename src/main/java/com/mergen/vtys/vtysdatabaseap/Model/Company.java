@@ -11,8 +11,8 @@ import javax.persistence.*;
 @Data
 public class Company {
     @Id
-    @SequenceGenerator(name="identifier", sequenceName="mytable_id_seq", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier")
+    @SequenceGenerator(name="identifier_", sequenceName="mytable_id_seq_", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier_")
     private Long id;
 
     @Column
