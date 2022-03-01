@@ -24,10 +24,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="title" type="varchar(30)">
                 <constraints nullable="false"/>
             </column>
-            <column name="cellphonenumber" type="tinyint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="workphone" type="tinyint">
+            <column name="cellphone" type="varchar(15)">
                 <constraints nullable="true"/>
             </column>
 
@@ -122,7 +119,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
     <changeSet id="2" author="fatih">
     <createTable
                  tableName="user_detail">
-        <column name="tcno" type="tinyint">
+        <column name="tcno" type="int">
             <constraints primaryKey="true"/>
         </column>
         <column name="dateofbirth" type="datetime">
