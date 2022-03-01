@@ -25,8 +25,6 @@ public class User{
     @Column(name = "id",nullable = false,updatable = false)
     private Long id;
 
-
-
     @Column
     private  String name;
 
