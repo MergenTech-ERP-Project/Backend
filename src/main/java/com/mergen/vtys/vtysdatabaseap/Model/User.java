@@ -3,6 +3,7 @@ package com.mergen.vtys.vtysdatabaseap.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import liquibase.pro.packaged.S;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,10 +28,12 @@ public class User{
 
     @Column
     private  String name;
-
+    @Column
+    private String email ;
     @Column
     private String title;
-
+    @Column
+    private String cellphone;
     @Column
     private String password;
 

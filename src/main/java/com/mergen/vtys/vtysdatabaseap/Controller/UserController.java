@@ -65,6 +65,12 @@ public class UserController {
         log.info("User Got by Name and Password Status - {}",status);
         return ResponseEntity.ok(status);
     }
+    @GetMapping(value ="/check/{email}/{password}")
+    public ResponseEntity<Optional<User>> getUsersCheckByMailandPass(
+            @PathVariable("email") String email,@PathVariable("password") String password) {
+        return ResponseEntity.ok(userService.getUserEmailAndPassword(email,password));
+    }
+
 
     @PostMapping(value = "/post")
     public ResponseEntity<User> createUser(@RequestBody User user){

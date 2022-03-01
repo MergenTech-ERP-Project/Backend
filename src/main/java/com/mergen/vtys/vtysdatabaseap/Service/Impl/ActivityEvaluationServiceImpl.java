@@ -22,6 +22,7 @@ public class ActivityEvaluationServiceImpl implements ActivityEvaluationService 
     @Override
     public List<ActivityEvaluation> getActivityEvaluationList() {
         try {
+
             return (List<ActivityEvaluation>) activityEvaluationRepository.findAll();
         }
         catch(Exception e){
