@@ -15,6 +15,7 @@ public interface UserService extends HelperService<User>{
     List<User> getUserLists();
     Optional<User> getUserById(Long id);
     Optional<User> getUserByName(String name);
+    Optional<User> getUserEmailAndPassword(String email,String password);
 
    // @Query(value = "SELECT * from User Where name=? and password=?", nativeQuery = true)
     Optional<User> getUserNameAndPassword(String name, String password);

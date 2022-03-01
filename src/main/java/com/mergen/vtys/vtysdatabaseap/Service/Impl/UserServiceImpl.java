@@ -58,6 +58,17 @@ public class UserServiceImpl implements UserService {
 
     }
 
+
+    @Override
+    public Optional<User> getUserEmailAndPassword(String email, String password) {
+        Optional<User> user = userRepository.findEmailandPassword(email,password);
+        if (user.isPresent()){
+            return user;
+        }
+        else
+            throw new IllegalArgumentException(email + password + " Auth Failed");
+
+    }
     /*@Override
     public String createUser(User user){
         userRepository.save(user);
@@ -85,7 +96,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User Create(User model) {
-        Optional<User> _user = userRepository.findNameAndPassword(model.getName(),model.getPassword());
+        Optional<User> _user = userRepository.findEmailandPassword(model.getName(),model.getPassword());
 
         if (!_user.isPresent()) {
             userRepository.save(model);
