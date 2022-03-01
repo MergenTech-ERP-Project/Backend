@@ -31,8 +31,14 @@ public class User{
     private  String name;
 
     @Column
-    private String title;
+    private String email ;
 
+    @Column
+    private String title;
+    @Column
+    private Long cellphonenumber;
+    @Column
+    private Long workphone;
     @Column
     private String password;
 
