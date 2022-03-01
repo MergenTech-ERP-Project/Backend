@@ -18,8 +18,17 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="password" type="varchar(30)">
                 <constraints nullable="false"/>
             </column>
+            <column name="email" type="varchar(30)">
+                <constraints nullable="true"/>
+            </column>
             <column name="title" type="varchar(30)">
                 <constraints nullable="false"/>
+            </column>
+            <column name="cellphonenumber" type="tinyint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="workphone" type="tinyint">
+                <constraints nullable="true"/>
             </column>
 
         </createTable>
@@ -109,16 +118,124 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             </column>
         </createTable>
 
+    </changeSet>
+    <changeSet id="2" author="fatih">
+    <createTable
+                 tableName="user_detail">
+        <column name="tcno" type="tinyint">
+            <constraints primaryKey="true"/>
+        </column>
+        <column name="dateofbirth" type="datetime">
+            <constraints nullable="false"/>
+        </column>
+        <column name="maritalstatus" type="varchar(20)">
+            <constraints nullable="false" />
+        </column>
+        <column name="numberofkids" type="tinyint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="degree_of_disability" type="varchar(20)">
+            <constraints nullable="true"/>
+        </column>
+        <column name="gender" type="varchar(10)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="education_status" type="varchar(25)">
+            <constraints nullable="true"/>
+        </column>
+        <column name="finished_max_education_level" type="varchar">
+            <constraints nullable="true"/>
+        </column>
+        <column name="last_finished_school" type="varchar(25)">
+            <constraints nullable="true"/>
+        </column>
+        <column name="employment_type" type="varchar(20)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="military_service_status" type="varchar(25)">
+            <constraints nullable="true"/>
+        </column>
+        <column name="date_of_start" type="datetime">
+            <constraints nullable="false"/>
+        </column>
+        <column name="contract_type" type="varchar(20)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="contract_end_date" type="datetime">
+            <constraints nullable="false"/>
+        </column>
+        <column name="work_email" type="varchar(25)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="address"  type="varchar(60)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="home_telephone" type="varchar(20)">
+            <constraints nullable="true"/>
+        </column>
+        <column name="country" type="varchar(20)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="city" type="varchar(20)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="zip_code" type="tinyint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="bank_name" type="varchar(25)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="bank_account_type" type="varchar(20)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="iban" type="varchar(25)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="emergency_contact" type="varchar(25)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="relationship_emergency_contact" type="varchar(25)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="emergency_contact_phone" type="varchar(25)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="quit_date" type="datetime">
+            <constraints nullable="true"/>
+        </column>
+        <column name="quit_reason" type="varchar(25)">
+            <constraints nullable="true"/>
+        </column>
+    </createTable>
+    </changeSet>
 
+    <changeSet  author="Fatih"  id="2256L">
+        <addForeignKeyConstraint  baseColumnNames="activities_id"
+                                  baseTableName="activityevaluation"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_activity_evl_id"
+                                  deferrable="true"
+                                  initiallyDeferred="true"
+                                  onDelete="CASCADE"
+                                  onUpdate="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="activity"
+                                  referencedTableSchemaName="public"
+                                  validate="true"/>
 
-
-
+        <addForeignKeyConstraint  baseColumnNames="users_id"
+                                  baseTableName="activityevaluation"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_users_evl_id"
+                                  deferrable="true"
+                                  initiallyDeferred="true"
+                                  onDelete="CASCADE"
+                                  onUpdate="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="user"
+                                  referencedTableSchemaName="public"
+                                  validate="true"/>
 
     </changeSet>
-    <!--<changeSet id="2" author="fatih">
-        <addColumn tableName="activetouser">
-            <column></column>
-        </addColumn>
-    </changeSet>-->
 
 </databaseChangeLog>
