@@ -5,6 +5,7 @@ package com.mergen.vtys.vtysdatabaseap.Model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="activityevaluation", schema="public")
@@ -20,7 +21,7 @@ public class ActivityEvaluation {
 
     @Column
     private Long users_id;
-
+    @Size(min = 1, max = 300, message = "Activity Evaluation must be at least 130 Character")
     @Column
     private String evaluation;
 }

@@ -11,6 +11,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class User{
 
     @Column
     private  String name;
+    @Email
     @Column
     private String email ;
     @Column

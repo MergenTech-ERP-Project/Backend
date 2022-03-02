@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Data
 @Entity
@@ -44,6 +45,7 @@ public class UserDetails {
     private String contract_type;
     @Column
     private String contract_end_date;
+    @Email
     @Column
     private String work_email;
     @Column
