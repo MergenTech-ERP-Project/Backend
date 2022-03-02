@@ -62,13 +62,15 @@ public class UserController {
     public ResponseEntity<Optional<User>> getUsersCheck(
             @PathVariable("name") String name,@PathVariable("password") String password) {
         Optional<User> status = userService.getUserNameAndPassword(name,password);
-        log.info("User Got by Name and Password Status - {}",status);
+        log.info("User Got by Name And Password Status - {}",status);
         return ResponseEntity.ok(status);
     }
     @GetMapping(value ="/check/{email}/{password}")
     public ResponseEntity<Optional<User>> getUsersCheckByMailandPass(
             @PathVariable("email") String email,@PathVariable("password") String password) {
-        return ResponseEntity.ok(userService.getUserEmailAndPassword(email,password));
+        Optional<User> status = userService.getUserEmailAndPassword(email,password);
+        log.info("User Got by E-mail And Password Status - {}",status);
+        return ResponseEntity.ok(status);
     }
 
 
