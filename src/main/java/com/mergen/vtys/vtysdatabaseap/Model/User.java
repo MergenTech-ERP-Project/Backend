@@ -1,9 +1,7 @@
 package com.mergen.vtys.vtysdatabaseap.Model;
 
+import com.mergen.vtys.vtysdatabaseap.Domain.MaritalStatus;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import liquibase.pro.packaged.S;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +10,7 @@ import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +34,8 @@ public class User{
     @Column
     private String title;
     @Column
-    private String cellphone;
+    @Enumerated(EnumType.ORDINAL)
+    private MaritalStatus cellphone;
     @Column
     private String password;
 
