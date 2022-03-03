@@ -1,5 +1,6 @@
 package com.mergen.vtys.vtysdatabaseap.Model;
 
+import com.mergen.vtys.vtysdatabaseap.Domain.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -22,27 +23,35 @@ public class UserDetails {
     @Column
     private String dateofbirth;
     @Column
-    private String maritalstatus;
+    @Enumerated(EnumType.ORDINAL)
+    private MaritalStatus maritalstatus;
     @Column
     private  Long numberofkids;
     @Column
-    private  String degree_of_disability;
+    @Enumerated(EnumType.ORDINAL)
+    private DisabledDegree degree_of_disability;
     @Column
-    private String gender;
+    @Enumerated(EnumType.ORDINAL)
+    private Gender gender;
     @Column
-    private String education_status;
+    @Enumerated(EnumType.ORDINAL)
+    private EducationalStatus education_status;
     @Column
-    private String finished_max_education_level;
+    @Enumerated(EnumType.STRING)
+    private HighestEducationLevel finished_max_education_level;
     @Column
     private String last_finished_school;
+    @Enumerated(EnumType.STRING)
     @Column
-    private String employment_type;
+    private TypeOfWorking employment_type;
+    @Enumerated(EnumType.STRING)
     @Column
-    private String military_service_status;
+    private MilitaryStatus military_service_status;
     @Column
     private String date_of_start;
     @Column
-    private String contract_type;
+    @Enumerated(EnumType.ORDINAL)
+    private ContractType contract_type;
     @Column
     private String contract_end_date;
     @Email
@@ -61,7 +70,8 @@ public class UserDetails {
     @Column
     private String bank_name;
     @Column
-    private String bank_account_type;
+    @Enumerated(EnumType.ORDINAL)
+    private BankAccountType bank_account_type;
     @Column
     private Long bank_account_number;
     @Column

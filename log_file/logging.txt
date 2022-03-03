@@ -964,3 +964,78 @@ com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize va
 2022-03-02 15:34:23.332  INFO 16464 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-03-02 15:34:23.334  INFO 16464 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-03-02 15:34:23.337  INFO 16464 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-03 11:54:37.131  INFO 2032 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Starting VtysDatabaseApiApplication using Java 17.0.1 on LAPTOP-8KDKK2LL with PID 2032 (C:\Users\fatih\Desktop\spring boot\3 mart\VTYSKaliteAPI\target\classes started by fatih in C:\Users\fatih\Desktop\spring boot\3 mart\VTYSKaliteAPI)
+2022-03-03 11:54:37.134  INFO 2032 --- [main] c.m.v.v.VtysDatabaseApiApplication       : No active profile set, falling back to default profiles: default
+2022-03-03 11:54:38.336  INFO 2032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-03 11:54:38.415  INFO 2032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 7 JPA repository interfaces.
+2022-03-03 11:54:38.786  INFO 2032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-03-03 11:54:38.794  INFO 2032 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-03 11:54:38.794  INFO 2032 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-03-03 11:54:38.868  INFO 2032 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-03 11:54:38.869  INFO 2032 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1522 ms
+2022-03-03 11:54:38.989  INFO 2032 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-03 11:54:39.191  INFO 2032 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-03 11:54:39.199  INFO 2032 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/test'
+2022-03-03 11:54:39.508  INFO 2032 --- [main] liquibase.database                       : Set default schema name to public
+2022-03-03 11:54:39.596  INFO 2032 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-03-03 11:54:40.011  INFO 2032 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-03-03 11:54:40.068  INFO 2032 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-03-03 11:54:40.129  INFO 2032 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-03 11:54:40.180  INFO 2032 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-03-03 11:54:40.312  INFO 2032 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-03 11:54:40.397  INFO 2032 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-03-03 11:54:41.002  INFO 2032 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-03 11:54:41.008  INFO 2032 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03 11:54:41.298  WARN 2032 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-03 11:54:41.638  INFO 2032 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-03-03 11:54:41.687  INFO 2032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2022-03-03 11:54:41.704  INFO 2032 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Started VtysDatabaseApiApplication in 5.18 seconds (JVM running for 6.078)
+2022-03-03 11:54:42.249  INFO 2032 --- [RMI TCP Connection(7)-192.168.3.95] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-03 11:54:42.249  INFO 2032 --- [RMI TCP Connection(7)-192.168.3.95] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-03 11:54:42.251  INFO 2032 --- [RMI TCP Connection(7)-192.168.3.95] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-03-03 11:55:02.331  INFO 2032 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/post 
+2022-03-03 11:55:02.331  INFO 2032 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-03 11:55:02.367  INFO 2032 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {"id":null,"name":"tarato","email":"qwe@qwe.com","title":"daddddd","cellphone":"022255","password":"*****","activeToUsers":[]} 
+2022-03-03 11:55:02.485  INFO 2032 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-03 11:55:02.485  INFO 2032 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"id":null,"name":null,"email":null,"title":null,"cellphone":null,"password":"*****","activeToUsers":[]}
+2022-03-03 11:55:11.276  INFO 2032 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/post 
+2022-03-03 11:55:11.277  INFO 2032 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-03 11:55:11.277  INFO 2032 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {"id":null,"name":"tarasdsddsdto","email":"qwe@qwe.com","title":"daddddd","cellphone":"022255","password":"*****","activeToUsers":[]} 
+2022-03-03 11:55:11.283  INFO 2032 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-03 11:55:11.284  INFO 2032 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"id":null,"name":null,"email":null,"title":null,"cellphone":null,"password":"*****","activeToUsers":[]}
+2022-03-03 11:55:14.966  INFO 2032 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/post 
+2022-03-03 11:55:14.966  INFO 2032 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-03 11:55:14.966  INFO 2032 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {"id":null,"name":"tarasdsddsdto","email":"qwe@qwe.com","title":"daddddd","cellphone":"022255","password":"*****","activeToUsers":[]} 
+2022-03-03 11:55:15.100  INFO 2032 --- [http-nio-8090-exec-4] c.m.v.v.Controller.UserController        : User Added Status - User(id=2, name=tarasdsddsdto, email=qwe@qwe.com, title=daddddd, cellphone=022255, password=xdsddsdsxx3, activeToUsers=[])
+2022-03-03 11:55:15.114  INFO 2032 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 201
+2022-03-03 11:55:15.114  INFO 2032 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"id":2,"name":"tarasdsddsdto","email":"qwe@qwe.com","title":"daddddd","cellphone":"022255","password":"*****","activeToUsers":[]}
+2022-03-03 11:55:20.377  INFO 2032 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/users 
+2022-03-03 11:55:20.377  INFO 2032 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-03 11:55:20.377  INFO 2032 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Body:  
+2022-03-03 11:55:20.459  INFO 2032 --- [http-nio-8090-exec-5] c.m.v.v.Controller.UserController        : All Users Returned - [User(id=1, name=tarato, email=qwe@qwe.com, title=daddddd, cellphone=FATIH, password=xxx3, activeToUsers=[]), User(id=2, name=tarasdsddsdto, email=qwe@qwe.com, title=daddddd, cellphone=022255, password=xdsddsdsxx3, activeToUsers=[])]
+2022-03-03 11:55:20.461  INFO 2032 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-03 11:55:20.461  INFO 2032 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":1,"name":"tarato","email":"qwe@qwe.com","title":"daddddd","cellphone":"FATIH","password":"xxx3","activeToUsers":[]},{"id":2,"name":"tarasdsddsdto","email":"qwe@qwe.com","title":"daddddd","cellphone":"022255","password":"xdsddsdsxx3","activeToUsers":[]}]
+2022-03-03 11:55:54.163  INFO 2032 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /activity/activities 
+2022-03-03 11:55:54.164  INFO 2032 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-03 11:55:54.164  INFO 2032 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: dfsfsffs 
+2022-03-03 11:55:54.172  INFO 2032 --- [http-nio-8090-exec-6] c.m.v.v.Controller.ActivityController    : All Activities Returned - []
+2022-03-03 11:55:54.174  INFO 2032 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-03 11:55:54.175  INFO 2032 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - []
+2022-03-03 11:55:57.370  INFO 2032 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /activity/post 
+2022-03-03 11:55:57.370  INFO 2032 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-03 11:55:57.370  INFO 2032 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {"name":"fffff","place":"faad","datetime":"13232","organizator":"fdfmlşdmf"} 
+2022-03-03 11:55:57.381  INFO 2032 --- [http-nio-8090-exec-7] c.m.v.v.Controller.ActivityController    : Activity Added Status - Activity(id=1, name=fffff, place=faad, datetime=13232, organizator=fdfmlşdmf, activity_enrolled=[])
+2022-03-03 11:55:57.389  INFO 2032 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 201
+2022-03-03 11:55:57.389  INFO 2032 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"id":1,"name":"fffff","place":"faad","datetime":"13232","organizator":"fdfmlşdmf","activity_enrolled":[]}
+2022-03-03 11:56:47.871  INFO 2032 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /activity/put/1 
+2022-03-03 11:56:47.872  INFO 2032 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-03 11:56:47.872  INFO 2032 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {"name":"2566548","place":"faad","datetime":"13232","organizator":"fdfmlşdmf"} 
+2022-03-03 11:56:47.889  INFO 2032 --- [http-nio-8090-exec-8] c.m.v.v.Controller.ActivityController    : Activity Updated Status - 2566548
+2022-03-03 11:56:47.891  INFO 2032 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-03 11:56:47.891  INFO 2032 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - Activity updated!
+2022-03-03 11:58:03.239  INFO 2032 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /activity/activities 
+2022-03-03 11:58:03.240  INFO 2032 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-03 11:58:03.240  INFO 2032 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {"name":"2566548","place":"faad","datetime":"13232","organizator":"fdfmlşdmf"} 
+2022-03-03 11:58:03.244  INFO 2032 --- [http-nio-8090-exec-10] c.m.v.v.Controller.ActivityController    : All Activities Returned - [Activity(id=1, name=fffff, place=faad, datetime=13232, organizator=fdfmlşdmf, activity_enrolled=[]), Activity(id=2, name=2566548, place=faad, datetime=13232, organizator=fdfmlşdmf, activity_enrolled=[])]
+2022-03-03 11:58:03.245  INFO 2032 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-03 11:58:03.245  INFO 2032 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":1,"name":"fffff","place":"faad","datetime":"13232","organizator":"fdfmlşdmf","activity_enrolled":[]},{"id":2,"name":"2566548","place":"faad","datetime":"13232","organizator":"fdfmlşdmf","activity_enrolled":[]}]
