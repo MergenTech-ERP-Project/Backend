@@ -34,8 +34,7 @@ public class User{
     @Column
     private String title;
     @Column
-    @Enumerated(EnumType.ORDINAL)
-    private MaritalStatus cellphone;
+    private String cellphone;
     @Column
     private String password;
 
