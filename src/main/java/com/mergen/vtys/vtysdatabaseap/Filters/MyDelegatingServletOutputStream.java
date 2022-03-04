@@ -1,3 +1,4 @@
+/*
 package com.mergen.vtys.vtysdatabaseap.Filters;
 
 import org.springframework.util.Assert;
@@ -17,9 +18,11 @@ public class MyDelegatingServletOutputStream extends ServletOutputStream {
         this.targetStream = targetStream;
     }
 
-    /**
+    */
+/**
      * Return the underlying target stream (never {@code null}).
-     */
+     *//*
+
     public final OutputStream getTargetStream() {
         return this.targetStream;
     }
@@ -49,3 +52,4 @@ public class MyDelegatingServletOutputStream extends ServletOutputStream {
 
 
 
+*/
