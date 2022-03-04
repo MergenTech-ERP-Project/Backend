@@ -46,7 +46,7 @@ public class RequestResponseLoggers implements Filter {
         log.info("Request Body: {} ", requestData);
         MyCustomHttpResponseWrapper responseWrapper = new MyCustomHttpResponseWrapper((HttpServletResponse) response);
         chain.doFilter(requestWrapper,responseWrapper);
-        String responseResult = new String(responseWrapper.getBaos().toByteArray());
+        String responseResult = responseWrapper.getBaos().toString();
 
         if("/user/post".equalsIgnoreCase(uri))   // Response Body özel bilgileri şifreleme
         {
@@ -61,9 +61,9 @@ public class RequestResponseLoggers implements Filter {
     }
 
     @Getter
-    private class MyCustomHttpRequestWrapper extends HttpServletRequestWrapper {
+    private static class MyCustomHttpRequestWrapper extends HttpServletRequestWrapper {
 
-        private byte[] byteArray;
+        private final byte[] byteArray;
 
         public MyCustomHttpRequestWrapper(HttpServletRequest request) {
             super(request);
@@ -80,9 +80,9 @@ public class RequestResponseLoggers implements Filter {
     }
 
     @Getter
-    private class MyCustomHttpResponseWrapper extends HttpServletResponseWrapper {
+    private static class MyCustomHttpResponseWrapper extends HttpServletResponseWrapper {
 
-        private ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        private final ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
 
         public MyCustomHttpResponseWrapper(HttpServletResponse response) {super(response);}

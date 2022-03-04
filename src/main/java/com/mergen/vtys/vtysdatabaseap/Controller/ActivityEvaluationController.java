@@ -41,10 +41,11 @@ public class ActivityEvaluationController {
     }
 
     @PostMapping(value = "post")
-    public ResponseEntity<ActivityEvaluation> createActivityEvaluation(@RequestBody ActivityEvaluation activityEvaluation){
+    public ResponseEntity<String> createActivityEvaluation(@RequestBody ActivityEvaluation activityEvaluation){
         ActivityEvaluation status = activityEvaluationService.Create(activityEvaluation);
         log.info("Activity Evaluation Added Status - {}",status);
-        return ResponseEntity.status(HttpStatus.CREATED).body(activityEvaluation);
+        return ResponseEntity.ok(activityEvaluation.getEvaluation() + " created");
+       // return ResponseEntity.status(HttpStatus.CREATED).body(activityEvaluation);
     }
 
     @PutMapping(value = "put/{id}")

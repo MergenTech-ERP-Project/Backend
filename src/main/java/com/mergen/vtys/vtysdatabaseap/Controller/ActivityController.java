@@ -43,10 +43,11 @@ public class ActivityController {
     }
 
     @PostMapping(value = "post")
-    public ResponseEntity<Activity> createActivity(@RequestBody Activity activity) {
+    public ResponseEntity<String> createActivity(@RequestBody Activity activity) {
         Activity status = activityService.Create(activity);
         log.info("Activity Added Status - {}",status);
-        return ResponseEntity.status(HttpStatus.CREATED).body(activity);
+        return ResponseEntity.ok(activity.getName() + " created");
+       // return ResponseEntity.status(HttpStatus.CREATED).body(activity);
     }
 
     @PutMapping(value = "put/{id}")

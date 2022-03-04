@@ -41,10 +41,11 @@ public class CompanyController {
     }
 
     @PostMapping(value = "/post")
-    public ResponseEntity<Company> createCompany(@RequestBody Company company) {
+    public ResponseEntity<String> createCompany(@RequestBody Company company) {
         Company status = companyService.Create(company);
         log.info("Company Added Status - {}",status);
-        return  ResponseEntity.status(HttpStatus.CREATED).body(company);
+        return ResponseEntity.ok(company.getCompany_name() + " created");
+       // return  ResponseEntity.status(HttpStatus.CREATED).body(company);
     }
 
     @PutMapping(value = "/put/{id}")

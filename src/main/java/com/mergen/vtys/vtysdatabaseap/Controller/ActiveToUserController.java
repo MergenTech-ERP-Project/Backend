@@ -54,10 +54,11 @@ public class ActiveToUserController {
     }
 
     @PostMapping(value = "post")
-    public ResponseEntity<ActiveToUser> CreateActiveoUser(@RequestBody ActiveToUser activetouser) {
+    public ResponseEntity<String> CreateActiveoUser(@RequestBody ActiveToUser activetouser) {
         ActiveToUser status = activeToUserService.Create(activetouser);
         log.info("ActiveToUser Added Status - {}",status);
-        return ResponseEntity.status(HttpStatus.CREATED).body(activetouser);
+        return ResponseEntity.ok(status.getActivity_ids().toString() + " created");
+        //return ResponseEntity.status(HttpStatus.CREATED).body(activetouser);
     }
 
     @PutMapping(value = "put/{id}")
@@ -73,6 +74,7 @@ public class ActiveToUserController {
         log.info("ActiveToUser Deleted Status - {}",status);
         return ResponseEntity.ok(id + "ActiveToUser deleted!");
     }
+
 }
 
     

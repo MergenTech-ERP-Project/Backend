@@ -46,10 +46,11 @@ public class UserDetailsController {
     }
 
     @PostMapping(value = "/post")
-    public ResponseEntity<UserDetails> createUserDetails(@RequestBody UserDetails userDetails){
+    public ResponseEntity<String> createUserDetails(@RequestBody UserDetails userDetails){
         UserDetails status = userDetailsService.Create(userDetails);
         log.info("User Detail Added Status - {}",status);
-        return ResponseEntity.status(HttpStatus.CREATED).body(status);
+        return ResponseEntity.ok(status.getAddress() + " created");
+        //return ResponseEntity.status(HttpStatus.CREATED).body(status);
     }
 
     @PutMapping(value = "put/{id}")

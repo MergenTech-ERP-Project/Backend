@@ -41,10 +41,11 @@ public class BranchController {
     }
 
     @PostMapping(value = "post")
-    public ResponseEntity<Branch> createBranch(@RequestBody Branch branch) {
+    public ResponseEntity<String> createBranch(@RequestBody Branch branch) {
         Branch status = branchService.Create(branch);
         log.info("Branch Added Status - {}",status);
-        return  ResponseEntity.status(HttpStatus.CREATED).body(branch);
+        return ResponseEntity.ok(branch.getBranch_name() + " created");
+        //return  ResponseEntity.status(HttpStatus.CREATED).body(branch);
     }
 
     @PutMapping(value = "put/{id}")

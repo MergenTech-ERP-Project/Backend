@@ -75,10 +75,11 @@ public class UserController {
 
 
     @PostMapping(value = "/post")
-    public ResponseEntity<User> createUser(@RequestBody User user){
+    public ResponseEntity<String> createUser(@RequestBody User user){
         User status = userService.Create(user);
         log.info("User Added Status - {}",status);
-        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+        return ResponseEntity.ok(user.getName() +" created");
+        //return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 
     @PutMapping(value = "/put/{id}")
