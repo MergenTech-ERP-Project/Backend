@@ -38,9 +38,9 @@ public class UserDetails {
     private EducationalStatus education_status;
     @Column
     @Enumerated(EnumType.STRING)
-    private HighestEducationLevel finished_max_education_level;
+    private HighestEducationLevel highest_education_level_completed;
     @Column
-    private String last_finished_school;
+    private String last_completed_education_status;
     @Enumerated(EnumType.STRING)
     @Column
     private TypeOfWorking employment_type;
@@ -62,9 +62,16 @@ public class UserDetails {
     @Column
     private String home_telephone;
     @Column
+    private String work_phone;
+    @Column
     private String country;
     @Column
     private String city;
+    @Enumerated(EnumType.ORDINAL)
+    @Column
+    private BloodType address_district;
+    @Column
+    private String blood_type;
     @Column
     private Long zip_code;
     @Column
@@ -73,7 +80,7 @@ public class UserDetails {
     @Enumerated(EnumType.ORDINAL)
     private BankAccountType bank_account_type;
     @Column
-    private Long bank_account_number;
+    private String bank_account_number;
     @Column
     private String iban;
     @Column
@@ -85,9 +92,11 @@ public class UserDetails {
     @Column
     private String quit_date;
     @Column
-    private String quit_reason;
+    private String quit_reason_type;
     @Column
     private String quit_explanation;
+    @Column
+    private String reason_explain_for_quit;
 }
 
     

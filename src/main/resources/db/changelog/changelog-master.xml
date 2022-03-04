@@ -140,10 +140,10 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
         <column name="education_status" type="varchar(25)">
             <constraints nullable="true"/>
         </column>
-        <column name="finished_max_education_level" type="varchar">
+        <column name="highest_education_level_completed" type="varchar">
             <constraints nullable="true"/>
         </column>
-        <column name="last_finished_school" type="varchar(25)">
+        <column name="last_completed_education_status" type="varchar(25)">
             <constraints nullable="true"/>
         </column>
         <column name="employment_type" type="varchar(20)">
@@ -167,7 +167,13 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
         <column name="address"  type="varchar(60)">
             <constraints nullable="false"/>
         </column>
+        <column name="blood_type" type="varchar(50)">
+            <constraints nullable="false"/>
+        </column>
         <column name="home_telephone" type="varchar(20)">
+            <constraints nullable="true"/>
+        </column>
+        <column name="work_phone" type="varchar(20)">
             <constraints nullable="true"/>
         </column>
         <column name="country" type="varchar(20)">
@@ -179,10 +185,16 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
         <column name="zip_code" type="tinyint">
             <constraints nullable="false"/>
         </column>
+        <column name="address_district" type="tinyint">
+            <constraints nullable="false"/>
+        </column>
         <column name="bank_name" type="varchar(25)">
             <constraints nullable="false"/>
         </column>
         <column name="bank_account_type" type="varchar(20)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="bank_account_number" type="varchar(30)">
             <constraints nullable="false"/>
         </column>
         <column name="iban" type="varchar(25)">
@@ -200,39 +212,73 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
         <column name="quit_date" type="datetime">
             <constraints nullable="true"/>
         </column>
-        <column name="quit_reason" type="varchar(25)">
+        <column name="quit_reason_type" type="varchar(25)">
+            <constraints nullable="true"/>
+        </column>
+        <column name="reason_explain_for_quit" type="varchar(25)">
             <constraints nullable="true"/>
         </column>
     </createTable>
     </changeSet>
 
-    <changeSet  author="Fatih"  id="2256L">
-        <addForeignKeyConstraint  baseColumnNames="activities_id"
-                                  baseTableName="activityevaluation"
-                                  baseTableSchemaName="public"
-                                  constraintName="fk_activity_evl_id"
-                                  deferrable="true"
-                                  initiallyDeferred="true"
-                                  onDelete="CASCADE"
-                                  onUpdate="CASCADE"
-                                  referencedColumnNames="id"
-                                  referencedTableName="activity"
-                                  referencedTableSchemaName="public"
-                                  validate="true"/>
+    <changeSet  author="Fatih"  id="237863306L">
 
-        <addForeignKeyConstraint  baseColumnNames="users_id"
-                                  baseTableName="activityevaluation"
-                                  baseTableSchemaName="public"
-                                  constraintName="fk_users_evl_id"
-                                  deferrable="true"
-                                  initiallyDeferred="true"
-                                  onDelete="CASCADE"
-                                  onUpdate="CASCADE"
-                                  referencedColumnNames="id"
-                                  referencedTableName="user"
-                                  referencedTableSchemaName="public"
-                                  validate="true"/>
+        <createTable tableName="payments">
+            <column name="id" type="tinyint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="salary" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="currency" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salary_type" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_scheme" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="commute_support_fee" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="food_support_fee" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
 
     </changeSet>
+
+    <changeSet  author="Fatih"  id="256456">
+
+        <createTable tableName="career">
+            <column name="id" type="tinyint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="salary" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="manager_name" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="manager_tcno" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_company" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_branch" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_department" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_title" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
 
 </databaseChangeLog>
