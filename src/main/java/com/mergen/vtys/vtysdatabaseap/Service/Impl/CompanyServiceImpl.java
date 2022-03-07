@@ -42,11 +42,12 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public String Update(Long id, Company model) {
+    public Company Update(Long id, Company model) {
         Optional<Company> _company = companyRepository.findById(id);
         if(_company.isPresent()){
             companyRepository.save(model);
-            return model.getCompany_name();}
+            return null;}
+          //  return model.getCompany_name();}
         else
             throw new IllegalArgumentException(model + " Update Option Fail!");
     }

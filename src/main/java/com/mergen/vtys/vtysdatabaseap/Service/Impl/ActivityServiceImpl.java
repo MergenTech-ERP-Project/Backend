@@ -60,11 +60,13 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
-    public String Update(Long id, Activity model) {
+    public Activity Update(Long id, Activity model) {
         Optional<Activity> _activity = activityRepository.findById(id);
         if(_activity.isPresent()){
             activityRepository.save(model);
-            return model.getName();}
+
+          return null;}
+          //  return model.getName();}
        else
            throw new IllegalArgumentException(model + " Update Option Fail!");
     }

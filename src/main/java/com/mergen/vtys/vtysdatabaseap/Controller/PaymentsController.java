@@ -45,13 +45,13 @@ public class PaymentsController {
         return ResponseEntity.ok(status);
     }
 
-    @PostMapping(value = "post")
+    /*@PostMapping(value = "post")
     public ResponseEntity<Payments> createPayments(@RequestBody Payments payments){
         Payments status = paymentsService.Create(payments);
         log.info("Branch Added Status - {}",status);
         return  ResponseEntity.status(HttpStatus.CREATED).body(payments);
     }
-
+*/
     @DeleteMapping("delete/{id}")
     public ResponseEntity<String> deletePayments(@PathVariable Long id){
         String status = paymentsService.Delete(id);
