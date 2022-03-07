@@ -20,12 +20,12 @@ public class UserDetailsImpl implements UserDetailsService {
     private final UserDetailsRepository userDetailsRepository;
 
 
- @Override
-public Optional<UserDetails> getUserDetailsById(Long id){
-   Optional<UserDetails> userDetails = Optional.ofNullable(userDetailsRepository.findById(id).orElseThrow(() -> new IllegalStateException("Find by Id Internal Error")));
+    @Override
+    public Optional<UserDetails> getUserDetailsById(Long id){
+        Optional<UserDetails> userDetails = Optional.ofNullable(userDetailsRepository.findById(id).orElseThrow(() -> new IllegalStateException("Find by Id Internal Error")));
 
-       return userDetails;
-   }
+        return userDetails;
+    }
 
 
     @Override

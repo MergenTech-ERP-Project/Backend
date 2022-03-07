@@ -39,8 +39,8 @@ public class PaymentsController {
     }
 
     @GetMapping("list/{id}")
-    public ResponseEntity<Payments> getPaymentsById(@PathVariable Long id){
-        Payments status = paymentsService.getPaymentsById(id);
+    public ResponseEntity<Optional<Payments>> getPaymentsById(@PathVariable Long id){
+        Optional<Payments> status = paymentsService.getPaymentsById(id);
         log.info("Payments Got by ID Status - {}",status);
         return ResponseEntity.ok(status);
     }
