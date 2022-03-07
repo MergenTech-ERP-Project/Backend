@@ -258,13 +258,10 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="id" type="tinyint">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="salary" type="varchar(50)">
-                <constraints nullable="false" />
-            </column>
-            <column name="manager_name" type="varchar(20)">
+            <column name="admin_tc_no" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="manager_tcno" type="varchar(50)">
+            <column name="admin_name" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="unit_company" type="varchar(50)">

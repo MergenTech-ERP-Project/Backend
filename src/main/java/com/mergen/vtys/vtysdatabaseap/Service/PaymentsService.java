@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface PaymentsService extends HelperService<Payments>{
     List<Payments> getPaymentsList();
-    Payments getPaymentsById(Long id);
+    Optional<Payments> getPaymentsById(Long id);
 }

@@ -1672,3 +1672,315 @@ Caused by: org.hibernate.MappingException: Unable to find column with logical na
 2022-03-07 08:54:40.751  INFO 9340 --- [http-nio-8090-exec-5] c.m.v.v.C.UserDetailsController          : User Detail Added Status - UserDetails(tc_no=1, dateofbirth=112522, maritalstatus=single, numberofkids=2, degree_of_disability=none, gender=female, education_status=graduate, highest_education_level_completed=primarySchool, last_completed_education_status=primarySchool, employment_type=fullTime, military_service_status=done, date_of_start=112225, contract_type=indenfinite, contract_end_date=221122, work_email=tarat@kıntok.com, address=eskişehir, home_telephone=5588822, work_phone=22555, country=USA, city=new jersey, address_district=5th avanue, blood_type=1, zip_code=22440, bank_name=ziraat, bank_account_type=other, bank_account_number=6845645645443, iban=558645452135, emergency_contact=tarto, relationship_emergency_contact=dayı, emergency_contact_phone=554564, quit_date=010123, quit_reason_type=istifa, quit_explanation=tatattaa)
 2022-03-07 08:54:40.782  INFO 9340 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 201
 2022-03-07 08:54:40.782  INFO 9340 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"tc_no":1,"dateofbirth":"112522","maritalstatus":"single","numberofkids":2,"degree_of_disability":"none","gender":"female","education_status":"graduate","highest_education_level_completed":"primarySchool","last_completed_education_status":"primarySchool","employment_type":"fullTime","military_service_status":"done","date_of_start":"112225","contract_type":"indenfinite","contract_end_date":"221122","work_email":"tarat@kıntok.com","address":"eskişehir","home_telephone":"5588822","work_phone":"22555","country":"USA","city":"new jersey","address_district":"5th avanue","blood_type":"1","zip_code":"22440","bank_name":"ziraat","bank_account_type":"other","bank_account_number":"6845645645443","iban":"558645452135","emergency_contact":"tarto","relationship_emergency_contact":"dayı","emergency_contact_phone":"554564","quit_date":"010123","quit_reason_type":"istifa","quit_explanation":"tatattaa"}
+2022-03-07 09:15:59.866  INFO 13468 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Starting VtysDatabaseApiApplication using Java 17.0.2 on DESKTOP-U3ODD7C with PID 13468 (C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27\target\classes started by ceyhu in C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27)
+2022-03-07 09:15:59.869  INFO 13468 --- [main] c.m.v.v.VtysDatabaseApiApplication       : No active profile set, falling back to default profiles: default
+2022-03-07 09:16:02.879  INFO 13468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-07 09:16:03.059  INFO 13468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143 ms. Found 8 JPA repository interfaces.
+2022-03-07 09:16:04.812  INFO 13468 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-03-07 09:16:04.846  INFO 13468 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-07 09:16:04.847  INFO 13468 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-03-07 09:16:04.988  INFO 13468 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-07 09:16:04.988  INFO 13468 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4977 ms
+2022-03-07 09:16:05.405  INFO 13468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-07 09:16:06.909  INFO 13468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-07 09:16:06.923  INFO 13468 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/test'
+2022-03-07 09:16:08.618  INFO 13468 --- [main] liquibase.database                       : Set default schema name to public
+2022-03-07 09:16:08.864  INFO 13468 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-03-07 09:16:10.019  INFO 13468 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-03-07 09:16:10.130  INFO 13468 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-03-07 09:16:10.133  WARN 13468 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.ValidationFailedException: Validation Failed:
+     1 change sets check sum
+          db/changelog/changelog-master.xml::1::fatih was: 8:9c1aff5d83585aa786197a6e5bdd5829 but is now: 8:02b6ba735681c8b3d560540beba54dfd
+
+2022-03-07 09:16:10.134  INFO 13468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-07 09:16:10.139  INFO 13468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-07 09:16:10.146  INFO 13468 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-03-07 09:16:10.171  INFO 13468 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-03-07 09:16:10.323 ERROR 13468 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.ValidationFailedException: Validation Failed:
+     1 change sets check sum
+          db/changelog/changelog-master.xml::1::fatih was: 8:9c1aff5d83585aa786197a6e5bdd5829 but is now: 8:02b6ba735681c8b3d560540beba54dfd
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) ~[spring-boot-2.6.1.jar:2.6.1]
+	at com.mergen.vtys.vtysdatabaseap.VtysDatabaseApiApplication.main(VtysDatabaseApiApplication.java:10) ~[classes/:na]
+Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 change sets check sum
+          db/changelog/changelog-master.xml::1::fatih was: 8:9c1aff5d83585aa786197a6e5bdd5829 but is now: 8:02b6ba735681c8b3d560540beba54dfd
+
+	at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:299) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Liquibase.lambda$update$1(Liquibase.java:231) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:177) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Scope.child(Scope.java:186) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Scope.child(Scope.java:176) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Scope.child(Scope.java:155) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Liquibase.runInScope(Liquibase.java:2404) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:211) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:197) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:314) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:269) ~[liquibase-core-4.5.0.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	... 18 common frames omitted
+
+2022-03-07 09:18:40.885  INFO 8212 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Starting VtysDatabaseApiApplication using Java 17.0.2 on DESKTOP-U3ODD7C with PID 8212 (C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27\target\classes started by ceyhu in C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27)
+2022-03-07 09:18:40.890  INFO 8212 --- [main] c.m.v.v.VtysDatabaseApiApplication       : No active profile set, falling back to default profiles: default
+2022-03-07 09:18:42.252  INFO 8212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-07 09:18:42.368  INFO 8212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100 ms. Found 8 JPA repository interfaces.
+2022-03-07 09:18:43.248  INFO 8212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-03-07 09:18:43.260  INFO 8212 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-07 09:18:43.261  INFO 8212 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-03-07 09:18:43.376  INFO 8212 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-07 09:18:43.376  INFO 8212 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2413 ms
+2022-03-07 09:18:43.649  INFO 8212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-07 09:18:43.958  INFO 8212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-07 09:18:43.971  INFO 8212 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/test'
+2022-03-07 09:18:44.794  INFO 8212 --- [main] liquibase.database                       : Set default schema name to public
+2022-03-07 09:18:45.617  INFO 8212 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-03-07 09:18:46.174  INFO 8212 --- [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2022-03-07 09:18:46.235  INFO 8212 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-03-07 09:18:46.548  INFO 8212 --- [main] liquibase.changelog                      : Table user created
+2022-03-07 09:18:46.585  INFO 8212 --- [main] liquibase.changelog                      : Table activity created
+2022-03-07 09:18:46.616  INFO 8212 --- [main] liquibase.changelog                      : Table activetouser created
+2022-03-07 09:18:46.643  INFO 8212 --- [main] liquibase.changelog                      : Table activityevaluation created
+2022-03-07 09:18:46.682  INFO 8212 --- [main] liquibase.changelog                      : Table company created
+2022-03-07 09:18:46.714  INFO 8212 --- [main] liquibase.changelog                      : Table branch created
+2022-03-07 09:18:46.716  INFO 8212 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::1::fatih ran successfully in 228ms
+2022-03-07 09:18:46.837  INFO 8212 --- [main] liquibase.changelog                      : Table userdetails created
+2022-03-07 09:18:46.838  INFO 8212 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::54556456::fatih ran successfully in 80ms
+2022-03-07 09:18:46.884  INFO 8212 --- [main] liquibase.changelog                      : Table payments created
+2022-03-07 09:18:46.885  INFO 8212 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::237863306L::Fatih ran successfully in 43ms
+2022-03-07 09:18:46.924  INFO 8212 --- [main] liquibase.changelog                      : Table career created
+2022-03-07 09:18:46.925  INFO 8212 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::256456::Fatih ran successfully in 37ms
+2022-03-07 09:18:47.002  INFO 8212 --- [main] liquibase.changelog                      : Foreign key constraint added to activityevaluation (activities_id)
+2022-03-07 09:18:47.005  INFO 8212 --- [main] liquibase.changelog                      : Foreign key constraint added to activityevaluation (users_id)
+2022-03-07 09:18:47.006  INFO 8212 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::2256L::Fatih ran successfully in 79ms
+2022-03-07 09:18:47.011  INFO 8212 --- [main] liquibase.changelog                      : Foreign key constraint added to userdetails (tc_no)
+2022-03-07 09:18:47.013  INFO 8212 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::26LOFUNd::Fatih ran successfully in 4ms
+2022-03-07 09:18:47.017  INFO 8212 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-03-07 09:18:47.278  INFO 8212 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-07 09:18:47.447  INFO 8212 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-03-07 09:18:47.898  INFO 8212 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-07 09:18:48.180  INFO 8212 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-03-07 09:18:49.750  INFO 8212 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-07 09:18:49.781  INFO 8212 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-07 09:18:50.778  WARN 8212 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-07 09:18:51.528  INFO 8212 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-03-07 09:18:51.642  INFO 8212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2022-03-07 09:18:51.666  INFO 8212 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Started VtysDatabaseApiApplication in 11.456 seconds (JVM running for 12.087)
+2022-03-07 10:47:21.811  INFO 8212 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-07 10:47:21.813  INFO 8212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-07 10:47:21.817  INFO 8212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-07 10:57:33.852  INFO 8136 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Starting VtysDatabaseApiApplication using Java 17.0.2 on DESKTOP-U3ODD7C with PID 8136 (C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27\target\classes started by ceyhu in C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27)
+2022-03-07 10:57:33.852  INFO 8136 --- [main] c.m.v.v.VtysDatabaseApiApplication       : No active profile set, falling back to default profiles: default
+2022-03-07 10:57:35.191  INFO 8136 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-07 10:57:35.307  INFO 8136 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99 ms. Found 9 JPA repository interfaces.
+2022-03-07 10:57:36.147  INFO 8136 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-03-07 10:57:36.162  INFO 8136 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-07 10:57:36.162  INFO 8136 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-03-07 10:57:36.263  INFO 8136 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-07 10:57:36.263  INFO 8136 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2337 ms
+2022-03-07 10:57:36.532  INFO 8136 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-07 10:57:36.927  INFO 8136 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-07 10:57:36.933  INFO 8136 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/test'
+2022-03-07 10:57:37.513  INFO 8136 --- [main] liquibase.database                       : Set default schema name to public
+2022-03-07 10:57:37.597  INFO 8136 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-03-07 10:57:38.083  INFO 8136 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-03-07 10:57:38.299  INFO 8136 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-03-07 10:57:38.399  INFO 8136 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-07 10:57:38.468  INFO 8136 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-03-07 10:57:38.669  INFO 8136 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-07 10:57:38.800  INFO 8136 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-03-07 10:57:39.803  INFO 8136 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-07 10:57:39.819  INFO 8136 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-07 10:57:40.358  WARN 8136 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-07 10:57:40.821  INFO 8136 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-03-07 10:57:40.874  INFO 8136 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2022-03-07 10:57:40.890  INFO 8136 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Started VtysDatabaseApiApplication in 7.634 seconds (JVM running for 8.177)
+2022-03-07 11:09:10.812  INFO 8136 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-07 11:09:10.817  INFO 8136 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-07 11:09:10.826  INFO 8136 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-07 11:09:18.073  INFO 12876 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Starting VtysDatabaseApiApplication using Java 17.0.2 on DESKTOP-U3ODD7C with PID 12876 (C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27\target\classes started by ceyhu in C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27)
+2022-03-07 11:09:18.075  INFO 12876 --- [main] c.m.v.v.VtysDatabaseApiApplication       : No active profile set, falling back to default profiles: default
+2022-03-07 11:09:19.422  INFO 12876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-07 11:09:19.561  INFO 12876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 112 ms. Found 9 JPA repository interfaces.
+2022-03-07 11:09:20.409  INFO 12876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-03-07 11:09:20.425  INFO 12876 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-07 11:09:20.425  INFO 12876 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-03-07 11:09:20.541  INFO 12876 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-07 11:09:20.541  INFO 12876 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2399 ms
+2022-03-07 11:09:20.779  INFO 12876 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-07 11:09:21.080  INFO 12876 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-07 11:09:21.095  INFO 12876 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/test'
+2022-03-07 11:09:21.697  INFO 12876 --- [main] liquibase.database                       : Set default schema name to public
+2022-03-07 11:09:21.782  INFO 12876 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-03-07 11:09:22.283  INFO 12876 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-03-07 11:09:22.368  INFO 12876 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-03-07 11:09:22.452  INFO 12876 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-07 11:09:22.530  INFO 12876 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-03-07 11:09:22.731  INFO 12876 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-07 11:09:22.885  INFO 12876 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-03-07 11:09:23.956  INFO 12876 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-07 11:09:23.972  INFO 12876 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-07 11:09:24.558  WARN 12876 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-07 11:09:25.037  INFO 12876 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-03-07 11:09:25.106  INFO 12876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2022-03-07 11:09:25.122  INFO 12876 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Started VtysDatabaseApiApplication in 7.654 seconds (JVM running for 8.235)
+2022-03-07 11:16:47.064  INFO 12876 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-07 11:16:47.068  INFO 12876 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-07 11:16:47.081  INFO 12876 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-07 11:16:52.729  INFO 12556 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Starting VtysDatabaseApiApplication using Java 17.0.2 on DESKTOP-U3ODD7C with PID 12556 (C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27\target\classes started by ceyhu in C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27)
+2022-03-07 11:16:52.729  INFO 12556 --- [main] c.m.v.v.VtysDatabaseApiApplication       : No active profile set, falling back to default profiles: default
+2022-03-07 11:16:54.067  INFO 12556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-07 11:16:54.217  INFO 12556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 135 ms. Found 9 JPA repository interfaces.
+2022-03-07 11:16:55.062  INFO 12556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-03-07 11:16:55.080  INFO 12556 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-07 11:16:55.081  INFO 12556 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-03-07 11:16:55.218  INFO 12556 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-07 11:16:55.218  INFO 12556 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2413 ms
+2022-03-07 11:16:55.463  INFO 12556 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-07 11:16:55.748  INFO 12556 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-07 11:16:55.763  INFO 12556 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/test'
+2022-03-07 11:16:56.380  INFO 12556 --- [main] liquibase.database                       : Set default schema name to public
+2022-03-07 11:16:56.465  INFO 12556 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-03-07 11:16:56.982  INFO 12556 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-03-07 11:16:57.051  INFO 12556 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-03-07 11:16:57.051  WARN 12556 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.ValidationFailedException: Validation Failed:
+     1 change sets check sum
+          db/changelog/changelog-master.xml::256456::Fatih was: 8:9cb0296d3fcaec05eef8a482f36368e3 but is now: 8:c84c709f39800d6a94d3afd75656ba3b
+
+2022-03-07 11:16:57.051  INFO 12556 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-07 11:16:57.051  INFO 12556 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-07 11:16:57.069  INFO 12556 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-03-07 11:16:57.102  INFO 12556 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-03-07 11:16:57.131 ERROR 12556 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.ValidationFailedException: Validation Failed:
+     1 change sets check sum
+          db/changelog/changelog-master.xml::256456::Fatih was: 8:9cb0296d3fcaec05eef8a482f36368e3 but is now: 8:c84c709f39800d6a94d3afd75656ba3b
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.13.jar:5.3.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-2.6.1.jar:2.6.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) ~[spring-boot-2.6.1.jar:2.6.1]
+	at com.mergen.vtys.vtysdatabaseap.VtysDatabaseApiApplication.main(VtysDatabaseApiApplication.java:10) ~[classes/:na]
+Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 change sets check sum
+          db/changelog/changelog-master.xml::256456::Fatih was: 8:9cb0296d3fcaec05eef8a482f36368e3 but is now: 8:c84c709f39800d6a94d3afd75656ba3b
+
+	at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:299) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Liquibase.lambda$update$1(Liquibase.java:231) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:177) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Scope.child(Scope.java:186) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Scope.child(Scope.java:176) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Scope.child(Scope.java:155) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Liquibase.runInScope(Liquibase.java:2404) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:211) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:197) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:314) ~[liquibase-core-4.5.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:269) ~[liquibase-core-4.5.0.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.13.jar:5.3.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.13.jar:5.3.13]
+	... 18 common frames omitted
+
+2022-03-07 11:17:28.405  INFO 2492 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Starting VtysDatabaseApiApplication using Java 17.0.2 on DESKTOP-U3ODD7C with PID 2492 (C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27\target\classes started by ceyhu in C:\Users\ceyhu\OneDrive\Masaüstü\api\VTYSKaliteAPI_27)
+2022-03-07 11:17:28.594  INFO 2492 --- [main] c.m.v.v.VtysDatabaseApiApplication       : No active profile set, falling back to default profiles: default
+2022-03-07 11:17:29.835  INFO 2492 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-07 11:17:29.966  INFO 2492 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 124 ms. Found 9 JPA repository interfaces.
+2022-03-07 11:17:30.825  INFO 2492 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-03-07 11:17:30.853  INFO 2492 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-07 11:17:30.854  INFO 2492 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-03-07 11:17:30.967  INFO 2492 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-07 11:17:30.967  INFO 2492 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2317 ms
+2022-03-07 11:17:31.219  INFO 2492 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-07 11:17:31.552  INFO 2492 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-07 11:17:31.567  INFO 2492 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/test'
+2022-03-07 11:17:32.395  INFO 2492 --- [main] liquibase.database                       : Set default schema name to public
+2022-03-07 11:17:33.002  INFO 2492 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-03-07 11:17:33.483  INFO 2492 --- [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2022-03-07 11:17:33.518  INFO 2492 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-03-07 11:17:33.702  INFO 2492 --- [main] liquibase.changelog                      : Table user created
+2022-03-07 11:17:33.724  INFO 2492 --- [main] liquibase.changelog                      : Table activity created
+2022-03-07 11:17:33.771  INFO 2492 --- [main] liquibase.changelog                      : Table activetouser created
+2022-03-07 11:17:33.802  INFO 2492 --- [main] liquibase.changelog                      : Table activityevaluation created
+2022-03-07 11:17:33.824  INFO 2492 --- [main] liquibase.changelog                      : Table company created
+2022-03-07 11:17:33.856  INFO 2492 --- [main] liquibase.changelog                      : Table branch created
+2022-03-07 11:17:33.856  INFO 2492 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::1::fatih ran successfully in 185ms
+2022-03-07 11:17:33.956  INFO 2492 --- [main] liquibase.changelog                      : Table userdetails created
+2022-03-07 11:17:33.956  INFO 2492 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::54556456::fatih ran successfully in 53ms
+2022-03-07 11:17:34.003  INFO 2492 --- [main] liquibase.changelog                      : Table payments created
+2022-03-07 11:17:34.003  INFO 2492 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::237863306L::Fatih ran successfully in 47ms
+2022-03-07 11:17:34.056  INFO 2492 --- [main] liquibase.changelog                      : Table career created
+2022-03-07 11:17:34.056  INFO 2492 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::256456::Fatih ran successfully in 38ms
+2022-03-07 11:17:34.119  INFO 2492 --- [main] liquibase.changelog                      : Foreign key constraint added to activityevaluation (activities_id)
+2022-03-07 11:17:34.122  INFO 2492 --- [main] liquibase.changelog                      : Foreign key constraint added to activityevaluation (users_id)
+2022-03-07 11:17:34.123  INFO 2492 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::2256L::Fatih ran successfully in 67ms
+2022-03-07 11:17:34.128  INFO 2492 --- [main] liquibase.changelog                      : Foreign key constraint added to userdetails (tc_no)
+2022-03-07 11:17:34.130  INFO 2492 --- [main] liquibase.changelog                      : ChangeSet db/changelog/changelog-master.xml::26LOFUNd::Fatih ran successfully in 5ms
+2022-03-07 11:17:34.134  INFO 2492 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-03-07 11:17:34.227  INFO 2492 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-07 11:17:34.307  INFO 2492 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-03-07 11:17:34.524  INFO 2492 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-07 11:17:34.669  INFO 2492 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-03-07 11:17:36.094  INFO 2492 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-07 11:17:36.107  INFO 2492 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-07 11:17:36.673  WARN 2492 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-07 11:17:37.140  INFO 2492 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-03-07 11:17:37.208  INFO 2492 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2022-03-07 11:17:37.234  INFO 2492 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Started VtysDatabaseApiApplication in 9.453 seconds (JVM running for 10.001)
+2022-03-07 11:17:48.793  INFO 2492 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-07 11:17:48.794  INFO 2492 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-07 11:17:48.796  INFO 2492 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-03-07 11:17:48.827  INFO 2492 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /activetouser/activetousers 
+2022-03-07 11:17:48.827  INFO 2492 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-07 11:17:48.827  INFO 2492 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Body:  
+2022-03-07 11:17:49.165  INFO 2492 --- [http-nio-8090-exec-1] c.m.v.v.C.ActiveToUserController         : All ActiveToUsers Returned - []
+2022-03-07 11:17:49.265  INFO 2492 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-07 11:17:49.266  INFO 2492 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - []
+2022-03-07 11:18:01.803  INFO 2492 --- [http-nio-8090-exec-3] c.m.v.v.Controller.CareerController      : All Careers Returned - []
+2022-03-07 11:20:17.319  INFO 2492 --- [http-nio-8090-exec-6] c.m.v.v.Controller.CareerController      : Career Added Status - Career(id=1, admin_tc_no=123456, admin_name=fay, unit_company=cccc, unit_branch=ssss, unit_department=aaaa, unit_title=xxx)
+2022-03-07 11:21:08.637  INFO 2492 --- [http-nio-8090-exec-7] c.m.v.v.Controller.CareerController      : Career Added Status - Career(id=2, admin_tc_no=123456, admin_name=fay, unit_company=cccc, unit_branch=ssss, unit_department=aaaa, unit_title=xxx)
+2022-03-07 11:21:27.317  INFO 2492 --- [http-nio-8090-exec-8] c.m.v.v.Controller.CareerController      : All Careers Returned - [Career(id=1, admin_tc_no=123456, admin_name=fay, unit_company=cccc, unit_branch=ssss, unit_department=aaaa, unit_title=xxx), Career(id=2, admin_tc_no=123456, admin_name=fay, unit_company=cccc, unit_branch=ssss, unit_department=aaaa, unit_title=xxx)]
+2022-03-07 11:21:48.069  INFO 2492 --- [http-nio-8090-exec-9] c.m.v.v.Controller.CareerController      : Career Deleted Status - 1
+2022-03-07 11:22:25.526  WARN 2492 --- [http-nio-8090-exec-10] o.s.web.servlet.PageNotFound             : Request method 'DELETE' not supported
+2022-03-07 11:22:29.273  INFO 2492 --- [http-nio-8090-exec-2] c.m.v.v.Controller.CareerController      : Career Updated Status - faya
+2022-03-07 11:22:34.443  INFO 2492 --- [http-nio-8090-exec-1] c.m.v.v.Controller.CareerController      : All Careers Returned - [Career(id=2, admin_tc_no=123456, admin_name=faya, unit_company=cccc, unit_branch=ssss, unit_department=aaaa, unit_title=xxx)]
+2022-03-07 11:22:51.989  INFO 2492 --- [http-nio-8090-exec-3] c.m.v.v.Controller.CareerController      : Career Got by Name Status - Optional[Career(id=2, admin_tc_no=123456, admin_name=faya, unit_company=cccc, unit_branch=ssss, unit_department=aaaa, unit_title=xxx)]
+2022-03-07 11:23:01.819  INFO 2492 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-07 11:23:01.821  INFO 2492 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-07 11:23:01.825  INFO 2492 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

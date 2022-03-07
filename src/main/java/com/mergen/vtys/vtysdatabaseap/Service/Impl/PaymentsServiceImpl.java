@@ -1,6 +1,7 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
 import com.mergen.vtys.vtysdatabaseap.Model.Payments;
+import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Repository.PaymentsRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.PaymentsService;
 import lombok.Data;
@@ -15,6 +16,7 @@ import java.util.Optional;
 @Data
 @RequiredArgsConstructor
 public class PaymentsServiceImpl  implements PaymentsService {
+
     private final PaymentsRepository paymentsRepository;
 
     @Override
@@ -22,22 +24,31 @@ public class PaymentsServiceImpl  implements PaymentsService {
         return (List<Payments>) paymentsRepository.findAll();
     }
     @Override
-    public Payments getPaymentsById(Long id){
-        Payments payments = paymentsRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException("Find by Id Internal Error"));
-     return payments;
+    public Optional<Payments> getPaymentsById(Long id){
+        Optional<Payments> payments = paymentsRepository.findById(id);
+        if (payments.isPresent()){
+            return payments;
+        }
+        else
+            throw new IllegalArgumentException(id + " Fail" + " And Get Payment by ID Fail!");
+
     }
 
     @Override
     public Payments Create(Payments model){
-        Payments payments = paymentsRepository.save(model);
-        return payments;
+     //   Optional<Payments> payments = paymentsRepository.findEmailAndPassword(model.getEmail(),model.getPassword());
+
+       // if (!payments.isPresent()) {
+            paymentsRepository.save(model);
+            return model;
+      //  } else
+      //      throw new IllegalArgumentException(model + " Already Exist!");
     }
 
     @Override
     public String Update(Long id,Payments model){
-        Optional<Payments> payments_ = paymentsRepository.findById(id);
-        if(payments_.isPresent()){
+        Optional<Payments> payments = paymentsRepository.findById(id);
+        if(payments.isPresent()){
             paymentsRepository.save(model);
             return model.toString();
         }
@@ -46,10 +57,13 @@ public class PaymentsServiceImpl  implements PaymentsService {
     }
     @Override
     public String Delete(Long id){
-         Payments payments = paymentsRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException("Find by Id Internal Error"));
-         paymentsRepository.deleteById(id);
-         return (id + "succesfuly deleted");
+        Optional<Payments> payments = paymentsRepository.findById(id);
+
+        if(payments.isPresent()){
+            paymentsRepository.deleteById(id);
+            return id.toString();}
+        else
+            throw new IllegalArgumentException(" Delete Option Fail!");
     }
 
 }
