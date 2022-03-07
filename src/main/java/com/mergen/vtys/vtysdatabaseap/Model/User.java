@@ -11,6 +11,7 @@ import org.hibernate.annotations.JoinColumnsOrFormulas;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class User{
     @SequenceGenerator(name="identifier", sequenceName="mytable_id_seq", allocationSize=1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier")
     @Column(name = "id",nullable = false,updatable = false)
-    private int id;
+    private Long id;
 
     @Column
     private  String name;
@@ -39,7 +40,7 @@ public class User{
     @Column
     private String password;
     @Column
-    private int tc_no;
+    private Long tc_no;
 
     //@JsonIgnore
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "user_ids")

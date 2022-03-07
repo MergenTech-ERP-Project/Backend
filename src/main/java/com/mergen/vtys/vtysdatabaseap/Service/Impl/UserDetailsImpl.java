@@ -35,15 +35,15 @@ public class UserDetailsImpl implements UserDetailsService {
     }
 
     @Override
-    public String  Update(Long id, UserDetails model) {
+    public UserDetails Update(Long id, UserDetails model) {
         Optional<UserDetails> _userDetails = userDetailsRepository.findById(id);
         if(_userDetails.isPresent()){
             userDetailsRepository.save(model);
-            return model.getAddress();}
+           return null;}
+            // return model.getAddress();}
         else
             throw new IllegalArgumentException(model + " Update Option Fail!");
     }
-
     @Override
     public String Delete(Long id) {
         Optional<UserDetails> userDetails = userDetailsRepository.findById(id);

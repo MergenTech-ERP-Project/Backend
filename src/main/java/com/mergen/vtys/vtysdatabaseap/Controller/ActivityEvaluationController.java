@@ -47,12 +47,12 @@ public class ActivityEvaluationController {
         return ResponseEntity.status(HttpStatus.CREATED).body(activityEvaluation);
     }
 
-    @PutMapping(value = "put/{id}")
+   /* @PutMapping(value = "put/{id}")
     public ResponseEntity<String> updateActivityEvaluation(@PathVariable Long id, @RequestBody ActivityEvaluation activityEvaluation){
         String status = activityEvaluationService.Update(id,activityEvaluation);
         log.info("Activity Evaluation Updated Status - {}",status);
         return ResponseEntity.ok(activityEvaluation.getEvaluation() + " updated!");
-    }
+    }*/
 
     @DeleteMapping(value = "delete/{id}")
     public ResponseEntity<String> deleteActivityEvaluation(@PathVariable() Long id){

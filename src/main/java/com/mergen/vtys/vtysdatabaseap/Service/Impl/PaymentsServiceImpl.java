@@ -46,11 +46,12 @@ public class PaymentsServiceImpl  implements PaymentsService {
     }
 
     @Override
-    public String Update(Long id,Payments model){
+    public Payments Update(Long id,Payments model){
         Optional<Payments> payments = paymentsRepository.findById(id);
         if(payments.isPresent()){
             paymentsRepository.save(model);
-            return model.toString();
+           return null;
+            // return model.toString();
         }
         else
             throw  new IllegalArgumentException(model + " Update Option Fail!");
