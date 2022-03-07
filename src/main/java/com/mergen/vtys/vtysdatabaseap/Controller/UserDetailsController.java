@@ -1,7 +1,6 @@
 package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
-import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
@@ -40,7 +39,7 @@ public class UserDetailsController {
 
     @GetMapping(value = "userdetails/{id}")
     public ResponseEntity<Optional<UserDetails>> getUserDetailsById(@PathVariable Long id){
-        Optional<UserDetails> status = userDetailsService.getUserDetailsById(id);
+         Optional<UserDetails> status = userDetailsService.getUserDetailsById(id);
         log.info("User Detail Got by Name Status - {}",status);
         return  ResponseEntity.ok(status);
     }

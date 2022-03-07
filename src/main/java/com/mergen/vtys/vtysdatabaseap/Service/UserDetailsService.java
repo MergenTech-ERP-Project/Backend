@@ -1,6 +1,5 @@
 package com.mergen.vtys.vtysdatabaseap.Service;
 
-import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 
 import java.util.List;

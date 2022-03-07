@@ -15,10 +15,8 @@ import javax.validation.constraints.Email;
 @AllArgsConstructor
 public class UserDetails {
     @Id
-    @SequenceGenerator(name="identifier", sequenceName="mytable_id_seq", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier")
-    @Column(name = "tcno",nullable = false,updatable = false)
-    private  int tcno;
+    @Column(name = "tc_no",nullable = false,updatable = false)
+    private int tc_no;
 
     @Column
     private String dateofbirth;
@@ -67,13 +65,12 @@ public class UserDetails {
     private String country;
     @Column
     private String city;
-    @Enumerated(EnumType.ORDINAL)
     @Column
-    private BloodType address_district;
+    private String address_district;
     @Column
     private String blood_type;
     @Column
-    private Long zip_code;
+    private String zip_code;
     @Column
     private String bank_name;
     @Column
@@ -95,8 +92,9 @@ public class UserDetails {
     private String quit_reason_type;
     @Column
     private String quit_explanation;
-    @Column
-    private String reason_explain_for_quit;
+
+
+
 }
 
     

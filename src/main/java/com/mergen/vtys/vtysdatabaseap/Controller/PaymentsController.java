@@ -23,8 +23,13 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Slf4j
 public class PaymentsController {
-    @Autowired
+
     private PaymentsService paymentsService;
+
+    @Autowired
+    public PaymentsController(PaymentsService paymentsService) {
+        this.paymentsService = paymentsService;
+    }
 
     @GetMapping(value = "list")
     public ResponseEntity<List<Payments>> getPaymentList(){

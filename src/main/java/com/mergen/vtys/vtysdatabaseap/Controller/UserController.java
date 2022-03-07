@@ -24,18 +24,20 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "user")
-@RequiredArgsConstructor
 @Slf4j
 public class UserController {
+    private final ActivityService activityService;
 
-    @Autowired
+    private final UserRepository userRepository;
+
     private final UserService userService;
 
     @Autowired
-    private final ActivityService activityService;
-
-    @Autowired
-    private final UserRepository userRepository;
+    public UserController(UserService userService, ActivityService activityService, UserRepository userRepository) {
+        this.userService = userService;
+        this.activityService = activityService;
+        this.userRepository = userRepository;
+    }
 
     @GetMapping(value = "/users")
     public ResponseEntity<List<User>> getUserList(){
