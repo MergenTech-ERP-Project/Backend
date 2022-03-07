@@ -9,7 +9,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
     <changeSet id="1" author="fatih">
 
         <createTable tableName="user">
-            <column name="id" type="tinyint">
+            <column name="id" type="int">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="varchar(30)">
@@ -26,6 +26,9 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             </column>
             <column name="cellphone" type="varchar(15)">
                 <constraints nullable="true"/>
+            </column>
+            <column name="tc_no" type="int">
+                <constraints nullable="false"/>
             </column>
 
         </createTable>
@@ -116,13 +119,13 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
         </createTable>
 
     </changeSet>
-    <changeSet id="2" author="fatih">
+    <changeSet id="54556456" author="fatih">
     <createTable
-                 tableName="user_detail">
-        <column name="tcno" type="int">
+                 tableName="userdetails">
+        <column name="tc_no" type="int">
             <constraints primaryKey="true"/>
         </column>
-        <column name="dateofbirth" type="datetime">
+        <column name="dateofbirth" type="varchar(15)">
             <constraints nullable="false"/>
         </column>
         <column name="maritalstatus" type="varchar(20)">
@@ -140,10 +143,10 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
         <column name="education_status" type="varchar(25)">
             <constraints nullable="true"/>
         </column>
-        <column name="highest_education_level_completed" type="varchar">
+        <column name="highest_education_level_completed" type="varchar(30)">
             <constraints nullable="true"/>
         </column>
-        <column name="last_completed_education_status" type="varchar(25)">
+        <column name="last_completed_education_status" type="varchar(30)">
             <constraints nullable="true"/>
         </column>
         <column name="employment_type" type="varchar(20)">
@@ -152,14 +155,14 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
         <column name="military_service_status" type="varchar(25)">
             <constraints nullable="true"/>
         </column>
-        <column name="date_of_start" type="datetime">
+        <column name="date_of_start" type="varchar(20)">
             <constraints nullable="false"/>
         </column>
         <column name="contract_type" type="varchar(20)">
             <constraints nullable="false"/>
         </column>
-        <column name="contract_end_date" type="datetime">
-            <constraints nullable="false"/>
+        <column name="contract_end_date" type="varchar(25)">
+            <constraints nullable="true"/>
         </column>
         <column name="work_email" type="varchar(25)">
             <constraints nullable="false"/>
@@ -182,10 +185,10 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
         <column name="city" type="varchar(20)">
             <constraints nullable="false"/>
         </column>
-        <column name="zip_code" type="tinyint">
+        <column name="zip_code" type="varchar(10)">
             <constraints nullable="false"/>
         </column>
-        <column name="address_district" type="tinyint">
+        <column name="address_district" type="varchar(30)">
             <constraints nullable="false"/>
         </column>
         <column name="bank_name" type="varchar(25)">
@@ -209,13 +212,13 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
         <column name="emergency_contact_phone" type="varchar(25)">
             <constraints nullable="false"/>
         </column>
-        <column name="quit_date" type="datetime">
+        <column name="quit_date" type="varchar(30)">
             <constraints nullable="true"/>
         </column>
         <column name="quit_reason_type" type="varchar(25)">
             <constraints nullable="true"/>
         </column>
-        <column name="reason_explain_for_quit" type="varchar(25)">
+        <column name="quit_explanation" type="varchar(25)">
             <constraints nullable="true"/>
         </column>
     </createTable>
@@ -277,6 +280,48 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
+    </changeSet>
+    <changeSet  author="Fatih"  id="2256L">
+        <addForeignKeyConstraint  baseColumnNames="activities_id"
+                                  baseTableName="activityevaluation"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_activity_evl_id"
+                                  deferrable="true"
+                                  initiallyDeferred="true"
+                                  onDelete="CASCADE"
+                                  onUpdate="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="activity"
+                                  referencedTableSchemaName="public"
+                                  validate="true"/>
+
+        <addForeignKeyConstraint  baseColumnNames="users_id"
+                                  baseTableName="activityevaluation"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_users_evl_id"
+                                  deferrable="true"
+                                  initiallyDeferred="true"
+                                  onDelete="CASCADE"
+                                  onUpdate="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="user"
+                                  referencedTableSchemaName="public"
+                                  validate="true"/>
+
+    </changeSet>
+    <changeSet  author="Fatih"  id="26LOFUNd">
+        <addForeignKeyConstraint  baseColumnNames="tc_no"
+                                  baseTableName="userdetails"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_tc_no_user_payments"
+                                  onDelete="CASCADE"
+                                  deferrable="true"
+                                  onUpdate="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="user"
+                                  referencedTableSchemaName="public"
+                                  validate="true"/>
 
     </changeSet>
 

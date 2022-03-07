@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.JoinColumnsOrFormulas;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -24,7 +25,7 @@ public class User{
     @SequenceGenerator(name="identifier", sequenceName="mytable_id_seq", allocationSize=1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier")
     @Column(name = "id",nullable = false,updatable = false)
-    private Long id;
+    private int id;
 
     @Column
     private  String name;
@@ -37,7 +38,8 @@ public class User{
     private String cellphone;
     @Column
     private String password;
-
+    @Column
+    private int tc_no;
 
     //@JsonIgnore
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "user_ids")
@@ -46,15 +48,11 @@ public class User{
     private List<ActiveToUser> activeToUsers=new ArrayList<>();
 
 
-//
+//    @OneToOne(fetch = FetchType.LAZY,
+//            cascade =  CascadeType.ALL,
+//            mappedBy = "tc_no")
+//    private UserDetails userDetails;
 
-
-//    @ManyToMany
-////    @JoinTable(
-////            name = "activetouser",
-////            joinColumns = @JoinColumns(name="")
-////    )private List<ActiveToUser> users=new ArrayList<>();
-////}
 
 
 }

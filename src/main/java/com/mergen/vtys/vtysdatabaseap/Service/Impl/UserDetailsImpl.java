@@ -1,7 +1,5 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
-import com.mergen.vtys.vtysdatabaseap.Model.Company;
-
 import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
@@ -24,19 +22,16 @@ public class UserDetailsImpl implements UserDetailsService {
 
  @Override
 public Optional<UserDetails> getUserDetailsById(Long id){
-   Optional<UserDetails> userDetails = userDetailsRepository.findById(id);
-   if(userDetails.isPresent()){
+   Optional<UserDetails> userDetails = Optional.ofNullable(userDetailsRepository.findById(id).orElseThrow(() -> new IllegalStateException("Find by Id Internal Error")));
+
        return userDetails;
-   }
-   else
-       throw new IllegalArgumentException(id + " Fail" + " And Get UserDetails by ID Fail!");
    }
 
 
     @Override
     public UserDetails Create(UserDetails model) {
         userDetailsRepository.save(model);
-        return null;
+        return model;
     }
 
     @Override
