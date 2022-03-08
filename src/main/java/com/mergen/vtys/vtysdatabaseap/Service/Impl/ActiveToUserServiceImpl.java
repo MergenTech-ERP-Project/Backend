@@ -42,13 +42,12 @@ public class ActiveToUserServiceImpl implements ActiveToUserService {
     }
 
     @Override
-    public ActiveToUser Update(Long id, ActiveToUser model) {
+    public String Update(Long id, ActiveToUser model) {
 
         Optional<ActiveToUser> activeToUser = activeToUserRepository.findById(id);
         if(activeToUser.isPresent()){
             activeToUserRepository.save(model);
-            return null;           }
-            //return "User ID:" + model.getUser_ids().toString() + " And Activity ID:" + model.getActivity_ids().toString() + " Updated!";}
+            return "User ID:" + model.getUser_ids().toString() + " And Activity ID:" + model.getActivity_ids().toString() + " Updated!";}
         else
             throw new IllegalArgumentException(model + " Update Option Fail!");
     }

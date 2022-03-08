@@ -47,12 +47,12 @@ public class CompanyController {
         return  ResponseEntity.status(HttpStatus.CREATED).body(company);
     }
 
-    /*@PutMapping(value = "/put/{id}")
+    @PutMapping(value = "/put/{id}")
     public ResponseEntity<String> updateCompany(@PathVariable Long id, @RequestBody Company company){
         String status = companyService.Update(id,company);
         log.info("Company Updated Status - {}",status);
         return ResponseEntity.ok(company.getCompany_name() + " updated!");
-    }*/
+    }
     @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<String> deleteCompany(@PathVariable() Long id) {
         String status = companyService.Delete(id);

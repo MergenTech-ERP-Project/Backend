@@ -4808,3 +4808,74 @@ Caused by: org.postgresql.util.PSQLException: FATAL: database "test" does not ex
 2022-03-08 15:54:54.599  INFO 21096 --- [http-nio-8090-exec-2] c.m.v.v.Controller.UserController        : All Users Returned - [User(id=2, name=xxx, email=asdcvö@donem.com, title=none, cellphone=3333, password=xxxx, activeToUsers=[ActiveToUser(id=2, user_ids=2, activity_ids=1)], userDetails=[])]
 2022-03-08 15:54:54.600  INFO 21096 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
 2022-03-08 15:54:54.601  INFO 21096 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":2,"name":"xxx","email":"asdcvö@donem.com","title":"none","cellphone":"3333","password":"xxxx","activeToUsers":[{"id":2,"user_ids":2,"activity_ids":1}],"userDetails":[]}]
+2022-03-08 17:01:23.960  INFO 21096 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-08 17:01:23.991  INFO 21096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-08 17:01:24.005  INFO 21096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-08 17:01:31.737  INFO 17044 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Starting VtysDatabaseApiApplication using Java 17.0.1 on LAPTOP-8KDKK2LL with PID 17044 (C:\Users\fatih\Desktop\spring boot\7 mart akşam\VTYSKaliteAPI\target\classes started by fatih in C:\Users\fatih\Desktop\spring boot\7 mart akşam\VTYSKaliteAPI)
+2022-03-08 17:01:31.739  INFO 17044 --- [main] c.m.v.v.VtysDatabaseApiApplication       : No active profile set, falling back to default profiles: default
+2022-03-08 17:01:32.684  INFO 17044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-08 17:01:32.756  INFO 17044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 9 JPA repository interfaces.
+2022-03-08 17:01:33.167  INFO 17044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-03-08 17:01:33.175  INFO 17044 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-08 17:01:33.175  INFO 17044 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-03-08 17:01:33.262  INFO 17044 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-08 17:01:33.262  INFO 17044 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1459 ms
+2022-03-08 17:01:33.416  INFO 17044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-08 17:01:33.565  INFO 17044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-08 17:01:33.573  INFO 17044 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/test'
+2022-03-08 17:01:33.897  INFO 17044 --- [main] liquibase.database                       : Set default schema name to public
+2022-03-08 17:01:33.951  INFO 17044 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-03-08 17:01:34.250  INFO 17044 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-03-08 17:01:34.298  INFO 17044 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-03-08 17:01:34.348  INFO 17044 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-08 17:01:34.393  INFO 17044 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-03-08 17:01:34.509  INFO 17044 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-08 17:01:34.600  INFO 17044 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-03-08 17:01:35.241  INFO 17044 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-08 17:01:35.247  INFO 17044 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-08 17:01:35.609  WARN 17044 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-08 17:01:35.958  INFO 17044 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-03-08 17:01:35.993  INFO 17044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2022-03-08 17:01:36.004  INFO 17044 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Started VtysDatabaseApiApplication in 4.984 seconds (JVM running for 5.857)
+2022-03-08 17:01:36.255  INFO 17044 --- [RMI TCP Connection(2)-192.168.3.95] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-08 17:01:36.256  INFO 17044 --- [RMI TCP Connection(2)-192.168.3.95] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-08 17:01:36.257  INFO 17044 --- [RMI TCP Connection(2)-192.168.3.95] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-03-08 17:02:59.188  INFO 17044 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/users 
+2022-03-08 17:02:59.188  INFO 17044 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-08 17:02:59.188  INFO 17044 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Body:  
+2022-03-08 17:02:59.310  INFO 17044 --- [http-nio-8090-exec-1] c.m.v.v.Controller.UserController        : All Users Returned - [User(id=2, name=xxx, email=asdcvö@donem.com, title=none, cellphone=3333, password=xxxx, activeToUsers=[ActiveToUser(id=2, user_ids=2, activity_ids=1)], userDetails=[])]
+2022-03-08 17:02:59.355  INFO 17044 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-08 17:02:59.355  INFO 17044 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":2,"name":"xxx","email":"asdcvö@donem.com","title":"none","cellphone":"3333","password":"xxxx","activeToUsers":[{"id":2,"user_ids":2,"activity_ids":1}],"userDetails":[]}]
+2022-03-08 17:03:09.380  INFO 17044 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /activity/post 
+2022-03-08 17:03:09.381  INFO 17044 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-08 17:03:09.381  INFO 17044 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {"id":0,"name":"asd","place":"asd","datetime":"2022-03-08 15:49","organizator":"asd"} 
+2022-03-08 17:03:09.454  INFO 17044 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-08 17:03:09.455  INFO 17044 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-08T17:03:09.4520974","message":" Internal Server Error!","code":"1000"}
+2022-03-08 17:03:20.417  INFO 17044 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /activity/post 
+2022-03-08 17:03:20.417  INFO 17044 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-08 17:03:20.418  INFO 17044 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {"id":0,"name":"a55sd","place":"a555sd","datetime":"2022-03-08 15:49","organizator":"asd"} 
+2022-03-08 17:03:20.488  INFO 17044 --- [http-nio-8090-exec-4] c.m.v.v.Controller.ActivityController    : Activity Added Status - Activity(id=0, name=a55sd, place=a555sd, datetime=2022-03-08 15:49, organizator=asd, activity_enrolled=[])
+2022-03-08 17:03:20.496  INFO 17044 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 201
+2022-03-08 17:03:20.496  INFO 17044 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"id":0,"name":"a55sd","place":"a555sd","datetime":"2022-03-08 15:49","organizator":"asd","activity_enrolled":[]}
+2022-03-08 17:03:55.666  INFO 17044 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/post 
+2022-03-08 17:03:55.666  INFO 17044 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-08 17:03:55.685  INFO 17044 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {"id":null,"name":"asddsad","email":"asdcvö@donem.com","title":"none","cellphone":"0540","password":"*****","activeToUsers":[],"userDetails":[]} 
+2022-03-08 17:03:55.751  INFO 17044 --- [http-nio-8090-exec-5] c.m.v.v.Controller.UserController        : User Added Status - User(id=3, name=asddsad, email=asdcvö@donem.com, title=none, cellphone=0540, password=qwe123, activeToUsers=[], userDetails=[])
+2022-03-08 17:03:55.754  INFO 17044 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 201
+2022-03-08 17:03:55.754  INFO 17044 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"id":3,"name":"asddsad","email":"asdcvö@donem.com","title":"none","cellphone":"0540","password":"*****","activeToUsers":[],"userDetails":[]}
+2022-03-08 17:04:10.794  INFO 17044 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /activetouser/post 
+2022-03-08 17:04:10.794  INFO 17044 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-08 17:04:10.795  INFO 17044 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {"activity_ids":"0","user_ids": "3"}
+ 
+2022-03-08 17:04:10.800  INFO 17044 --- [http-nio-8090-exec-6] c.m.v.v.C.ActiveToUserController         : ActiveToUser Added Status - null
+2022-03-08 17:04:10.801  INFO 17044 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 201
+2022-03-08 17:04:10.801  INFO 17044 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"id":4,"user_ids":3,"activity_ids":0}
+2022-03-08 17:04:14.118  INFO 17044 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/users 
+2022-03-08 17:04:14.119  INFO 17044 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-08 17:04:14.119  INFO 17044 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Body:  
+2022-03-08 17:04:14.129  INFO 17044 --- [http-nio-8090-exec-7] c.m.v.v.Controller.UserController        : All Users Returned - [User(id=2, name=xxx, email=asdcvö@donem.com, title=none, cellphone=3333, password=xxxx, activeToUsers=[ActiveToUser(id=2, user_ids=2, activity_ids=1)], userDetails=[]), User(id=3, name=asddsad, email=asdcvö@donem.com, title=none, cellphone=0540, password=qwe123, activeToUsers=[ActiveToUser(id=4, user_ids=3, activity_ids=0)], userDetails=[])]
+2022-03-08 17:04:14.130  INFO 17044 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-08 17:04:14.130  INFO 17044 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":2,"name":"xxx","email":"asdcvö@donem.com","title":"none","cellphone":"3333","password":"xxxx","activeToUsers":[{"id":2,"user_ids":2,"activity_ids":1}],"userDetails":[]},{"id":3,"name":"asddsad","email":"asdcvö@donem.com","title":"none","cellphone":"0540","password":"qwe123","activeToUsers":[{"id":4,"user_ids":3,"activity_ids":0}],"userDetails":[]}]
+2022-03-08 17:08:57.867  INFO 17044 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-08 17:08:57.912  INFO 17044 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-08 17:08:57.939  INFO 17044 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

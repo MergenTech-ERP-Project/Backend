@@ -49,12 +49,12 @@ public class CareerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(status);
     }
 
-   /* @PutMapping(value = "put/{id}")
+    @PutMapping(value = "put/{id}")
     public ResponseEntity<String> updateCareer(@PathVariable Long id, @RequestBody Career career) {
         String status = careerService.Update(id, career);
         log.info("Career Updated Status - {}",status);
         return ResponseEntity.ok(career.getAdmin_name() + " updated!");
-    }*/
+    }
 
     @DeleteMapping(value = "delete/{id}")
     public ResponseEntity<String> deleteCareer(@PathVariable() Long id){

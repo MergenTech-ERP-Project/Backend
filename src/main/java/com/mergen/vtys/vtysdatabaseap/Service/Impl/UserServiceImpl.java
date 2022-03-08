@@ -6,10 +6,8 @@ import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserService;
-import com.mergen.vtys.vtysdatabaseap.dto.UserDto;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 //import org.springframework.web.bind.annotation.*;
@@ -18,7 +16,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @Data
@@ -26,21 +23,17 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final ModelMapper modelMapper;
 
     @Query(value = "SELECT * from user", nativeQuery = true)
     @Override
-    public List<UserDto> getUserLists(){
-        List<User> userList = (List<User>) userRepository.findAll();
-        return userList.stream().map(user -> modelMapper.map(user,UserDto.class)).collect(Collectors.toList());
-    }
+    public List<User> getUserLists(){return (List<User>) userRepository.findAll();}
 
 
     @Override
-    public UserDto getUserById(Long id){
+    public Optional<User> getUserById(Long id){
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent()){
-            return modelMapper.map(user.get(),UserDto.class);
+            return user;
         }
         else
         throw new IllegalArgumentException(id + " Fail" + " And Get User by ID Fail!");
@@ -48,10 +41,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getUserByName(String name){
+    public Optional<User> getUserByName(String name){
         Optional<User> user = userRepository.findByName(name);
         if (user.isPresent()){
-            return modelMapper.map(user.get(),UserDto.class);
+            return user;
         }
         else
         throw new IllegalArgumentException(name + " Auth Fail");
@@ -59,10 +52,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getUserNameAndPassword(String name, String password) {
+    public Optional<User> getUserNameAndPassword(String name, String password) {
         Optional<User> user = userRepository.findNameAndPassword(name,password);
         if (user.isPresent()){
-            return modelMapper.map(user.get(),UserDto.class);
+            return user;
         }
         else
         throw new IllegalArgumentException(name + password + " Auth Fail!");
@@ -71,51 +64,42 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserDto getUserEmailAndPassword(String email, String password) {
+    public Optional<User> getUserEmailAndPassword(String email, String password) {
         Optional<User> user = userRepository.findEmailAndPassword(email,password);
         if (user.isPresent()){
-            return modelMapper.map(user.get(),UserDto.class);
+            return user;
         }
         else
             throw new IllegalArgumentException(email + password + " Auth Fail!");
 
     }
 
+    @Override
+    public User Create(User model) {
+        Optional<User> _user = userRepository.findEmailAndPassword(model.getEmail(),model.getPassword());
 
-
-
-
-        //  Optional<User> _user = userRepository.findEmailAndPassword(model.getEmail(),model.getPassword());
-
-     /*   if (!_user.isPresent()) {
+        if (!_user.isPresent()) {
             userRepository.save(model);
             return model;
         } else
-            throw new IllegalArgumentException(model + " Already Exist!");*/
-
-
-    @Override
-    public UserDto Create(UserDto model) {
-        User user = modelMapper.map(model,User.class);
-        return modelMapper.map(userRepository.save(user),UserDto.class);
+            throw new IllegalArgumentException(model + " Already Exist!");
     }
 
     @Override
-    public UserDto Update(Long id, UserDto model) {
-        User user = modelMapper.map(model,User.class);
+    public String Update(Long id, User model) {
         Optional<User> _user = userRepository.findById(id);
         if(_user.isPresent()){
-            userRepository.save(user);
-            return modelMapper.map(_user.get(),UserDto.class);}
+            userRepository.save(model);
+            return model.getName();}
         else
         throw new IllegalArgumentException(model + " Update Option Fail!");
     }
 
-
     @Override
     public String Delete(Long id) {
-        Optional<User> _user = userRepository.findById(id);
-        if(_user.isPresent()){
+        Optional<User> user = userRepository.findById(id);
+
+        if(user.isPresent()){
             userRepository.deleteById(id);
             return id.toString();}
         else
