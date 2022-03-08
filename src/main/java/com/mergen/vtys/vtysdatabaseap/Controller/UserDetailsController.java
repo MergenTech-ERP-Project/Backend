@@ -19,15 +19,19 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "userdetail")
-@RequiredArgsConstructor
+
 @Slf4j
 public class UserDetailsController {
 
-    @Autowired
+
     private final UserDetailsRepository userDetailsRepository;
 
-    @Autowired
     private final UserDetailsService userDetailsService;
+    public UserDetailsController(UserDetailsRepository userDetailsRepository, UserDetailsService userDetailsService) {
+        this.userDetailsRepository = userDetailsRepository;
+        this.userDetailsService = userDetailsService;
+    }
+
 
     @GetMapping(value = "/userdetails")
     public ResponseEntity<List<UserDetails>> getUserDetailsList(){
@@ -51,13 +55,13 @@ public class UserDetailsController {
         return ResponseEntity.status(HttpStatus.CREATED).body(status);
     }
 
-  /*  @PutMapping(value = "put/{id}")
+    @PutMapping(value = "put/{id}")
     public ResponseEntity<String> updateUserDetails(@PathVariable Long id, @RequestBody UserDetails userDetails) {
         String status = userDetailsService.Update(id, userDetails);
         log.info("User Detail Updated Status - {}",status);
         return ResponseEntity.ok(userDetails.getAddress() + " updated!");
     }
-*/
+
     @DeleteMapping(value = "delete/{id}")
     public ResponseEntity<String> deleteUserDetails(@PathVariable() Long id){
         String status = userDetailsService.Delete(id);

@@ -47,12 +47,12 @@ public class BranchController {
         return  ResponseEntity.status(HttpStatus.CREATED).body(branch);
     }
 
-   /* @PutMapping(value = "put/{id}")
+    @PutMapping(value = "put/{id}")
     public ResponseEntity<String> updateBranch(@PathVariable Long id, @RequestBody Branch branch) {
         String status = branchService.Update(id,branch);
         log.info("Branch Updated Status - {}",status);
         return ResponseEntity.ok(branch.getBranch_name() + " updated!");
-    }*/
+    }
 
     @DeleteMapping(value = "delete/{id}")
     public ResponseEntity<String> deleteBranch(@PathVariable() Long id) {

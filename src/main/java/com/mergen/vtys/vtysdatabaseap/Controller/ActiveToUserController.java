@@ -60,12 +60,12 @@ public class ActiveToUserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(activetouser);
     }
 
-   /* @PutMapping(value = "put/{id}")
+    @PutMapping(value = "put/{id}")
     public ResponseEntity<String> updateActiveToUser(@PathVariable Long id, @RequestBody ActiveToUser activetouser) {
         String status = activeToUserService.Update(id,activetouser);
         log.info("ActiveToUser Updated Status - {}",status);
         return ResponseEntity.ok("ActiveToUser updated!");
-    }*/
+    }
 
     @DeleteMapping(value = "delete/{id}")
     public ResponseEntity<String> deleteActivityToUser(@PathVariable() Long id) {

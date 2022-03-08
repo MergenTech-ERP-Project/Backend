@@ -49,12 +49,12 @@ public class ActivityController {
         return ResponseEntity.status(HttpStatus.CREATED).body(activity);
     }
 
-  /*  @PutMapping(value = "put/{id}")
+    @PutMapping(value = "put/{id}")
     public ResponseEntity<String> updateActivity(@PathVariable Long id, @RequestBody Activity activity) {
         String status = activityService.Update(id,activity);
         log.info("Activity Updated Status - {}",status);
         return ResponseEntity.ok("Activity updated!");
-    }*/
+    }
 
     @DeleteMapping(value = "delete/{id}")
     public ResponseEntity<String> deleteActivity(@PathVariable() Long id) {
