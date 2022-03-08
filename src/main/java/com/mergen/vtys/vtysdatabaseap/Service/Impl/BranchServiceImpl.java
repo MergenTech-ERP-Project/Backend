@@ -40,12 +40,13 @@ public class BranchServiceImpl implements BranchService {
         return model;
     }
 
-    @Override
-    public String Update(Long id, Branch model) {
+  @Override
+    public Branch Update(Long id, Branch model) {
         Optional<Branch> _branch = branchRepository.findById(id);
         if(_branch.isPresent()){
             branchRepository.save(model);
-            return model.getBranch_name();
+           return null;
+            //return model.getBranch_name();
         }
         else
         throw  new IllegalArgumentException(model + " Update Option Fail!");

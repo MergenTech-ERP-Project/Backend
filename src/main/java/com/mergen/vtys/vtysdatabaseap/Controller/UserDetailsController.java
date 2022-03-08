@@ -51,13 +51,13 @@ public class UserDetailsController {
         return ResponseEntity.status(HttpStatus.CREATED).body(status);
     }
 
-    @PutMapping(value = "put/{id}")
+  /*  @PutMapping(value = "put/{id}")
     public ResponseEntity<String> updateUserDetails(@PathVariable Long id, @RequestBody UserDetails userDetails) {
         String status = userDetailsService.Update(id, userDetails);
         log.info("User Detail Updated Status - {}",status);
         return ResponseEntity.ok(userDetails.getAddress() + " updated!");
     }
-
+*/
     @DeleteMapping(value = "delete/{id}")
     public ResponseEntity<String> deleteUserDetails(@PathVariable() Long id){
         String status = userDetailsService.Delete(id);

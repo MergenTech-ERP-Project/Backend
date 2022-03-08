@@ -43,14 +43,14 @@ public class ActivityEvaluationServiceImpl implements ActivityEvaluationService 
     }
 
     @Override
-    public String Update(Long id, ActivityEvaluation model) {
+    public ActivityEvaluation Update(Long id, ActivityEvaluation model) {
         Optional<ActivityEvaluation> _activityEvaluation = activityEvaluationRepository.findById(id);
         if(_activityEvaluation.isPresent()){
             activityEvaluationRepository.save(model);
-            return model.getEvaluation();}
+            return null;}
+            //return model.getEvaluation();}
        throw new IllegalArgumentException(model + " Update Option Fail!");
     }
-
     @Override
     public String Delete(Long id) {
         Optional<ActivityEvaluation> activityEvaluation = activityEvaluationRepository.findById(id);

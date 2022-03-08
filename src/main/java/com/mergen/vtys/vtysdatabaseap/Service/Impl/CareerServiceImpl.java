@@ -48,11 +48,13 @@ public class CareerServiceImpl implements CareerService {
     }
 
     @Override
-    public String Update(Long id, Career model) {
+    public Career Update(Long id, Career model) {
         Optional<Career> career = careerRepository.findById(id);
         if(career.isPresent()){
             careerRepository.save(model);
-            return model.getAdmin_name();}
+
+            return null;}
+            //return model.getAdmin_name();}
         else
             throw new IllegalArgumentException(model + " Update Option Fail!");
     }
