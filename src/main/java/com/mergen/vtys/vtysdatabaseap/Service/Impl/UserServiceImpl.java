@@ -2,6 +2,8 @@ package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
 import com.mergen.vtys.vtysdatabaseap.Advice.ExpectionResponse;
 import com.mergen.vtys.vtysdatabaseap.Model.User;
+import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
+import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserService;
 import lombok.Data;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 //import org.springframework.web.bind.annotation.*;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +27,7 @@ public class UserServiceImpl implements UserService {
     @Query(value = "SELECT * from user", nativeQuery = true)
     @Override
     public List<User> getUserLists(){return (List<User>) userRepository.findAll();}
+
 
     @Override
     public Optional<User> getUserById(Long id){

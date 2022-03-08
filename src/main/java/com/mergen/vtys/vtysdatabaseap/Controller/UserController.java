@@ -3,19 +3,18 @@ package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
 import com.mergen.vtys.vtysdatabaseap.Model.User;
+import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.ActivityService;
+import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
 import com.mergen.vtys.vtysdatabaseap.Service.UserService;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,11 +31,14 @@ public class UserController {
 
     private final UserService userService;
 
+    private  final UserDetailsService userDetailsService;
+
     @Autowired
-    public UserController(UserService userService, ActivityService activityService, UserRepository userRepository) {
+    public UserController(UserService userService, ActivityService activityService, UserRepository userRepository, UserDetailsService userDetailsService) {
         this.userService = userService;
         this.activityService = activityService;
         this.userRepository = userRepository;
+        this.userDetailsService = userDetailsService;
     }
 
     @GetMapping(value = "/users")
@@ -78,10 +80,13 @@ public class UserController {
 
     @PostMapping(value = "/post")
     public ResponseEntity<User> createUser(@RequestBody User user){
+
         User status = userService.Create(user);
         log.info("User Added Status - {}",status);
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
+
+
 
     @PutMapping(value = "/put/{id}")
     public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User user) {

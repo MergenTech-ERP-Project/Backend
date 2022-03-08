@@ -1,5 +1,6 @@
 package com.mergen.vtys.vtysdatabaseap.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mergen.vtys.vtysdatabaseap.Domain.MaritalStatus;
 
 import lombok.AllArgsConstructor;
@@ -22,10 +23,9 @@ import java.util.List;
 @NoArgsConstructor
 public class User{
     @Id
-    @SequenceGenerator(name="identifier", sequenceName="mytable_id_seq", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id",nullable = false,updatable = false)
-    private int id;
+    private Long id;
 
     @Column
     private  String name;
@@ -38,8 +38,8 @@ public class User{
     private String cellphone;
     @Column
     private String password;
-    @Column
-    private int tc_no;
+
+
 
     //@JsonIgnore
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "user_ids")
@@ -48,11 +48,21 @@ public class User{
     private List<ActiveToUser> activeToUsers=new ArrayList<>();
 
 
-//    @OneToOne(fetch = FetchType.LAZY,
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user_id")
+    @Fetch(value = FetchMode.SUBSELECT)
+    //@JsonManagedReference(value = "user_json_managed")
+    private List<UserDetails> userDetails=new ArrayList<>();
+
+
+
+//    @OneToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+//    //@PrimaryKeyJoinColumn
+//    @JoinColumn(name = "userDetails_id", referencedColumnName = "id")
+//    private UserDetails userDetails;
+
+    //    @OneToOne(fetch = FetchType.LAZY,
 //            cascade =  CascadeType.ALL,
 //            mappedBy = "tc_no")
 //    private UserDetails userDetails;
-
-
 
 }

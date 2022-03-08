@@ -27,9 +27,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="cellphone" type="varchar(15)">
                 <constraints nullable="true"/>
             </column>
-            <column name="tc_no" type="int">
-                <constraints nullable="false"/>
-            </column>
+
 
         </createTable>
 
@@ -122,14 +120,17 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
     <changeSet id="54556456" author="fatih">
     <createTable
                  tableName="userdetails">
-        <column name="tc_no" type="int">
+        <column name="id" type="tinyint">
             <constraints primaryKey="true"/>
         </column>
+        <column name="tc_no" type="varchar(11)">
+            <constraints nullable="true"/>
+        </column>
         <column name="dateofbirth" type="varchar(15)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="maritalstatus" type="varchar(20)">
-            <constraints nullable="false" />
+            <constraints nullable="true" />
         </column>
         <column name="numberofkids" type="tinyint">
             <constraints nullable="true"/>
@@ -138,7 +139,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <constraints nullable="true"/>
         </column>
         <column name="gender" type="varchar(10)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="education_status" type="varchar(25)">
             <constraints nullable="true"/>
@@ -150,28 +151,28 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <constraints nullable="true"/>
         </column>
         <column name="employment_type" type="varchar(20)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="military_service_status" type="varchar(25)">
             <constraints nullable="true"/>
         </column>
         <column name="date_of_start" type="varchar(20)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="contract_type" type="varchar(20)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="contract_end_date" type="varchar(25)">
             <constraints nullable="true"/>
         </column>
         <column name="work_email" type="varchar(25)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="address"  type="varchar(60)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="blood_type" type="varchar(50)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="home_telephone" type="varchar(20)">
             <constraints nullable="true"/>
@@ -180,37 +181,37 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <constraints nullable="true"/>
         </column>
         <column name="country" type="varchar(20)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="city" type="varchar(20)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="zip_code" type="varchar(10)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="address_district" type="varchar(30)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="bank_name" type="varchar(25)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="bank_account_type" type="varchar(20)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="bank_account_number" type="varchar(30)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="iban" type="varchar(25)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="emergency_contact" type="varchar(25)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="relationship_emergency_contact" type="varchar(25)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="emergency_contact_phone" type="varchar(25)">
-            <constraints nullable="false"/>
+            <constraints nullable="true"/>
         </column>
         <column name="quit_date" type="varchar(30)">
             <constraints nullable="true"/>
@@ -219,6 +220,9 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <constraints nullable="true"/>
         </column>
         <column name="quit_explanation" type="varchar(25)">
+            <constraints nullable="true"/>
+        </column>
+        <column name="user_id" type="tinyint">
             <constraints nullable="true"/>
         </column>
     </createTable>
@@ -248,6 +252,9 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="food_support_fee" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
+            <column name="user_id" type="tinyint">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
 
     </changeSet>
@@ -275,6 +282,9 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             </column>
             <column name="unit_title" type="varchar(50)">
                 <constraints nullable="false"/>
+            </column>
+            <column name="user_detail_id" type="tinyint">
+                <constraints nullable="true"/>
             </column>
         </createTable>
 
@@ -307,20 +317,20 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                                   validate="true"/>
 
     </changeSet>
-    <changeSet  author="Fatih"  id="26LOFUNd">
-        <addForeignKeyConstraint  baseColumnNames="tc_no"
-                                  baseTableName="userdetails"
-                                  baseTableSchemaName="public"
-                                  constraintName="fk_tc_no_user_payments"
-                                  onDelete="CASCADE"
-                                  deferrable="true"
-                                  onUpdate="CASCADE"
-                                  referencedColumnNames="id"
-                                  referencedTableName="user"
-                                  referencedTableSchemaName="public"
-                                  validate="true"/>
+<!--    <changeSet  author="Fatih"  id="26LOFUNd">-->
+<!--        <addForeignKeyConstraint  baseColumnNames="tc_no"-->
+<!--                                  baseTableName="userdetails"-->
+<!--                                  baseTableSchemaName="public"-->
+<!--                                  constraintName="fk_tc_no_user_payments"-->
+<!--                                  onDelete="CASCADE"-->
+<!--                                  deferrable="true"-->
+<!--                                  onUpdate="CASCADE"-->
+<!--                                  referencedColumnNames="id"-->
+<!--                                  referencedTableName="user"-->
+<!--                                  referencedTableSchemaName="public"-->
+<!--                                  validate="true"/>-->
 
-    </changeSet>
+<!--    </changeSet>-->
 
 
 </databaseChangeLog>
