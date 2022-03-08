@@ -1,5 +1,6 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
+import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -30,6 +32,11 @@ public class UserDetailsImpl implements UserDetailsService {
 
     @Override
     public UserDetails Create(UserDetails model) {
+
+        if(userDetailsRepository.existsByEmail(model.getTc_no())){
+            throw new IllegalArgumentException("TC No Saved Before");
+        }
+        else
         userDetailsRepository.save(model);
         return model;
     }
@@ -55,9 +62,9 @@ public class UserDetailsImpl implements UserDetailsService {
             throw new IllegalArgumentException(" Delete Option Fail!");
     }
 
-
+    @Override
     public List<UserDetails> getUserDetailsList() {
-        return (List<UserDetails>) userDetailsRepository.findAll();
+        return userDetailsRepository.findAll();
     }
 
 }

@@ -17,5 +17,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Query(value = "SELECT * from public.user u Where u.email = ?1 and u.password = ?2", nativeQuery = true)
     Optional<User> findEmailAndPassword(String email,String password);
 
+
+
 }
 

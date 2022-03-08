@@ -1,23 +1,32 @@
 package com.mergen.vtys.vtysdatabaseap.Model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.mergen.vtys.vtysdatabaseap.Domain.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
 @Table(name = "userdetails",schema = "public")
 @RequiredArgsConstructor
-@AllArgsConstructor
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@userid")
 public class UserDetails {
     @Id
-    @Column(name = "tc_no",nullable = false,updatable = false)
-    private int tc_no;
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id",nullable = false,updatable = false)
+    private Long id;
+    @Column
+    private String tc_no;
     @Column
     private String dateofbirth;
     @Column
@@ -92,8 +101,18 @@ public class UserDetails {
     private String quit_reason_type;
     @Column
     private String quit_explanation;
+    @Column
+    private Long user_id;
 
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user_detail_id")
+    @Fetch(value = FetchMode.SUBSELECT)
+    //@JsonManagedReference(value = "user_json_managed")
+    private List<Career> careers=new ArrayList<>();
 
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user_detail_id")
+    @Fetch(value = FetchMode.SUBSELECT)
+    //@JsonManagedReference(value = "user_json_managed")
+    private List<Payments> payments=new ArrayList<>();
 
 }
 

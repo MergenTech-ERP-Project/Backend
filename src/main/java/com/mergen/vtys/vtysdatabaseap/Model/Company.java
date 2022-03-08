@@ -30,6 +30,8 @@ public class Company {
     @Column
     private String sgk_company_no;
 
+
+
 }
 
 

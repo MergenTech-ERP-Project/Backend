@@ -36,6 +36,11 @@ public class Payments {
     @Column
     private String food_support_fee;
 
+    @Column
+    private Long user_detail_id;
+
+
+
 }
 
     

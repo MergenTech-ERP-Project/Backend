@@ -33,4 +33,7 @@ public class Career {
         @Column
         private String unit_title;
 
+        @Column
+        private Long user_detail_id;
+
 }
