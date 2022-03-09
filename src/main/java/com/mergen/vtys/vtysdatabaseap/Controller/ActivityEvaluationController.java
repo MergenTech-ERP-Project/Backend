@@ -26,35 +26,35 @@ public class ActivityEvaluationController {
     @Autowired
     private ActivityEvaluationService activityEvaluationService;
 
-    @GetMapping(value = "evaluations")
+    @GetMapping(value = "list")
     public ResponseEntity<List<ActivityEvaluation>> getActivityEvaluationList(){
         List<ActivityEvaluation> activityEvaluationList = activityEvaluationService.getActivityEvaluationList();
         log.info("All Activity Evaluations Returned - {}",activityEvaluationList);
         return ResponseEntity.ok(activityEvaluationList);
     }
 
-    @GetMapping(value = "evaluations/{id}")
+    @GetMapping(value = "list/{id}")
     public ResponseEntity<Optional<ActivityEvaluation>> getActivityEvaluationById(@PathVariable Long id){
         Optional<ActivityEvaluation> status = activityEvaluationService.getActivityEvaluationById(id);
         log.info("Activity Evaluation Got by ID Status - {}",status);
         return ResponseEntity.ok(status);
     }
 
-    @PostMapping(value = "post")
+    @PostMapping(value = "new")
     public ResponseEntity<ActivityEvaluation> createActivityEvaluation(@RequestBody ActivityEvaluation activityEvaluation){
         ActivityEvaluation status = activityEvaluationService.Create(activityEvaluation);
         log.info("Activity Evaluation Added Status - {}",status);
         return ResponseEntity.status(HttpStatus.CREATED).body(activityEvaluation);
     }
 
-    @PutMapping(value = "put/{id}")
+    @PutMapping(value = "update/{id}")
     public ResponseEntity<String> updateActivityEvaluation(@PathVariable Long id, @RequestBody ActivityEvaluation activityEvaluation){
         String status = activityEvaluationService.Update(id,activityEvaluation);
         log.info("Activity Evaluation Updated Status - {}",status);
         return ResponseEntity.ok(activityEvaluation.getEvaluation() + " updated!");
     }
 
-    @DeleteMapping(value = "delete/{id}")
+    @DeleteMapping(value = "remove/{id}")
     public ResponseEntity<String> deleteActivityEvaluation(@PathVariable() Long id){
         String status = activityEvaluationService.Delete(id);
         log.info("Activity Evaluation Deleted Status - {}",status);
