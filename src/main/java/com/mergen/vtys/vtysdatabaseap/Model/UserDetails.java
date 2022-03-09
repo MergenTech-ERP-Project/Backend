@@ -111,8 +111,11 @@ public class UserDetails {
 
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "user_detail_id")
     @Fetch(value = FetchMode.SUBSELECT)
-    //@JsonManagedReference(value = "user_json_managed")
     private List<Payments> payments=new ArrayList<>();
+
+    @ManyToMany(fetch = FetchType.EAGER,mappedBy = "user_detail_id")
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<Branch> branch=new ArrayList<>();
 
 }
 

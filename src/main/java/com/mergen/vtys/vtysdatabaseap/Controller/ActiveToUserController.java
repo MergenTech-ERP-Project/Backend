@@ -22,17 +22,20 @@ import java.util.Optional;
 @Slf4j
 public class ActiveToUserController {
 
-    @Autowired
     private ActiveToUserService activeToUserService;
 
-    @GetMapping(value = "activetousers")
+    public ActiveToUserController(ActiveToUserService activeToUserService) {
+        this.activeToUserService = activeToUserService;
+    }
+
+    @GetMapping(value = "list")
     public ResponseEntity<List<ActiveToUser>> getActivityList() {
         List<ActiveToUser> activeToUserList =  activeToUserService.getActivityList();
         log.info("All ActiveToUsers Returned - {}",activeToUserList);
         return ResponseEntity.ok(activeToUserList);
     }
 
-    @GetMapping(value = "activetouser/{id}")
+    @GetMapping(value = "list/{id}")
     public ResponseEntity<Optional<ActiveToUser>> getActivityById(@PathVariable Long id) {
         Optional<ActiveToUser> status = activeToUserService.getActivityById(id);
         log.info("ActiveToUser Got by ID Status - {}",status);
@@ -53,21 +56,21 @@ public class ActiveToUserController {
         return ResponseEntity.ok(longList);
     }
 
-    @PostMapping(value = "post")
+    @PostMapping(value = "new")
     public ResponseEntity<ActiveToUser> CreateActiveoUser(@RequestBody ActiveToUser activetouser) {
         ActiveToUser status = activeToUserService.Create(activetouser);
         log.info("ActiveToUser Added Status - {}",status);
         return ResponseEntity.status(HttpStatus.CREATED).body(activetouser);
     }
 
-    @PutMapping(value = "put/{id}")
+    @PutMapping(value = "update/{id}")
     public ResponseEntity<String> updateActiveToUser(@PathVariable Long id, @RequestBody ActiveToUser activetouser) {
         String status = activeToUserService.Update(id,activetouser);
         log.info("ActiveToUser Updated Status - {}",status);
         return ResponseEntity.ok("ActiveToUser updated!");
     }
 
-    @DeleteMapping(value = "delete/{id}")
+    @DeleteMapping(value = "remove/{id}")
     public ResponseEntity<String> deleteActivityToUser(@PathVariable() Long id) {
         String status = activeToUserService.Delete(id);
         log.info("ActiveToUser Deleted Status - {}",status);

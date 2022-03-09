@@ -103,16 +103,19 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                 <constraints primaryKey="true"/>
             </column>
             <column name="branch_name" type="varchar(50)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <column name="branch_upper" type="varchar(20)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="rules" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="vacation_dates" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
+            </column>
+            <column name="user_detail_id" type="tinyint">
+                <constraints nullable="true"/>
             </column>
         </createTable>
 

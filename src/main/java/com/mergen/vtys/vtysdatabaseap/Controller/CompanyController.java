@@ -19,41 +19,43 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "company")
-@RequiredArgsConstructor
 @Slf4j
 public class CompanyController {
 
-    @Autowired
     private final CompanyService companyService;
 
-    @GetMapping(value = "/companies")
+    public CompanyController(CompanyService companyService) {
+        this.companyService = companyService;
+    }
+
+    @GetMapping(value = "/list")
     public ResponseEntity<List<Company>> getCompanyList() {
         List<Company> companyList = companyService.getCompanyList();
         log.info("All Companies Returned - {}", companyList);
         return ResponseEntity.ok(companyList);
     }
 
-    @GetMapping(value = "/companies/{id}")
+    @GetMapping(value = "/list/{id}")
     public ResponseEntity<Optional<Company>> getCompanyByID(@PathVariable Long id) {
         Optional<Company> status = companyService.getCompanyByID(id);
         log.info("Company Got by ID Status - {}",status);
         return ResponseEntity.ok(status);
     }
 
-    @PostMapping(value = "/post")
+    @PostMapping(value = "/new")
     public ResponseEntity<Company> createCompany(@RequestBody Company company) {
         Company status = companyService.Create(company);
         log.info("Company Added Status - {}",status);
         return  ResponseEntity.status(HttpStatus.CREATED).body(company);
     }
 
-    @PutMapping(value = "/put/{id}")
+    @PutMapping(value = "/update/{id}")
     public ResponseEntity<String> updateCompany(@PathVariable Long id, @RequestBody Company company){
         String status = companyService.Update(id,company);
         log.info("Company Updated Status - {}",status);
         return ResponseEntity.ok(company.getCompany_name() + " updated!");
     }
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/remove/{id}")
     public ResponseEntity<String> deleteCompany(@PathVariable() Long id) {
         String status = companyService.Delete(id);
         log.info("Company Deleted Status - {}",status);

@@ -40,7 +40,6 @@ public class User{
     private String password;
 
 
-
     //@JsonIgnore
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "user_ids")
     @Fetch(value = FetchMode.SUBSELECT)

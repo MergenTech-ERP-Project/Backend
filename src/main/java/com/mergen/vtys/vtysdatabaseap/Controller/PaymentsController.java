@@ -54,13 +54,13 @@ public class PaymentsController {
         return  ResponseEntity.status(HttpStatus.CREATED).body(payments);
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("remove/{id}")
     public ResponseEntity<String> deletePayments(@PathVariable Long id){
         String status = paymentsService.Delete(id);
         log.info("Payments Deleted Status - {}",status);
         return ResponseEntity.ok(id + "th Payments Deleted");
     }
-    @PutMapping("/put/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<String> updatePayments(@PathVariable Long id,@RequestBody Payments payments){
         String status = paymentsService.Update(id,payments);
         log.info("Payments Updated - {}",status);
