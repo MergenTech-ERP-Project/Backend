@@ -33,7 +33,7 @@ public class UserDetailsController {
     }
 
 
-    @GetMapping(value = "/userdetails")
+    @GetMapping(value = "/list")
     public ResponseEntity<List<UserDetails>> getUserDetailsList(){
         List<UserDetails> userDetailsList = userDetailsService.getUserDetailsList();
         log.info("All User Details Returned - {}",userDetailsList);
@@ -41,28 +41,28 @@ public class UserDetailsController {
     }
 
 
-    @GetMapping(value = "userdetails/{id}")
+    @GetMapping(value = "list/{id}")
     public ResponseEntity<Optional<UserDetails>> getUserDetailsById(@PathVariable Long id){
          Optional<UserDetails> status = userDetailsService.getUserDetailsById(id);
         log.info("User Detail Got by Name Status - {}",status);
         return  ResponseEntity.ok(status);
     }
 
-    @PostMapping(value = "/post")
+    @PostMapping(value = "/new")
     public ResponseEntity<UserDetails> createUserDetails(@RequestBody UserDetails userDetails){
         UserDetails status = userDetailsService.Create(userDetails);
         log.info("User Detail Added Status - {}",status);
         return ResponseEntity.status(HttpStatus.CREATED).body(status);
     }
 
-    @PutMapping(value = "put/{id}")
+    @PutMapping(value = "update/{id}")
     public ResponseEntity<String> updateUserDetails(@PathVariable Long id, @RequestBody UserDetails userDetails) {
         String status = userDetailsService.Update(id, userDetails);
         log.info("User Detail Updated Status - {}",status);
         return ResponseEntity.ok(userDetails.getAddress() + " updated!");
     }
 
-    @DeleteMapping(value = "delete/{id}")
+    @DeleteMapping(value = "remove/{id}")
     public ResponseEntity<String> deleteUserDetails(@PathVariable() Long id){
         String status = userDetailsService.Delete(id);
         log.info("User Detail Deleted Status - {}",status);

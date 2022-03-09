@@ -33,7 +33,7 @@ public class UserController {
 
     private  final UserDetailsService userDetailsService;
 
-    @Autowired
+
     public UserController(UserService userService, ActivityService activityService, UserRepository userRepository, UserDetailsService userDetailsService) {
         this.userService = userService;
         this.activityService = activityService;
@@ -41,14 +41,14 @@ public class UserController {
         this.userDetailsService = userDetailsService;
     }
 
-    @GetMapping(value = "/users")
+    @GetMapping(value = "/list")
     public ResponseEntity<List<User>> getUserList(){
         List<User> userList = userService.getUserLists();
         log.info("All Users Returned - {}", userList);
         return ResponseEntity.ok(userList);
     }
 
-    @GetMapping(value = "/users/{id}")
+    @GetMapping(value = "/list/{id}")
     public ResponseEntity<Optional<User>> getUserById(@PathVariable Long id){
         Optional<User> status = userService.getUserById(id);
         log.info("User Got by ID Status - {}",status);
@@ -78,7 +78,7 @@ public class UserController {
     }
 
 
-    @PostMapping(value = "/post")
+    @PostMapping(value = "/new")
     public ResponseEntity<User> createUser(@RequestBody User user){
 
         User status = userService.Create(user);
@@ -88,7 +88,7 @@ public class UserController {
 
 
 
-    @PutMapping(value = "/put/{id}")
+    @PutMapping(value = "/update/{id}")
     public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User user) {
 
         String status = userService.Update(id, user);
@@ -97,7 +97,7 @@ public class UserController {
 
     }
 
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/remove/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable() Long id){
         String status = userService.Delete(id);
         log.info("User Deleted Status - {}",status);

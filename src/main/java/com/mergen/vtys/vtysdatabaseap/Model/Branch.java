@@ -31,6 +31,9 @@ public class Branch {
     @Column
     private String vacation_dates;
 
+    @Column
+    private Long user_detail_id;
+
 }
 
     

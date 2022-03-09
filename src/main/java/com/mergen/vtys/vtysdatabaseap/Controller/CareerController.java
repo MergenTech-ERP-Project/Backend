@@ -27,7 +27,7 @@ public class CareerController {
     @Autowired
     private final CareerService careerService;
 
-    @GetMapping(value = "/careers")
+    @GetMapping(value = "/list")
     public ResponseEntity<List<Career>> getCareersList(){
         List<Career> careerList = careerService.getCareerList();
         log.info("All Careers Returned - {}",careerList);
@@ -35,28 +35,28 @@ public class CareerController {
     }
 
 
-    @GetMapping(value = "careers/{id}")
+        @GetMapping(value = "list/{id}")
     public ResponseEntity<Optional<Career>> getCareersById(@PathVariable Long id){
         Optional<Career> status = careerService.getCareerById(id);
         log.info("Career Got by Name Status - {}",status);
         return  ResponseEntity.ok(status);
     }
 
-    @PostMapping(value = "/post")
+    @PostMapping(value = "/new")
     public ResponseEntity<Career> createCareer(@RequestBody Career career){
         Career status = careerService.Create(career);
         log.info("Career Added Status - {}",status);
         return ResponseEntity.status(HttpStatus.CREATED).body(status);
     }
 
-    @PutMapping(value = "put/{id}")
+    @PutMapping(value = "update/{id}")
     public ResponseEntity<String> updateCareer(@PathVariable Long id, @RequestBody Career career) {
         String status = careerService.Update(id, career);
         log.info("Career Updated Status - {}",status);
         return ResponseEntity.ok(career.getAdmin_name() + " updated!");
     }
 
-    @DeleteMapping(value = "delete/{id}")
+    @DeleteMapping(value = "remove/{id}")
     public ResponseEntity<String> deleteCareer(@PathVariable() Long id){
         String status = careerService.Delete(id);
         log.info("Career Deleted Status - {}",status);

@@ -25,38 +25,41 @@ import java.util.Optional;
 @Slf4j
 public class ActivityController {
 
-    @Autowired
     private ActivityService activityService;
 
-    @GetMapping(value = "activities")
+    public ActivityController(ActivityService activityService) {
+        this.activityService = activityService;
+    }
+
+    @GetMapping(value = "list")
     public ResponseEntity<List<Activity>> getActivityList() {
         List<Activity> activityList =  activityService.getActivityList();
         log.info("All Activities Returned - {}",activityList);
         return ResponseEntity.ok(activityList);
     }
 
-    @GetMapping(value = "activities/{id}")
+    @GetMapping(value = "list/{id}")
     public ResponseEntity<Optional<Activity>> getActivityById(@PathVariable Long id) {
         Optional<Activity> status = activityService.getActivityById(id);
         log.info("Activity Got by ID Status - {}",status);
         return ResponseEntity.ok(status);
     }
 
-    @PostMapping(value = "post")
+    @PostMapping(value = "new")
     public ResponseEntity<Activity> createActivity(@RequestBody Activity activity) {
         Activity status = activityService.Create(activity);
         log.info("Activity Added Status - {}",status);
         return ResponseEntity.status(HttpStatus.CREATED).body(activity);
     }
 
-    @PutMapping(value = "put/{id}")
+    @PutMapping(value = "update/{id}")
     public ResponseEntity<String> updateActivity(@PathVariable Long id, @RequestBody Activity activity) {
         String status = activityService.Update(id,activity);
         log.info("Activity Updated Status - {}",status);
         return ResponseEntity.ok("Activity updated!");
     }
 
-    @DeleteMapping(value = "delete/{id}")
+    @DeleteMapping(value = "remove/{id}")
     public ResponseEntity<String> deleteActivity(@PathVariable() Long id) {
         String status = activityService.Delete(id);
         log.info("Activity Deleted Status - {}",status);
