@@ -3,8 +3,12 @@ package com.mergen.vtys.vtysdatabaseap.Model;
 
 
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="company", schema = "public")
@@ -30,6 +34,12 @@ public class Company {
     @Column
     private String sgk_company_no;
 
+    @Column
+    private Long company_id_from_career;
+
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "company_id")
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<Branch> branch=new ArrayList<>();
 
 
 }

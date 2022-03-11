@@ -113,9 +113,7 @@ public class UserDetails {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Payments> payments=new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.EAGER,mappedBy = "user_detail_id")
-    @Fetch(value = FetchMode.SUBSELECT)
-    private List<Branch> branch=new ArrayList<>();
+
 
 }
 

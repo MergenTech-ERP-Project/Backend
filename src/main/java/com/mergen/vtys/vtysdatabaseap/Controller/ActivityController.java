@@ -21,7 +21,6 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("activity")
-@RequiredArgsConstructor
 @Slf4j
 public class ActivityController {
 

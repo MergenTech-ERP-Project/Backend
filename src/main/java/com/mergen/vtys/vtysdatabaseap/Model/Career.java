@@ -1,8 +1,13 @@
 package com.mergen.vtys.vtysdatabaseap.Model;
 
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.nio.charset.CoderMalfunctionError;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="career", schema = "public")
@@ -10,9 +15,9 @@ import javax.persistence.*;
 public class Career {
 
         @Id
-        @SequenceGenerator(name="identifier", sequenceName="mytable_id_seq", allocationSize=1)
-        @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier")
-        @Column(name ="id",nullable = false,updatable = false)
+        @SequenceGenerator(name = "identifier", sequenceName = "mytable_id_seq", allocationSize = 1)
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "identifier")
+        @Column(name = "id", nullable = false, updatable = false)
         private Long id;
 
         @Column
@@ -36,4 +41,13 @@ public class Career {
         @Column
         private Long user_detail_id;
 
+       /* @OneToMany(fetch = FetchType.EAGER,mappedBy = "company_id_from_career")
+        @Fetch(value = FetchMode.SUBSELECT)
+        @JoinTable(name = "easy")
+        private List<Company> companies=new ArrayList<>();
+*/
+       @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+       @JoinTable(name ="usercareer", joinColumns = @JoinColumn(name = "company_id", referencedColumnName = "id", nullable = true),
+               inverseJoinColumns = @JoinColumn(name = "career_id", referencedColumnName = "id", nullable = true))
+       private List<Company> companies = new ArrayList<>();
 }
