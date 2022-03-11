@@ -95,6 +95,9 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="sgk_company_no" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
+            <column name="company_id_from_career" type="tinyint">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
 
 
@@ -114,7 +117,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="vacation_dates" type="varchar(50)">
                 <constraints nullable="true"/>
             </column>
-            <column name="user_detail_id" type="tinyint">
+            <column name="company_id" type="tinyint">
                 <constraints nullable="true"/>
             </column>
         </createTable>
@@ -335,5 +338,44 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
 
 <!--    </changeSet>-->
 
+    <changeSet  author="Fatih"  id="5568HL">
+        <createTable tableName="department">
+            <column name="id" type="tinyint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="department_name" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+            <column name="branch_id" type="tinyint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="title">
+            <column name="id" type="tinyint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title_name" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+            <column name="department_id" type="tinyint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+   <changeSet id="2255lpl" author="fatih">
+       <createTable tableName="usercareer">
+           <column name="id" type="tinyint">
+               <constraints primaryKey="true"></constraints>
+           </column>
+           <column name="company_id" type="tinyint">
+               <constraints nullable="true" ></constraints>
+           </column>
+           <column name="career_id" type="tinyint">
+               <constraints nullable="true"></constraints>
+           </column>
+       </createTable>
+   </changeSet>
 
 </databaseChangeLog>

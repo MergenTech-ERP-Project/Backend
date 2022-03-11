@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @Service
 @Data
-@RequiredArgsConstructor
 public class ActivityServiceImpl implements ActivityService {
 
     private final ActivityRepository activityRepository;

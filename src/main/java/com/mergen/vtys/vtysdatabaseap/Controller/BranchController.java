@@ -19,11 +19,11 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("branch")
-@RequiredArgsConstructor
 @Slf4j
 public class BranchController {
 
     private BranchService branchService;
+
 
     public BranchController(BranchService branchService) {
         this.branchService = branchService;

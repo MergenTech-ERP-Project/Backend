@@ -47,7 +47,7 @@ public class PaymentsController {
         return ResponseEntity.ok(status);
     }
 
-    @PostMapping(value = "post")
+    @PostMapping(value = "new")
     public ResponseEntity<Payments> createPayments(@RequestBody Payments payments){
         Payments status = paymentsService.Create(payments);
         log.info("Payments Added Status - {}",status);
