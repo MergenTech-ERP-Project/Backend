@@ -6,6 +6,7 @@ import com.mergen.vtys.vtysdatabaseap.Repository.BranchRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.BranchService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -60,4 +61,13 @@ public class BranchServiceImpl implements BranchService {
         else
         throw new IllegalArgumentException(" Delete Option Fail!");
     }
+    @Override
+    public List<Branch> FindByCompanyid(@Param("company_id") Long company_id) {
+        try {
+            return branchRepository.FindByCompanyid(company_id);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(" Internal Server Error!");
+        }
+    }
+
 }

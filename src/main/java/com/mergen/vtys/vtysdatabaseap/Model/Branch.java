@@ -14,8 +14,6 @@ import java.util.List;
 @Entity
 @Table(name="branch", schema="public")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Branch {
     @Id
     @SequenceGenerator(name="identifier", sequenceName="mytable_id_seq", allocationSize=1)

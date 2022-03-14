@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 import java.util.Objects;
@@ -65,4 +66,15 @@ public class UserDetailsImpl implements UserDetailsService {
         return userDetailsRepository.findAll();
     }
 
+    @Override
+    public   Optional<UserDetails>findTcNo(String tc_no){
+        return Optional.ofNullable(userDetailsRepository.findTcNo(tc_no)
+                .orElseThrow(() -> new IllegalStateException("Find by Tc_no Internal Error")));
+    }
+
+    @Override
+    public  Optional<UserDetails>FindByUserid(Long user_id){
+        return Optional.ofNullable(userDetailsRepository.FindByUserid(user_id)
+                .orElseThrow(() -> new IllegalStateException("Find by  User_Id Internal Error")));
+    }
 }

@@ -1,12 +1,10 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
-import com.mergen.vtys.vtysdatabaseap.Model.Company;
 import com.mergen.vtys.vtysdatabaseap.Model.Department;
-import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.DepartmentRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.DepartmentService;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,14 +12,12 @@ import java.util.Optional;
 
 @Service
 @Data
-@RequiredArgsConstructor
 public class DepartmentServiceImpl implements DepartmentService {
     private  final DepartmentRepository departmentRepository;
 
-
     @Override
     public List<Department> getDepartmentList(){
-        return   departmentRepository.findAll();
+        return (List<Department>) departmentRepository.findAll();
     }
     @Override
     public Optional<Department> getDepartmentByID(Long id) {
@@ -58,7 +54,11 @@ public class DepartmentServiceImpl implements DepartmentService {
             throw new IllegalArgumentException(" Delete Option Fail!");
     }
 
-
+    @Override
+    public List<Optional<Department>> getBranchId(@Param("branch_id") Long branch_id){
+        List<Optional<Department>> departmentList = departmentRepository.getBranchId(branch_id);
+    return departmentList;
+}
 
 
 }

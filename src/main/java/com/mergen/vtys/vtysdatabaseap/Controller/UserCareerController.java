@@ -26,6 +26,7 @@ public class UserCareerController {
     public UserCareerController(UserCareerService userCareerService) {
         this.userCareerService = userCareerService;
     }
+
     @GetMapping(value = "/list")
     public ResponseEntity<List<UserCareer>> getUserCareerList(){
         List<UserCareer> userCareerList = userCareerService.getUserCareerList();
