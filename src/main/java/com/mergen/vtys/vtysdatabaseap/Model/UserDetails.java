@@ -18,7 +18,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "userdetails",schema = "public")
-@RequiredArgsConstructor
+
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@userid")
 public class UserDetails {
     @Id

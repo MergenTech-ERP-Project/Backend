@@ -19,8 +19,6 @@ import java.util.List;
 @Entity
 @Table(name="user", schema = "public")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

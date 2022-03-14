@@ -16,4 +16,7 @@ public interface UserDetailsRepository extends JpaRepository<UserDetails,Long> {
 
     @Query("SELECT CASE WHEN COUNT(p) > 0 THEN true ELSE false END FROM  UserDetails p WHERE p.tc_no = :tc_no")
     boolean existsByEmail(@Param("tc_no") String tc_no);
+
+   @Query(value = "select * from public.userdetails u Where u.user_id=?",nativeQuery = true)
+    Optional<UserDetails>FindByUserid(@Param("user_id") Long user_id);
 }

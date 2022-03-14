@@ -3,6 +3,7 @@ package com.mergen.vtys.vtysdatabaseap.Controller;
 
 import com.mergen.vtys.vtysdatabaseap.Model.Branch;
 import com.mergen.vtys.vtysdatabaseap.Model.User;
+import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.BranchRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.BranchService;
 import lombok.Data;
@@ -63,6 +64,14 @@ public class BranchController {
         log.info("Branch Deleted Status - {}",status);
         return ResponseEntity.ok(id + "th Branch deleted!");
     }
+
+    @GetMapping(value = "/find/company:{company_id}")
+    public ResponseEntity<List<Branch>> FindbyCompanyid(@PathVariable() Long company_id) {
+        List<Branch> status = branchService.FindByCompanyid(company_id);
+        log.info("Branch Got by Company_id Status - {}", status);
+        return ResponseEntity.ok(status);
+    }
+
 
 }
 

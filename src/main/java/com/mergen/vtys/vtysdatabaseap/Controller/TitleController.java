@@ -24,6 +24,7 @@ public class TitleController {
     public TitleController(TitleService titleService) {
         this.titleService = titleService;
     }
+
     @GetMapping(value = "/list")
     public ResponseEntity<List<Title>> getTitleList(){
         List<Title> titleList = titleService.getTitleList();

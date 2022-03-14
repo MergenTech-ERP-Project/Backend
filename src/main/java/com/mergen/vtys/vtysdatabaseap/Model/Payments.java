@@ -9,8 +9,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "payments",schema = "public")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Payments {
     @Id
     @SequenceGenerator(name="identifier", sequenceName="mytable_id_seq", allocationSize=1)

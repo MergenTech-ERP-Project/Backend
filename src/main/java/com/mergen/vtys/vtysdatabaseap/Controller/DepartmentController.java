@@ -1,5 +1,6 @@
 package com.mergen.vtys.vtysdatabaseap.Controller;
 
+import com.mergen.vtys.vtysdatabaseap.Model.Branch;
 import com.mergen.vtys.vtysdatabaseap.Model.Company;
 import com.mergen.vtys.vtysdatabaseap.Model.Department;
 import com.mergen.vtys.vtysdatabaseap.Service.DepartmentService;
@@ -56,5 +57,11 @@ public class DepartmentController {
         String status =departmentService.Delete(id);
         log.info("Department Deleted Status - {}",status);
         return ResponseEntity.ok( id + "th Department deleted!");
+    }
+    @GetMapping(value = "/find/branch:{branch_id}")
+    public ResponseEntity<List<Optional<Department>>> getBranchId(@PathVariable() Long branch_id) {
+        List<Optional<Department>> status = departmentService.getBranchId(branch_id);
+        log.info("Department Got by Branch id Status - {}", status);
+        return ResponseEntity.ok(status);
     }
 }
