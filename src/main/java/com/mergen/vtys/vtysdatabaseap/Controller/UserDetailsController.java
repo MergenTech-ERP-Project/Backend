@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,7 +56,7 @@ public class UserDetailsController {
     public ResponseEntity<String> updateUserDetails(@PathVariable Long id, @RequestBody UserDetails userDetails) {
         String status = userDetailsService.Update(id, userDetails);
         log.info("User Detail Updated Status - {}", status);
-        return ResponseEntity.ok(userDetails.getAddress() + " updated!");
+        return ResponseEntity.ok("TC: "+ userDetails.getTc_no()+ " updated!");
     }
 
     @DeleteMapping(value = "remove/{id}")
