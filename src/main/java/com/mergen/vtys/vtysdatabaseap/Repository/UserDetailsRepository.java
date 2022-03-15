@@ -11,7 +11,8 @@ import java.util.Optional;
 
 @Repository
 public interface UserDetailsRepository extends JpaRepository<UserDetails,Long> {
-    @Query(value = "select u.tc_no from public.userdetails u Where u.tc_no=?",nativeQuery = true)
+   // @Query(value = "select u.tc_no from public.userdetails u Where u.tc_no=?",nativeQuery = true)
+    @Query(value = "select * from public.userdetails  Where tc_no=?1",nativeQuery = true)
  Optional<UserDetails>findTcNo(String tc_no);
 
     @Query("SELECT CASE WHEN COUNT(p) > 0 THEN true ELSE false END FROM  UserDetails p WHERE p.tc_no = :tc_no")

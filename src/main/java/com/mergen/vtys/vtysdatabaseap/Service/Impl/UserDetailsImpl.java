@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 import java.util.Objects;
@@ -41,13 +40,16 @@ public class UserDetailsImpl implements UserDetailsService {
     }
 
     @Override
-    public String  Update(Long id, UserDetails model) {
+    public String Update(Long id, UserDetails model) {
         Optional<UserDetails> _userDetails = userDetailsRepository.findById(id);
         if(_userDetails.isPresent()){
-            userDetailsRepository.save(model);
-            return model.getAddress();}
-        else
-            throw new IllegalArgumentException(model + " Update Option Fail!");
+            if(id.equals(model.getId()))
+            {
+                model.setId(id);
+                userDetailsRepository.save(model);
+                return model.getTc_no() + " Updated!";}
+            }
+        throw new IllegalArgumentException(model + " Update Option Fail!");
     }
 
     @Override
