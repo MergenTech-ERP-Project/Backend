@@ -1,4 +1,4 @@
-package com.mergen.vtys.vtysdatabaseap.Controller;
+package com.mergen.vtys.vtysdatabaseap.Service.Controller;
 
 import com.mergen.vtys.vtysdatabaseap.Model.Company;
 import com.mergen.vtys.vtysdatabaseap.Model.User;
