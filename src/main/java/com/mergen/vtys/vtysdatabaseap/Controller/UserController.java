@@ -1,4 +1,4 @@
-package com.mergen.vtys.vtysdatabaseap.Service.Controller;
+package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
 
@@ -63,7 +63,7 @@ public class UserController {
         return  ResponseEntity.ok(status) ;
     }
 
-    @GetMapping(value ="/np:{name}/{password}")
+    @GetMapping(value ="/check/name:{name}&pass:{password}")
     public ResponseEntity<UserDto> getUsersCheck(
             @PathVariable("name") String name,@PathVariable("password") String password) {
         UserDto status = userService.getUserNameAndPassword(name,password);
@@ -71,7 +71,7 @@ public class UserController {
         return ResponseEntity.ok(status);
     }
 
-    @GetMapping(value ="/ep:{email}/{password}")
+    @GetMapping(value ="/check/email:{email}&pass:{password}")
     public ResponseEntity<UserDto> getUsersCheckByMailandPass(
             @PathVariable("email") String email,@PathVariable("password") String password) {
         UserDto status = userService.getUserEmailAndPassword(email,password);
