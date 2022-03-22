@@ -30,12 +30,8 @@ public class UserDetailsImpl implements UserDetailsService {
 
     @Override
     public UserDetails Create(UserDetails model) {
-
-        if(userDetailsRepository.existsByEmail(model.getTc_no())){
-            throw new IllegalArgumentException("TC No Saved Before");
-        }
-        else
-        userDetailsRepository.save(model);
+        if(userDetailsRepository.existsByEmail(model.getTc_no())) throw new IllegalArgumentException("TC No Saved Before");
+        else userDetailsRepository.save(model);
         return model;
     }
 
@@ -45,7 +41,6 @@ public class UserDetailsImpl implements UserDetailsService {
         if(_userDetails.isPresent()){
             if(id.equals(model.getId()))
             {
-                model.setId(id);
                 userDetailsRepository.save(model);
                 return model.getTc_no() + " Updated!";}
             }

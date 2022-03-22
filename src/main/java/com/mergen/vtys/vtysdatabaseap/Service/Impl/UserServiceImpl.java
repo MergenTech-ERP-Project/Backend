@@ -80,20 +80,16 @@ public class UserServiceImpl implements UserService {
         if(_user.isPresent()){
             if(id.equals(model.getId())) {
                 userRepository.save(user);
-                return user.getName() + " Updated!";
-            }
-        }
+                return user.getName() + " Updated!";}}
             throw new IllegalArgumentException(model + " Update Option Fail!");
     }
 
     @Override
     public String Delete(Long id) {
         Optional<User> user = userRepository.findById(id);
-
         if(user.isPresent()){
             userRepository.deleteById(id);
             return id.toString();}
-        else
-        throw new IllegalArgumentException(" Delete Option Fail!");
+        else throw new IllegalArgumentException(" Delete Option Fail!");
     }
 }
