@@ -1,6 +1,7 @@
 package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
+import com.mergen.vtys.vtysdatabaseap.Dto.UserDetailsDto;
 import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
@@ -31,32 +32,46 @@ public class UserDetailsController {
     }
 
     @GetMapping(value = "/list")
-    public ResponseEntity<List<UserDetails>> getUserList(){
-        List<UserDetails> userList = userDetailsService.getUserDetailsList();
+    public ResponseEntity<List<UserDetailsDto>> getUserList(){
+        List<UserDetailsDto> userList = userDetailsService.getUserDetailsList();
         log.info("All Users Returned - {}", userList);
         return ResponseEntity.ok(userList);
     }
 
 
     @GetMapping(value = "/list/{id}")
-    public ResponseEntity<Optional<UserDetails>> getUserById(@PathVariable Long id){
-        Optional<UserDetails> status = userDetailsService.getUserDetailsById(id);
+    public ResponseEntity<UserDetailsDto> getUserById(@PathVariable Long id){
+        UserDetailsDto status = userDetailsService.getUserDetailsById(id);
         log.info("User Details Got by ID Status - {}",status);
         return ResponseEntity.ok(status);
     }
 
+    @GetMapping(value = "/find/tc:{tc_no}")
+    public ResponseEntity<UserDetailsDto> findByTcNo(@PathVariable() String tc_no) {
+        UserDetailsDto status = userDetailsService.findTcNo(tc_no);
+        log.info("User Details Got by Tc_No Status - {}", status);
+        return ResponseEntity.ok(status);
+    }
+
+    @GetMapping(value = "/find/userid:{user_id}")
+    public ResponseEntity<UserDetailsDto> findbyUserId(@PathVariable() Long user_id) {
+        UserDetailsDto status = userDetailsService.FindByUserid(user_id);
+        log.info("User Details Got by User_id Status - {}", status);
+        return ResponseEntity.ok(status);
+    }
+
     @PostMapping(value = "/new")
-    public ResponseEntity<UserDetails> createUser(@RequestBody UserDetails userDetails){
-        UserDetails status = userDetailsService.Create(userDetails);
-        log.info("User Added Status - {}",status);
-        return ResponseEntity.status(HttpStatus.CREATED).body(userDetails);
+    public ResponseEntity<UserDetailsDto> createUser(@RequestBody UserDetailsDto userDetailsDto){
+        UserDetailsDto status = userDetailsService.Create(userDetailsDto);
+        log.info("User Details Added Status - {}",status);
+        return ResponseEntity.status(HttpStatus.CREATED).body(userDetailsDto);
     }
 
     @PutMapping(value = "update/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody UserDetails userDetails) {
-        String status = userDetailsService.Update(id, userDetails);
+    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody UserDetailsDto userDetailsDto) {
+        String status = userDetailsService.Update(id, userDetailsDto);
         log.info("User Details Updated Status - {}",status);
-        return ResponseEntity.ok(status);
+        return ResponseEntity.ok("TC No:" + userDetailsDto.getTc_no() + " updated!");
     }
 
     @DeleteMapping(value = "remove/{id}")
@@ -64,20 +79,6 @@ public class UserDetailsController {
         String status = userDetailsService.Delete(id);
         log.info("User Details Deleted Status - {}",status);
         return ResponseEntity.ok(id + " th deleted!");
-    }
-
-    @GetMapping(value = "/find/tc:{tc_no}")
-    public ResponseEntity<Optional<UserDetails>> findByTcNo(@PathVariable() String tc_no) {
-        Optional<UserDetails> status = userDetailsService.findTcNo(tc_no);
-        log.info("User Detail Got by Tc_No Status - {}", status);
-        return ResponseEntity.ok(status);
-    }
-
-    @GetMapping(value = "/find/user:{user_id}")
-    public ResponseEntity<Optional<UserDetails>> findbyUserId(@PathVariable() Long user_id) {
-        Optional<UserDetails> status = userDetailsService.FindByUserid(user_id);
-        log.info("User Detail Got by User_id Status - {}", status);
-        return ResponseEntity.ok(status);
     }
 
 }
