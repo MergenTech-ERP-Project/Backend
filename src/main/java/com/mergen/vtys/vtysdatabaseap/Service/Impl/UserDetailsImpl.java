@@ -41,7 +41,6 @@ public class UserDetailsImpl implements UserDetailsService {
         if(_userDetails.isPresent()){
             if(id.equals(model.getId()))
             {
-                model.setId(id);
                 userDetailsRepository.save(model);
                 return model.getTc_no() + " Updated!";}
             }

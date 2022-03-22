@@ -88,7 +88,6 @@ public class UserController {
 
     @PutMapping(value = "/update/{id}")
     public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody UserDto userDto) {
-
         String status = userService.Update(id, userDto);
         log.info("User Updated Status - {}",status);
         return ResponseEntity.ok(userDto.getName() + " updated!");

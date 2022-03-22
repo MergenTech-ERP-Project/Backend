@@ -650,3 +650,618 @@ Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
 2022-03-22 11:06:21.852  INFO 11360 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-03-22 11:06:21.855  INFO 11360 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-03-22 11:06:21.860  INFO 11360 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-22 11:59:56.656  INFO 13248 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Starting VtysDatabaseApiApplication using Java 11.0.13 on DESKTOP-U3ODD7C with PID 13248 (C:\Users\ceyhu\OneDrive\Masaüstü\api\Backend_29  --- 27 de userdetaildto var fk kapalı onu da aktar\target\classes started by ceyhu in C:\Users\ceyhu\OneDrive\Masaüstü\api\Backend_29  --- 27 de userdetaildto var fk kapalı onu da aktar)
+2022-03-22 11:59:56.661  INFO 13248 --- [main] c.m.v.v.VtysDatabaseApiApplication       : No active profile set, falling back to default profiles: default
+2022-03-22 11:59:58.590  INFO 13248 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-22 11:59:58.821  INFO 13248 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 211 ms. Found 12 JPA repository interfaces.
+2022-03-22 12:00:00.723  INFO 13248 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-03-22 12:00:00.742  INFO 13248 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-22 12:00:00.742  INFO 13248 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-03-22 12:00:00.900  INFO 13248 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-22 12:00:00.900  INFO 13248 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4159 ms
+2022-03-22 12:00:01.256  INFO 13248 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-22 12:00:01.635  INFO 13248 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-22 12:00:01.653  INFO 13248 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/test'
+2022-03-22 12:00:02.459  INFO 13248 --- [main] liquibase.database                       : Set default schema name to public
+2022-03-22 12:00:02.595  INFO 13248 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-03-22 12:00:03.277  INFO 13248 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-03-22 12:00:03.436  INFO 13248 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-03-22 12:00:03.580  INFO 13248 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-22 12:00:03.703  INFO 13248 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-03-22 12:00:04.107  INFO 13248 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-22 12:00:04.392  INFO 13248 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-03-22 12:00:06.033  INFO 13248 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-22 12:00:06.050  INFO 13248 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-22 12:00:07.169  WARN 13248 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-22 12:00:07.776  INFO 13248 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-03-22 12:00:07.838  INFO 13248 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2022-03-22 12:00:07.860  INFO 13248 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Started VtysDatabaseApiApplication in 12.051 seconds (JVM running for 13.044)
+2022-03-22 12:00:18.915  INFO 13248 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-22 12:00:18.917  INFO 13248 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-22 12:00:18.920  INFO 13248 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-03-22 12:00:18.946  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/list 
+2022-03-22 12:00:18.946  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-22 12:00:18.946  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 4,
+     "activity_ids":3,
+    "user_ids":3
+
+} 
+2022-03-22 12:00:19.179  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Controller.UserController        : All Users Returned - [UserDto(id=1, name=aas, email=1@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=2, name=ccc, email=2222@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=3, name=aaas, email=1@xcom, password=asspavedcials, activeToUsers=[])]
+2022-03-22 12:00:19.361  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:00:19.362  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":1,"name":"aas","email":"1@xcom","password":"asspavedcials","activeToUsers":[]},{"id":2,"name":"ccc","email":"2222@xcom","password":"asspavedcials","activeToUsers":[]},{"id":3,"name":"aaas","email":"1@xcom","password":"asspavedcials","activeToUsers":[]}]
+2022-03-22 12:00:26.375  INFO 13248 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/new 
+2022-03-22 12:00:26.376  INFO 13248 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-22 12:00:26.376  INFO 13248 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 3,
+     "name":"aaas",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "1@xcom"
+} 
+2022-03-22 12:00:26.509  INFO 13248 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-22 12:00:26.509  INFO 13248 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-22T12:00:26.502585","message":"UserDto(id=3, name=aaas, email=1@xcom, password=asspavedcials, activeToUsers=null) Create Option Fail!","code":"1000"}
+2022-03-22 12:00:31.905  INFO 13248 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/new 
+2022-03-22 12:00:31.907  INFO 13248 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-22 12:00:31.907  INFO 13248 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 3,
+     "name":"aaas",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "1@2xcom"
+} 
+2022-03-22 12:00:32.002  INFO 13248 --- [http-nio-8090-exec-4] c.m.v.v.Controller.UserController        : User Added Status - UserDto(id=3, name=aaas, email=1@2xcom, password=asspavedcials, activeToUsers=null)
+2022-03-22 12:00:32.007  INFO 13248 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 201
+2022-03-22 12:00:32.007  INFO 13248 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"id":3,"name":"aaas","email":"1@2xcom","password":"asspavedcials","activeToUsers":null}
+2022-03-22 12:00:34.381  INFO 13248 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/list 
+2022-03-22 12:00:34.381  INFO 13248 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-22 12:00:34.381  INFO 13248 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 4,
+     "activity_ids":3,
+    "user_ids":3
+
+} 
+2022-03-22 12:00:34.388  INFO 13248 --- [http-nio-8090-exec-5] c.m.v.v.Controller.UserController        : All Users Returned - [UserDto(id=1, name=aas, email=1@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=2, name=ccc, email=2222@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=3, name=aaas, email=1@2xcom, password=asspavedcials, activeToUsers=[])]
+2022-03-22 12:00:34.391  INFO 13248 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:00:34.392  INFO 13248 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":1,"name":"aas","email":"1@xcom","password":"asspavedcials","activeToUsers":[]},{"id":2,"name":"ccc","email":"2222@xcom","password":"asspavedcials","activeToUsers":[]},{"id":3,"name":"aaas","email":"1@2xcom","password":"asspavedcials","activeToUsers":[]}]
+2022-03-22 12:00:51.032  INFO 13248 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:00:51.033  INFO 13248 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:00:51.033  INFO 13248 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"ccc",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:00:51.047  INFO 13248 --- [http-nio-8090-exec-6] c.m.v.v.Controller.UserController        : User Updated Status - ccc Updated!
+2022-03-22 12:00:51.050  INFO 13248 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:00:51.051  INFO 13248 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - ccc updated!
+2022-03-22 12:00:52.867  INFO 13248 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:00:52.867  INFO 13248 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:00:52.868  INFO 13248 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"ccc",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:00:52.874  INFO 13248 --- [http-nio-8090-exec-7] c.m.v.v.Controller.UserController        : User Updated Status - ccc Updated!
+2022-03-22 12:00:52.875  INFO 13248 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:00:52.875  INFO 13248 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - ccc updated!
+2022-03-22 12:00:53.846  INFO 13248 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:00:53.847  INFO 13248 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:00:53.847  INFO 13248 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"ccc",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:00:53.854  INFO 13248 --- [http-nio-8090-exec-8] c.m.v.v.Controller.UserController        : User Updated Status - ccc Updated!
+2022-03-22 12:00:53.856  INFO 13248 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:00:53.856  INFO 13248 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - ccc updated!
+2022-03-22 12:00:54.797  INFO 13248 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:00:54.798  INFO 13248 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:00:54.798  INFO 13248 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"ccc",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:00:54.804  INFO 13248 --- [http-nio-8090-exec-9] c.m.v.v.Controller.UserController        : User Updated Status - ccc Updated!
+2022-03-22 12:00:54.806  INFO 13248 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:00:54.806  INFO 13248 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - ccc updated!
+2022-03-22 12:00:55.553  INFO 13248 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:00:55.554  INFO 13248 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:00:55.554  INFO 13248 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"ccc",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:00:55.559  INFO 13248 --- [http-nio-8090-exec-10] c.m.v.v.Controller.UserController        : User Updated Status - ccc Updated!
+2022-03-22 12:00:55.560  INFO 13248 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:00:55.561  INFO 13248 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - ccc updated!
+2022-03-22 12:00:56.254  INFO 13248 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:00:56.255  INFO 13248 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:00:56.255  INFO 13248 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"ccc",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:00:56.261  INFO 13248 --- [http-nio-8090-exec-1] c.m.v.v.Controller.UserController        : User Updated Status - ccc Updated!
+2022-03-22 12:00:56.262  INFO 13248 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:00:56.262  INFO 13248 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - ccc updated!
+2022-03-22 12:00:56.875  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:00:56.875  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:00:56.875  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"ccc",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:00:56.883  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Controller.UserController        : User Updated Status - ccc Updated!
+2022-03-22 12:00:56.886  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:00:56.886  INFO 13248 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - ccc updated!
+2022-03-22 12:00:57.500  INFO 13248 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:00:57.501  INFO 13248 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:00:57.502  INFO 13248 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"ccc",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:00:57.510  INFO 13248 --- [http-nio-8090-exec-3] c.m.v.v.Controller.UserController        : User Updated Status - ccc Updated!
+2022-03-22 12:00:57.511  INFO 13248 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:00:57.512  INFO 13248 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - ccc updated!
+2022-03-22 12:07:32.757  INFO 13248 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-22 12:07:32.760  INFO 13248 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-22 12:07:32.764  INFO 13248 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-22 12:07:43.624  INFO 13212 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Starting VtysDatabaseApiApplication using Java 11.0.13 on DESKTOP-U3ODD7C with PID 13212 (C:\Users\ceyhu\OneDrive\Masaüstü\api\Backend_29  --- 27 de userdetaildto var fk kapalı onu da aktar\target\classes started by ceyhu in C:\Users\ceyhu\OneDrive\Masaüstü\api\Backend_29  --- 27 de userdetaildto var fk kapalı onu da aktar)
+2022-03-22 12:07:43.631  INFO 13212 --- [main] c.m.v.v.VtysDatabaseApiApplication       : No active profile set, falling back to default profiles: default
+2022-03-22 12:07:46.052  INFO 13212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-22 12:07:46.350  INFO 13212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 269 ms. Found 12 JPA repository interfaces.
+2022-03-22 12:07:48.612  INFO 13212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-03-22 12:07:48.634  INFO 13212 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-22 12:07:48.635  INFO 13212 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-03-22 12:07:48.838  INFO 13212 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-22 12:07:48.838  INFO 13212 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5100 ms
+2022-03-22 12:07:49.342  INFO 13212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-22 12:07:49.914  INFO 13212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-22 12:07:49.934  INFO 13212 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/test'
+2022-03-22 12:07:51.175  INFO 13212 --- [main] liquibase.database                       : Set default schema name to public
+2022-03-22 12:07:51.365  INFO 13212 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-03-22 12:07:52.186  INFO 13212 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-03-22 12:07:52.383  INFO 13212 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-03-22 12:07:52.666  INFO 13212 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-22 12:07:52.817  INFO 13212 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-03-22 12:07:53.363  INFO 13212 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-22 12:07:53.691  INFO 13212 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-03-22 12:07:55.497  INFO 13212 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-22 12:07:55.512  INFO 13212 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-22 12:07:56.939  WARN 13212 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-22 12:07:57.679  INFO 13212 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-03-22 12:07:57.758  INFO 13212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2022-03-22 12:07:57.783  INFO 13212 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Started VtysDatabaseApiApplication in 15.152 seconds (JVM running for 16.516)
+2022-03-22 12:08:18.849  INFO 13212 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-22 12:08:18.850  INFO 13212 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-22 12:08:18.851  INFO 13212 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-03-22 12:08:18.874  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/list 
+2022-03-22 12:08:18.875  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-22 12:08:18.875  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 4,
+     "activity_ids":3,
+    "user_ids":3
+
+} 
+2022-03-22 12:08:19.081  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Controller.UserController        : All Users Returned - [UserDto(id=1, name=aas, email=1@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=2, name=ccc, email=2222@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=3, name=aaas, email=1@2xcom, password=asspavedcials, activeToUsers=[])]
+2022-03-22 12:08:19.210  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:08:19.210  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":1,"name":"aas","email":"1@xcom","password":"asspavedcials","activeToUsers":[]},{"id":2,"name":"ccc","email":"2222@xcom","password":"asspavedcials","activeToUsers":[]},{"id":3,"name":"aaas","email":"1@2xcom","password":"asspavedcials","activeToUsers":[]}]
+2022-03-22 12:08:25.858  INFO 13212 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/new 
+2022-03-22 12:08:25.859  INFO 13212 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-22 12:08:25.859  INFO 13212 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 3,
+     "name":"aaas",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "1@2xcom"
+} 
+2022-03-22 12:08:26.051  INFO 13212 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-22 12:08:26.051  INFO 13212 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-22T12:08:26.0418746","message":"UserDto(id=3, name=aaas, email=1@2xcom, password=asspavedcials, activeToUsers=null) Create Option Fail!","code":"1000"}
+2022-03-22 12:08:29.687  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/new 
+2022-03-22 12:08:29.687  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-22 12:08:29.687  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 3,
+     "name":"aaas",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "1@23xcom"
+} 
+2022-03-22 12:08:29.793  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Controller.UserController        : User Added Status - UserDto(id=3, name=aaas, email=1@23xcom, password=asspavedcials, activeToUsers=null)
+2022-03-22 12:08:29.797  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 201
+2022-03-22 12:08:29.797  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"id":3,"name":"aaas","email":"1@23xcom","password":"asspavedcials","activeToUsers":null}
+2022-03-22 12:08:33.438  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/list 
+2022-03-22 12:08:33.439  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-22 12:08:33.439  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 4,
+     "activity_ids":3,
+    "user_ids":3
+
+} 
+2022-03-22 12:08:33.447  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Controller.UserController        : All Users Returned - [UserDto(id=1, name=aas, email=1@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=2, name=ccc, email=2222@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=3, name=aaas, email=1@23xcom, password=asspavedcials, activeToUsers=[])]
+2022-03-22 12:08:33.449  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:08:33.449  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":1,"name":"aas","email":"1@xcom","password":"asspavedcials","activeToUsers":[]},{"id":2,"name":"ccc","email":"2222@xcom","password":"asspavedcials","activeToUsers":[]},{"id":3,"name":"aaas","email":"1@23xcom","password":"asspavedcials","activeToUsers":[]}]
+2022-03-22 12:08:41.079  INFO 13212 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/new 
+2022-03-22 12:08:41.081  INFO 13212 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-22 12:08:41.082  INFO 13212 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 3,
+     "name":"aaas",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "1@23xcom"
+} 
+2022-03-22 12:08:41.089  INFO 13212 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-22 12:08:41.089  INFO 13212 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-22T12:08:41.0888261","message":"UserDto(id=3, name=aaas, email=1@23xcom, password=asspavedcials, activeToUsers=null) Create Option Fail!","code":"1000"}
+2022-03-22 12:08:41.982  INFO 13212 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/new 
+2022-03-22 12:08:41.982  INFO 13212 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-22 12:08:41.983  INFO 13212 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 3,
+     "name":"aaas",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "1@23xcom"
+} 
+2022-03-22 12:08:41.989  INFO 13212 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-22 12:08:41.989  INFO 13212 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-22T12:08:41.9889888","message":"UserDto(id=3, name=aaas, email=1@23xcom, password=asspavedcials, activeToUsers=null) Create Option Fail!","code":"1000"}
+2022-03-22 12:08:47.420  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/new 
+2022-03-22 12:08:47.421  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: POST 
+2022-03-22 12:08:47.421  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 3,
+     "name":"aaas",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "1@24xcom"
+} 
+2022-03-22 12:08:47.430  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Controller.UserController        : User Added Status - UserDto(id=3, name=aaas, email=1@24xcom, password=asspavedcials, activeToUsers=null)
+2022-03-22 12:08:47.431  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 201
+2022-03-22 12:08:47.432  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"id":3,"name":"aaas","email":"1@24xcom","password":"asspavedcials","activeToUsers":null}
+2022-03-22 12:08:49.586  INFO 13212 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/list 
+2022-03-22 12:08:49.587  INFO 13212 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-22 12:08:49.587  INFO 13212 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 4,
+     "activity_ids":3,
+    "user_ids":3
+
+} 
+2022-03-22 12:08:49.597  INFO 13212 --- [http-nio-8090-exec-9] c.m.v.v.Controller.UserController        : All Users Returned - [UserDto(id=1, name=aas, email=1@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=2, name=ccc, email=2222@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=3, name=aaas, email=1@24xcom, password=asspavedcials, activeToUsers=[])]
+2022-03-22 12:08:49.602  INFO 13212 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:08:49.602  INFO 13212 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":1,"name":"aas","email":"1@xcom","password":"asspavedcials","activeToUsers":[]},{"id":2,"name":"ccc","email":"2222@xcom","password":"asspavedcials","activeToUsers":[]},{"id":3,"name":"aaas","email":"1@24xcom","password":"asspavedcials","activeToUsers":[]}]
+2022-03-22 12:09:02.577  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:09:02.577  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:09:02.577  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:09:02.610  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:09:02.612  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:09:02.612  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:09:03.586  INFO 13212 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:09:03.586  INFO 13212 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:09:03.587  INFO 13212 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:09:03.594  INFO 13212 --- [http-nio-8090-exec-1] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:09:03.596  INFO 13212 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:09:03.596  INFO 13212 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:09:04.257  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:09:04.257  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:09:04.257  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:09:04.263  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:09:04.264  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:09:04.264  INFO 13212 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:09:04.852  INFO 13212 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:09:04.853  INFO 13212 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:09:04.853  INFO 13212 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:09:04.860  INFO 13212 --- [http-nio-8090-exec-3] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:09:04.862  INFO 13212 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:09:04.862  INFO 13212 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:09:05.441  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:09:05.442  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:09:05.442  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:09:05.447  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:09:05.448  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:09:05.449  INFO 13212 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:09:07.796  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/list 
+2022-03-22 12:09:07.796  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-22 12:09:07.797  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 4,
+     "activity_ids":3,
+    "user_ids":3
+
+} 
+2022-03-22 12:09:07.803  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Controller.UserController        : All Users Returned - [UserDto(id=1, name=aas, email=1@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=3, name=aaas, email=1@24xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=2, name=xxx, email=2222@xcom, password=asspavedcials, activeToUsers=[])]
+2022-03-22 12:09:07.804  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:09:07.804  INFO 13212 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":1,"name":"aas","email":"1@xcom","password":"asspavedcials","activeToUsers":[]},{"id":3,"name":"aaas","email":"1@24xcom","password":"asspavedcials","activeToUsers":[]},{"id":2,"name":"xxx","email":"2222@xcom","password":"asspavedcials","activeToUsers":[]}]
+2022-03-22 12:09:19.924  INFO 13212 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:09:19.924  INFO 13212 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:09:19.924  INFO 13212 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 1,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:09:19.930  INFO 13212 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-22 12:09:19.930  INFO 13212 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-22T12:09:19.9293307","message":"UserDto(id=1, name=xxx, email=2222@xcom, password=asspavedcials, activeToUsers=null) Update Option Fail!","code":"1000"}
+2022-03-22 12:09:26.320  INFO 13212 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/1 
+2022-03-22 12:09:26.321  INFO 13212 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:09:26.321  INFO 13212 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:09:26.327  INFO 13212 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-22 12:09:26.327  INFO 13212 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-22T12:09:26.3263076","message":"UserDto(id=2, name=xxx, email=2222@xcom, password=asspavedcials, activeToUsers=null) Update Option Fail!","code":"1000"}
+2022-03-22 12:09:30.879  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:09:30.879  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:09:30.880  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:09:30.886  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:09:30.889  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:09:30.889  INFO 13212 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:09:40.737  INFO 13212 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:09:40.738  INFO 13212 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:09:40.738  INFO 13212 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:09:40.745  INFO 13212 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-22 12:09:40.746  INFO 13212 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-22T12:09:40.7447321","message":"UserDto(id=null, name=xxx, email=2222@xcom, password=asspavedcials, activeToUsers=null) Update Option Fail!","code":"1000"}
+2022-03-22 12:09:46.220  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/list 
+2022-03-22 12:09:46.220  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-22 12:09:46.220  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 4,
+     "activity_ids":3,
+    "user_ids":3
+
+} 
+2022-03-22 12:09:46.229  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Controller.UserController        : All Users Returned - [UserDto(id=1, name=aas, email=1@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=3, name=aaas, email=1@24xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=2, name=xxx, email=2222@xcom, password=asspavedcials, activeToUsers=[])]
+2022-03-22 12:09:46.231  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:09:46.232  INFO 13212 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":1,"name":"aas","email":"1@xcom","password":"asspavedcials","activeToUsers":[]},{"id":3,"name":"aaas","email":"1@24xcom","password":"asspavedcials","activeToUsers":[]},{"id":2,"name":"xxx","email":"2222@xcom","password":"asspavedcials","activeToUsers":[]}]
+2022-03-22 12:09:51.819  INFO 13212 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:09:51.820  INFO 13212 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:09:51.820  INFO 13212 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:09:51.826  INFO 13212 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-22 12:09:51.826  INFO 13212 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-22T12:09:51.8253794","message":"UserDto(id=null, name=xxx, email=2222@xcom, password=asspavedcials, activeToUsers=null) Update Option Fail!","code":"1000"}
+2022-03-22 12:15:23.952  INFO 13212 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-22 12:15:23.954  INFO 13212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-22 12:15:23.958  INFO 13212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-22 12:15:31.185  INFO 14608 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Starting VtysDatabaseApiApplication using Java 11.0.13 on DESKTOP-U3ODD7C with PID 14608 (C:\Users\ceyhu\OneDrive\Masaüstü\api\Backend_29  --- 27 de userdetaildto var fk kapalı onu da aktar\target\classes started by ceyhu in C:\Users\ceyhu\OneDrive\Masaüstü\api\Backend_29  --- 27 de userdetaildto var fk kapalı onu da aktar)
+2022-03-22 12:15:31.189  INFO 14608 --- [main] c.m.v.v.VtysDatabaseApiApplication       : No active profile set, falling back to default profiles: default
+2022-03-22 12:15:32.982  INFO 14608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-22 12:15:33.241  INFO 14608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 242 ms. Found 12 JPA repository interfaces.
+2022-03-22 12:15:35.098  INFO 14608 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-03-22 12:15:35.119  INFO 14608 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-22 12:15:35.120  INFO 14608 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-03-22 12:15:35.267  INFO 14608 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-22 12:15:35.268  INFO 14608 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4001 ms
+2022-03-22 12:15:35.589  INFO 14608 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-22 12:15:35.961  INFO 14608 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-22 12:15:35.981  INFO 14608 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/test'
+2022-03-22 12:15:36.818  INFO 14608 --- [main] liquibase.database                       : Set default schema name to public
+2022-03-22 12:15:36.938  INFO 14608 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-03-22 12:15:37.659  INFO 14608 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-03-22 12:15:37.791  INFO 14608 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-03-22 12:15:37.930  INFO 14608 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-22 12:15:38.046  INFO 14608 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-03-22 12:15:38.377  INFO 14608 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-22 12:15:38.567  INFO 14608 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-03-22 12:15:39.900  INFO 14608 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-22 12:15:39.912  INFO 14608 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-22 12:15:40.977  WARN 14608 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-22 12:15:41.580  INFO 14608 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-03-22 12:15:41.648  INFO 14608 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2022-03-22 12:15:41.668  INFO 14608 --- [main] c.m.v.v.VtysDatabaseApiApplication       : Started VtysDatabaseApiApplication in 11.32 seconds (JVM running for 12.158)
+2022-03-22 12:15:59.112  INFO 14608 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-22 12:15:59.113  INFO 14608 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-22 12:15:59.115  INFO 14608 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-03-22 12:15:59.144  INFO 14608 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/list 
+2022-03-22 12:15:59.145  INFO 14608 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: GET 
+2022-03-22 12:15:59.145  INFO 14608 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 4,
+     "activity_ids":3,
+    "user_ids":3
+
+} 
+2022-03-22 12:15:59.374  INFO 14608 --- [http-nio-8090-exec-1] c.m.v.v.Controller.UserController        : All Users Returned - [UserDto(id=1, name=aas, email=1@xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=3, name=aaas, email=1@24xcom, password=asspavedcials, activeToUsers=[]), UserDto(id=2, name=xxx, email=2222@xcom, password=asspavedcials, activeToUsers=[])]
+2022-03-22 12:15:59.510  INFO 14608 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:15:59.511  INFO 14608 --- [http-nio-8090-exec-1] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - [{"id":1,"name":"aas","email":"1@xcom","password":"asspavedcials","activeToUsers":[]},{"id":3,"name":"aaas","email":"1@24xcom","password":"asspavedcials","activeToUsers":[]},{"id":2,"name":"xxx","email":"2222@xcom","password":"asspavedcials","activeToUsers":[]}]
+2022-03-22 12:16:07.021  INFO 14608 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:16:07.021  INFO 14608 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:16:07.021  INFO 14608 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:16:07.128  INFO 14608 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-22 12:16:07.129  INFO 14608 --- [http-nio-8090-exec-3] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-22T12:16:07.1209348","message":"UserDto(id=null, name=xxx, email=2222@xcom, password=asspavedcials, activeToUsers=null) Update Option Fail!","code":"1000"}
+2022-03-22 12:16:12.914  INFO 14608 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:16:12.914  INFO 14608 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:16:12.915  INFO 14608 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:16:12.999  INFO 14608 --- [http-nio-8090-exec-4] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:16:13.002  INFO 14608 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:16:13.002  INFO 14608 --- [http-nio-8090-exec-4] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:16:13.768  INFO 14608 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:16:13.768  INFO 14608 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:16:13.768  INFO 14608 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:16:13.776  INFO 14608 --- [http-nio-8090-exec-5] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:16:13.777  INFO 14608 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:16:13.777  INFO 14608 --- [http-nio-8090-exec-5] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:16:14.397  INFO 14608 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:16:14.398  INFO 14608 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:16:14.398  INFO 14608 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:16:14.405  INFO 14608 --- [http-nio-8090-exec-6] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:16:14.407  INFO 14608 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:16:14.407  INFO 14608 --- [http-nio-8090-exec-6] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:16:16.588  INFO 14608 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/1 
+2022-03-22 12:16:16.588  INFO 14608 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:16:16.589  INFO 14608 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:16:16.596  INFO 14608 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-22 12:16:16.597  INFO 14608 --- [http-nio-8090-exec-7] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-22T12:16:16.5952173","message":"UserDto(id=2, name=xxx, email=2222@xcom, password=asspavedcials, activeToUsers=null) Update Option Fail!","code":"1000"}
+2022-03-22 12:16:23.184  INFO 14608 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:16:23.185  INFO 14608 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:16:23.185  INFO 14608 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 1,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:16:23.192  INFO 14608 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 417
+2022-03-22 12:16:23.192  INFO 14608 --- [http-nio-8090-exec-8] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - {"timestamp":"2022-03-22T12:16:23.1914657","message":"UserDto(id=1, name=xxx, email=2222@xcom, password=asspavedcials, activeToUsers=null) Update Option Fail!","code":"1000"}
+2022-03-22 12:16:26.888  INFO 14608 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:16:26.889  INFO 14608 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:16:26.889  INFO 14608 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:16:26.894  INFO 14608 --- [http-nio-8090-exec-9] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:16:26.897  INFO 14608 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:16:26.898  INFO 14608 --- [http-nio-8090-exec-9] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:16:28.019  INFO 14608 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:16:28.019  INFO 14608 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:16:28.019  INFO 14608 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:16:28.025  INFO 14608 --- [http-nio-8090-exec-10] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:16:28.026  INFO 14608 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:16:28.026  INFO 14608 --- [http-nio-8090-exec-10] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:16:28.551  INFO 14608 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request URI: /user/update/2 
+2022-03-22 12:16:28.551  INFO 14608 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Method: PUT 
+2022-03-22 12:16:28.551  INFO 14608 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Request Body: {
+    "id" : 2,
+     "name":"xxx",
+    "title": "ceyasvhunds",
+    "password": "asspavedcials",
+    "cellphone" :0,
+    "email": "2222@xcom"
+} 
+2022-03-22 12:16:28.557  INFO 14608 --- [http-nio-8090-exec-2] c.m.v.v.Controller.UserController        : User Updated Status - xxx Updated!
+2022-03-22 12:16:28.558  INFO 14608 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response status - 200
+2022-03-22 12:16:28.558  INFO 14608 --- [http-nio-8090-exec-2] c.m.v.v.Filters.RequestResponseLoggers   : Response Body - xxx updated!
+2022-03-22 12:16:59.730  INFO 14608 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-22 12:16:59.732  INFO 14608 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-22 12:16:59.736  INFO 14608 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
