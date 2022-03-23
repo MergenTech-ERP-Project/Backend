@@ -6,12 +6,14 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum HighestEducationLevel {
-    primarySchool ,
+    none,
+    primarySchool,
     middleSchool,
     highSchool,
     associateDegree,
     bachelorsDegree,
     mastersDegree,
     doctoratePhd,
-    none,
+    noneEducation,
+
 }

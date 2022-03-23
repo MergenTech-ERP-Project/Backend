@@ -8,10 +8,12 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 @Slf4j
 public enum MaritalStatus {
+    none(0),
+    married(1),
+    single(2),
+    unspecified(3);
 
-    married (0),
-    single (1),
-    unspecified(2);
+
 
     private final int id;
 

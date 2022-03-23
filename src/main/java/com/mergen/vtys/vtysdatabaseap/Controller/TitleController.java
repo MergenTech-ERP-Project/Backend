@@ -57,4 +57,10 @@ public class TitleController {
         log.info("Title Deleted Status - {}",status);
         return ResponseEntity.ok( id + "th Department deleted!");
     }
+    @GetMapping(value = "find/department:{department_id}")
+    public ResponseEntity<List<Optional<Title>>> getDepartmentId(@PathVariable() Long department_id){
+        List<Optional<Title>> status = titleService.getDepartmentId(department_id);
+        log.info("Title Got by Department id Status - {}", status);
+        return ResponseEntity.ok(status);
+    }
 }
