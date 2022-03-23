@@ -6,6 +6,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 public enum MilitaryStatus {
+    none,
     done,
     notDone,
     exempt,

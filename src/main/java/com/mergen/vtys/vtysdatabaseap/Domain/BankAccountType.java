@@ -6,10 +6,10 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum BankAccountType {
-
-    drawingAccount (0),
-    checkAccount (1),
-    other(2);
+    none(0),
+    drawingAccount (1),
+    checkAccount (2),
+    other(3);
 
     private final int id;
 

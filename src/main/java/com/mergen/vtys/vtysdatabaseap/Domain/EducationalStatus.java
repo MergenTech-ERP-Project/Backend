@@ -8,8 +8,8 @@ import lombok.Getter;
 public enum EducationalStatus  {
 
     student (0),
-    graduate (1);
-
+    graduate (1),
+    none(2);
     private final int id;
 
 }

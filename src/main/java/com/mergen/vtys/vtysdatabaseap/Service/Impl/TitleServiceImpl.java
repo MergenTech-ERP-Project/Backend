@@ -7,6 +7,7 @@ import com.mergen.vtys.vtysdatabaseap.Repository.TitleRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.TitleService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -59,7 +60,11 @@ public class TitleServiceImpl implements TitleService {
             throw new IllegalArgumentException(" Delete Option Fail!");
     }
 
-
+    @Override
+    public List<Optional<Title>> getDepartmentId(@Param("department_id") Long department_id){
+        List<Optional<Title>> titlelist = titleRepository.getDepartmentId(department_id);
+        return titlelist;
+    }
 
 
 }
