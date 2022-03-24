@@ -241,22 +241,22 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                 <constraints primaryKey="true"/>
             </column>
             <column name="salary" type="varchar(50)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <column name="currency" type="varchar(20)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="salary_type" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="payment_scheme" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="commute_support_fee" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="food_support_fee" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="user_id" type="tinyint">
                 <constraints nullable="true"/>

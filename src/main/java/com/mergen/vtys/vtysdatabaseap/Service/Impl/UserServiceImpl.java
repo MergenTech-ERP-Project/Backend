@@ -2,7 +2,6 @@ package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
 import com.mergen.vtys.vtysdatabaseap.Dto.UserDto;
 import com.mergen.vtys.vtysdatabaseap.Model.User;
-import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserService;
 import lombok.Data;
@@ -37,7 +36,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent())
             return modelMapper.map(user.get(),UserDto.class);
-        throw new IllegalArgumentException(id + " Fail" + " And Get User by ID Fail!");
+        throw new IllegalArgumentException("ID:" + id + " Fail" + " And Get User by ID Fail!");
     }
 
     @Override
