@@ -1,7 +1,5 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 import com.mergen.vtys.vtysdatabaseap.Dto.UserDetailsDto;
-import com.mergen.vtys.vtysdatabaseap.Dto.UserDto;
-import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
@@ -13,7 +11,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -30,7 +27,7 @@ public class UserDetailsImpl implements UserDetailsService {
         Optional<UserDetails> userDetails = userDetailsRepository.findById(id);
         if (userDetails.isPresent())
             return modelMapper.map(userDetails.get(), UserDetailsDto.class);
-        throw new IllegalArgumentException(id + " Fail" + " And Get User Details by ID Fail!");
+        throw new IllegalArgumentException("ID:" + id + " Fail" + " And Get User Details by ID Fail!");
     }
 
     @Override

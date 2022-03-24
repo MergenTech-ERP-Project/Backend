@@ -3,22 +3,18 @@ package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
 import com.mergen.vtys.vtysdatabaseap.Dto.UserDto;
-import com.mergen.vtys.vtysdatabaseap.Model.User;
-import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.ActivityService;
 import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
 import com.mergen.vtys.vtysdatabaseap.Service.UserService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @CrossOrigin(origins = "*")

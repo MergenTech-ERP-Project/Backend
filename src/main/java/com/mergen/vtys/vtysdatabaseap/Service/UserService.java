@@ -1,14 +1,11 @@
 package com.mergen.vtys.vtysdatabaseap.Service;
 
 import com.mergen.vtys.vtysdatabaseap.Dto.UserDto;
-import com.mergen.vtys.vtysdatabaseap.Model.User;
-import org.hibernate.sql.Select;
 import org.springframework.data.jpa.repository.Query;
 //import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService extends HelperService<UserDto>{
     // @Query(value = "SELECT * from user",nativeQuery = true)

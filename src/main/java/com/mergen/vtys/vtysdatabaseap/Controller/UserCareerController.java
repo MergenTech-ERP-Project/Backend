@@ -1,19 +1,14 @@
 package com.mergen.vtys.vtysdatabaseap.Controller;
 
 import com.mergen.vtys.vtysdatabaseap.Dto.UserCareerDto;
-import com.mergen.vtys.vtysdatabaseap.Model.Title;
-import com.mergen.vtys.vtysdatabaseap.Model.UserCareer;
-import com.mergen.vtys.vtysdatabaseap.Service.TitleService;
 import com.mergen.vtys.vtysdatabaseap.Service.UserCareerService;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @CrossOrigin(origins = "*")

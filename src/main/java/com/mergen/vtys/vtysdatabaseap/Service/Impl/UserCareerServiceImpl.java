@@ -1,14 +1,8 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
 import com.mergen.vtys.vtysdatabaseap.Dto.UserCareerDto;
-import com.mergen.vtys.vtysdatabaseap.Dto.UserDetailsDto;
-import com.mergen.vtys.vtysdatabaseap.Dto.UserDto;
-import com.mergen.vtys.vtysdatabaseap.Model.Title;
-import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Model.UserCareer;
-import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserCareerRepository;
-import com.mergen.vtys.vtysdatabaseap.Service.TitleService;
 import com.mergen.vtys.vtysdatabaseap.Service.UserCareerService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +30,7 @@ public class UserCareerServiceImpl implements UserCareerService {
         Optional<UserCareer> userCareer = userCareerRepository.findById(id);
         if (userCareer.isPresent())
             return modelMapper.map(userCareer.get(), UserCareerDto.class);
-        throw new IllegalArgumentException(id + " Fail" + " And Get User Details by ID Fail!");
+        throw new IllegalArgumentException("ID:" + id + " Fail" + " And Get User Details by ID Fail!");
     }
 
     @Override
