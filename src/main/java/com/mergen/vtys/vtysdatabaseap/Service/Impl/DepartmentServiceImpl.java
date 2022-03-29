@@ -1,9 +1,7 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
 import com.mergen.vtys.vtysdatabaseap.Dto.DepartmentDto;
-import com.mergen.vtys.vtysdatabaseap.Dto.UserDto;
 import com.mergen.vtys.vtysdatabaseap.Model.Department;
-import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Repository.DepartmentRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.DepartmentService;
 import lombok.Data;
@@ -11,8 +9,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

@@ -32,7 +32,7 @@ public class VacationRequestServiceImpl implements VacationRequestService {
     private  final UserDetailsRepository userDetailsRepository;
     @Override
     public List<VacationRequest> getVacationRequestList()  {
-        return (List<VacationRequest>) vacationRequestRepository.findAll();
+        return vacationRequestRepository.findAll();
     }
     @Override
     public Optional<VacationRequest> getVacationRequestById(Long id){
@@ -50,7 +50,7 @@ public class VacationRequestServiceImpl implements VacationRequestService {
         //   Optional<Payments> payments = paymentsRepository.findEmailAndPassword(model.getEmail(),model.getPassword());
         //vacationRequestRepository.save(model);
         EarnedVacationDays(model.getId());
-        model.setIsAuthorizedForClasifiedData(model.getVacation_request_status());
+       // model.setIsAuthorizedForClasifiedData(model.getVacation_request_status());
 
        // UserDetails userDetails = new UserDetails();
          String start_date = userDetailsRepository.findById(model.getUser_detail_id()).get().getDate_of_start();
@@ -97,9 +97,7 @@ public class VacationRequestServiceImpl implements VacationRequestService {
     }
     @Override
     public String GetDate_of_Start(@PathVariable() Long id){
-        String string = vacationRequestRepository.GetDate_of_Start(id);
-
-        return string;
+        return vacationRequestRepository.GetDate_of_Start(id);
     }
 
 }
