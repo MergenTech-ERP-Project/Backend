@@ -1,6 +1,5 @@
 package com.mergen.vtys.vtysdatabaseap.C.Security;
 
-import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

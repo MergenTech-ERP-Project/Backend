@@ -1,9 +1,7 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
 import com.mergen.vtys.vtysdatabaseap.Model.ActivityEvaluation;
-import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Repository.ActivityEvaluationRepository;
-import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.ActivityEvaluationService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

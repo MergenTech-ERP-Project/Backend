@@ -1,39 +1,37 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 
-import com.mergen.vtys.vtysdatabaseap.Advice.ExpectionResponse;
 import com.mergen.vtys.vtysdatabaseap.Model.User;
-import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
-import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
-import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
-import com.mergen.vtys.vtysdatabaseap.Service.UserService;
+import com.mergen.vtys.vtysdatabaseap.C.Security.UserRepository;
+import com.mergen.vtys.vtysdatabaseap.Model.UserM;
+import com.mergen.vtys.vtysdatabaseap.Repository.UserMRepository;
+import com.mergen.vtys.vtysdatabaseap.Service.UserMService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
-//import org.springframework.web.bind.annotation.*;
 
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @Data
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserMService {
 
-    private final UserRepository userRepository;
+    private final UserMRepository userMRepository;
 
-    @Query(value = "SELECT * from user", nativeQuery = true)
+    @Query(value = "SELECT * from user_m", nativeQuery = true)
     @Override
-    public List<User> getUserLists(){return (List<User>) userRepository.findAll();}
+    public List<UserM> getUserLists(){return userMRepository.findAll();}
 
 
     @Override
-    public Optional<User> getUserById(Long id){
-        Optional<User> user = userRepository.findById(id);
-        if (user.isPresent()){
-            return user;
+    public Optional<UserM> getUserById(Long id){
+        Optional<UserM> userM = userMRepository.findById(id);
+        if (userM.isPresent()){
+          return userM;
         }
         else
         throw new IllegalArgumentException(id + " Fail" + " And Get User by ID Fail!");
@@ -41,27 +39,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> getUserByName(String name){
-        Optional<User> user = userRepository.findByName(name);
-        if (user.isPresent()){
-            return user;
+    public Optional<UserM> getUserByName(String name){
+   Optional<UserM> userM = userMRepository.findByName(name);
+    if (userM.isPresent()){
+            return userM;
         }
         else
         throw new IllegalArgumentException(name + " Auth Fail");
 
     }
 
-    @Override
-    public Optional<User> getUserNameAndPassword(String name, String password) {
-        Optional<User> user = userRepository.findNameAndPassword(name,password);
-        if (user.isPresent()){
-            return user;
-        }
-        else
-        throw new IllegalArgumentException(name + password + " Auth Fail!");
+//    @Override
+//    public Optional<User> getUserNameAndPassword(String name, String password) {
+//        Optional<User> user = userRepository.findNameAndPassword(name,password);
+//        if (user.isPresent()){
+//            return user;
+//        }
+//        else
+//        throw new IllegalArgumentException(name + password + " Auth Fail!");
+//
+//    }
 
-    }
-
+/*
     @Override
     public Boolean existsByUsername(String username) {
         return null;
@@ -76,35 +75,36 @@ public class UserServiceImpl implements UserService {
     public Optional<User> findByUsername(String username) {
         return Optional.empty();
     }
+*/
 
+
+//    @Override
+//    public Optional<User> getUserEmailAndPassword(String email, String password) {
+//        Optional<User> user = userRepository.findEmailAndPassword(email,password);
+//        if (user.isPresent()){
+//            return user;
+//        }
+//        else
+//            throw new IllegalArgumentException(email + password + " Auth Fail!");
+//
+//    }
 
     @Override
-    public Optional<User> getUserEmailAndPassword(String email, String password) {
-        Optional<User> user = userRepository.findEmailAndPassword(email,password);
-        if (user.isPresent()){
-            return user;
-        }
-        else
-            throw new IllegalArgumentException(email + password + " Auth Fail!");
+    public UserM Create(UserM model) {
+        Optional<UserM> _userM = userMRepository.findByUsername(model.getUsername());
 
-    }
-
-    @Override
-    public User Create(User model) {
-        Optional<User> _user = userRepository.findEmailAndPassword(model.getEmail(),model.getPassword());
-
-        if (!_user.isPresent()) {
-            userRepository.save(model);
+        if (!_userM.isPresent()) {
+            userMRepository.save(model);
             return model;
         } else
             throw new IllegalArgumentException(model + " Already Exist!");
     }
 
     @Override
-    public String Update(Long id, User model) {
-        Optional<User> _user = userRepository.findById(id);
-        if(_user.isPresent()){
-            userRepository.save(model);
+    public String Update(Long id, UserM model) {
+    Optional<UserM> _userM = userMRepository.findById(id);
+        if(_userM.isPresent()){
+            userMRepository.save(model);
             return model.getUsername();}
         else
         throw new IllegalArgumentException(model + " Update Option Fail!");
@@ -112,10 +112,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String Delete(Long id) {
-        Optional<User> user = userRepository.findById(id);
+    Optional<UserM> userM = userMRepository.findById(id);
 
-        if(user.isPresent()){
-            userRepository.deleteById(id);
+        if(userM.isPresent()){
+            userMRepository.deleteById(id);
             return id.toString();}
         else
         throw new IllegalArgumentException(" Delete Option Fail!");

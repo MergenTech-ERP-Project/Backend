@@ -21,6 +21,21 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="email" type="varchar(30)">
                 <constraints nullable="true"/>
             </column>
+        </createTable>
+
+    </changeSet>
+    <changeSet id="28.03.2022" author="Fatih">
+
+        <createTable tableName="user_m">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="varchar(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(30)">
+                <constraints nullable="true"/>
+            </column>
             <column name="title" type="varchar(30)">
                 <constraints nullable="true"/>
             </column>
@@ -28,9 +43,9 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                 <constraints nullable="true"/>
             </column>
 
-
         </createTable>
-
+    </changeSet>
+    <changeSet id="20565645" author="Fatih">
         <createTable tableName="activity">
             <column name="id" type="tinyint">
                 <constraints primaryKey="true"/>

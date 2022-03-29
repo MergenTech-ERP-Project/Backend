@@ -1,5 +1,8 @@
 package com.mergen.vtys.vtysdatabaseap.C.Security;
 
+import com.mergen.vtys.vtysdatabaseap.Model.UserM;
+import com.mergen.vtys.vtysdatabaseap.Repository.UserMRepository;
+import com.mergen.vtys.vtysdatabaseap.Service.UserMService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +26,20 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
+    public AuthTokenFilter(UserMRepository userMRepository) {
+        this.userMRepository = userMRepository;
+    }
+
+    private UserMRepository userMRepository;
+    @Autowired
+    UserMService userMService;
+
     private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
 
+    public AuthTokenFilter() {
+
+    }
+    UserM userM = new UserM();
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
@@ -37,8 +52,8 @@ public class AuthTokenFilter extends OncePerRequestFilter {
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null,
                         userDetails.getAuthorities());
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
                 SecurityContextHolder.getContext().setAuthentication(authentication);
+
             }
         } catch (Exception e) {
             logger.error("Cannot set user authentication: {}", e.getMessage());

@@ -2,15 +2,15 @@ package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
 
+import com.mergen.vtys.vtysdatabaseap.C.Security.UserRepository;
 import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
-import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
+import com.mergen.vtys.vtysdatabaseap.Model.UserM;
 import com.mergen.vtys.vtysdatabaseap.Service.ActivityService;
 import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
-import com.mergen.vtys.vtysdatabaseap.Service.UserService;
+import com.mergen.vtys.vtysdatabaseap.Service.UserMService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,80 +28,73 @@ import java.util.Optional;
 public class UserController {
     private final ActivityService activityService;
 
-    private final UserRepository userRepository;
-
-    private final UserService userService;
+    private final UserMService userMService;
 
     private  final UserDetailsService userDetailsService;
 
-    public UserController(UserService userService, ActivityService activityService, UserRepository userRepository, UserDetailsService userDetailsService) {
-        this.userService = userService;
-        this.activityService = activityService;
-        this.userRepository = userRepository;
-        this.userDetailsService = userDetailsService;
-    }
+
 
     @GetMapping(value = "/list")
-    public ResponseEntity<List<User>> getUserList(){
-        List<User> userList = userService.getUserLists();
+public ResponseEntity<List<UserM>> getUserList(){
+        List<UserM> userList = userMService.getUserLists();
         log.info("All Users Returned - {}", userList);
         return ResponseEntity.ok(userList);
     }
 
     @GetMapping(value = "/list/{id}")
-    public ResponseEntity<Optional<User>> getUserById(@PathVariable Long id){
-        Optional<User> status = userService.getUserById(id);
+    public ResponseEntity<Optional<UserM>> getUserById(@PathVariable Long id){
+        Optional<UserM> status = userMService.getUserById(id);
         log.info("User Got by ID Status - {}",status);
         return ResponseEntity.ok(status);
     }
 
     @GetMapping(value = "/{name}")
-    public ResponseEntity<Optional<User>> getUsersCheck(@PathVariable("name") String name){
-        Optional<User> status = userService.getUserByName(name);
+    public ResponseEntity<Optional<UserM>> getUsersCheck(@PathVariable("name") String name){
+        Optional<UserM> status = userMService.getUserByName(name);
         log.info("User Got by Name Status - {}",status);
         return  ResponseEntity.ok(status) ;
     }
 
-    @GetMapping(value ="/{name}/{password}")
-    public ResponseEntity<Optional<User>> getUsersCheck(
+ /*   @GetMapping(value ="/{name}/{password}")
+    public ResponseEntity<Optional<UserM>> getUsersCheck(
             @PathVariable("name") String name,@PathVariable("password") String password) {
-        Optional<User> status = userService.getUserNameAndPassword(name,password);
+        Optional<UserM> status = userMService.getUserNameAndPassword(name,password);
         log.info("User Got by Name And Password Status - {}",status);
         return ResponseEntity.ok(status);
-    }
-    @GetMapping(value ="/check/{email}/{password}")
-    public ResponseEntity<Optional<User>> getUsersCheckByMailandPass(
-            @PathVariable("email") String email,@PathVariable("password") String password) {
-        Optional<User> status = userService.getUserEmailAndPassword(email,password);
-        log.info("User Got by E-mail And Password Status - {}",status);
-        return ResponseEntity.ok(status);
-    }
+    }*/
+//    @GetMapping(value ="/check/{email}/{password}")
+//    public ResponseEntity<Optional<UserM>> getUsersCheckByMailandPass(
+//            @PathVariable("email") String email,@PathVariable("password") String password) {
+//        Optional<User> status = userMService.getUserEmailAndPassword(email,password);
+//        log.info("User Got by E-mail And Password Status - {}",status);
+//        return ResponseEntity.ok(status);
+//    }
 
 
     @PostMapping(value = "/new")
-    public ResponseEntity<User> createUser(@RequestBody User user) throws ParseException {
+    public ResponseEntity<UserM> createUser(@RequestBody UserM userM) throws ParseException {
 
-        User status = userService.Create(user);
+        UserM status = userMService.Create(userM);
         log.info("User Added Status - {}",status);
         UserDetails userDetails = new UserDetails();
-        userDetails.setId(user.getId());
-        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+        userDetails.setId(userM.getId());
+        return ResponseEntity.status(HttpStatus.CREATED).body(userM);
     }
 
 
 
     @PutMapping(value = "/update/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User user) {
+    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody UserM userM) {
 
-        String status = userService.Update(id, user);
+        String status = userMService.Update(id, userM);
         log.info("User Updated Status - {}",status);
-        return ResponseEntity.ok(user.getUsername() + " updated!");
+        return ResponseEntity.ok(userM.getUsername() + " updated!");
 
     }
 
     @DeleteMapping(value = "/remove/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable() Long id){
-        String status = userService.Delete(id);
+        String status = userMService.Delete(id);
         log.info("User Deleted Status - {}",status);
         return ResponseEntity.ok(id + " th deleted!");
     }
