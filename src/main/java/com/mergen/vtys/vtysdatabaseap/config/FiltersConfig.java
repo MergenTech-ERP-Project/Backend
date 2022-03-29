@@ -21,11 +21,7 @@ public class FiltersConfig {
                 "/activityevaluation/evaluations", "/activityevaluation/evaluations/*", "/activityevaluation/post", "/activityevaluation/put/*", "/activityevaluation/delete/*",
                 "/activity/activities", "/activity/activities/*", "/activity/post", "/activity/put/*", "/activity/delete/*",
                 "/activetouser/activetousers", "/activetouser/activetousers/*","/activetouser/user/*","/activetouser/activity/enrolled/*","/activetouser/post","/activetouser/put/*","/activetouser/delete/*,",
-<<<<<<< HEAD
-                "/userdetail/userdetails", "/userdetail/userdetails/*", "/userdetail/new", "/userdetail/update/*", "/userdetail/remove/*"
-=======
                 "/userdetail/userdetails", "/userdetail/userdetails/*", "/userdetail/post", "/userdetail/update/*", "/userdetail/delete/*"
->>>>>>> ff08235 (spring security with pre defined users)
         );
         return registrationBean;
     }

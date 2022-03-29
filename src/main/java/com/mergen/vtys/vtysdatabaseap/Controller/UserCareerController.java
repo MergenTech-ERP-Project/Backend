@@ -1,14 +1,19 @@
 package com.mergen.vtys.vtysdatabaseap.Controller;
 
-import com.mergen.vtys.vtysdatabaseap.Dto.UserCareerDto;
+import com.mergen.vtys.vtysdatabaseap.Model.Title;
+import com.mergen.vtys.vtysdatabaseap.Model.UserCareer;
+import com.mergen.vtys.vtysdatabaseap.Service.TitleService;
 import com.mergen.vtys.vtysdatabaseap.Service.UserCareerService;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @CrossOrigin(origins = "*")
@@ -24,30 +29,30 @@ public class UserCareerController {
     }
 
     @GetMapping(value = "/list")
-    public ResponseEntity<List<UserCareerDto>> getUserCareerList(){
-        List<UserCareerDto> userCareerList = userCareerService.getUserCareerList();
+    public ResponseEntity<List<UserCareer>> getUserCareerList(){
+        List<UserCareer> userCareerList = userCareerService.getUserCareerList();
         log.info("All Title Returned - {}",userCareerList);
         return ResponseEntity.ok(userCareerList);
     }
     @GetMapping(value = "/list/{id}")
-    public ResponseEntity<UserCareerDto> getUserCareerByID(@PathVariable Long id) {
-        UserCareerDto status = userCareerService.getUserCareerByID(id);
+    public ResponseEntity<Optional<UserCareer>> getUserCareerByID(@PathVariable Long id) {
+        Optional<UserCareer> status = userCareerService.getUserCareerByID(id);
         log.info("Title Got by ID Status - {}",status);
         return ResponseEntity.ok(status);
     }
 
     @PostMapping(value = "/new")
-    public ResponseEntity<UserCareerDto> createUserCrareer(@RequestBody UserCareerDto userCareerDto) {
-         UserCareerDto status = userCareerService.Create(userCareerDto);
+    public ResponseEntity<UserCareer> createUserCrareer(@RequestBody UserCareer usercareer) throws ParseException {
+         UserCareer status = userCareerService.Create(usercareer);
         log.info("title Added Status - {}",status);
-        return  ResponseEntity.status(HttpStatus.CREATED).body(userCareerDto);
+        return  ResponseEntity.status(HttpStatus.CREATED).body(usercareer);
     }
 
     @PutMapping(value = "/update/{id}")
-    public ResponseEntity<String> updateUserCareer(@PathVariable Long id, @RequestBody UserCareerDto userCareerDto ){
-        String status = userCareerService.Update(id,userCareerDto);
+    public ResponseEntity<String> updateUserCareer(@PathVariable Long id, @RequestBody UserCareer userCareer ){
+        String status = userCareerService.Update(id,userCareer);
         log.info("UserCareer Updated Status - {}",status);
-        return ResponseEntity.ok(userCareerDto.getId() + " updated!");
+        return ResponseEntity.ok(userCareer.getId() + " updated!");
     }
     @DeleteMapping(value = "/remove/{id}")
     public ResponseEntity<String> deleteTitle(@PathVariable() Long id) {

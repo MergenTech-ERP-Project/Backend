@@ -1,24 +1,23 @@
 package com.mergen.vtys.vtysdatabaseap.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mergen.vtys.vtysdatabaseap.Domain.MaritalStatus;
+import com.mergen.vtys.vtysdatabaseap.C.Security.Role;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.JoinColumnsOrFormulas;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="user", schema = "public")
 @Data
+@RequiredArgsConstructor
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +25,7 @@ public class User{
     private Long id;
 
     @Column
-    private  String name;
+    private  String username;
     @Email
     @Column
     private String email ;
@@ -36,6 +35,12 @@ public class User{
     private String cellphone;
     @Column
     private String password;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
 
     //@JsonIgnore
@@ -50,7 +55,11 @@ public class User{
     //@JsonManagedReference(value = "user_json_managed")
     private List<UserDetails> userDetails=new ArrayList<>();
 
-
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
 //    @OneToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
 //    //@PrimaryKeyJoinColumn

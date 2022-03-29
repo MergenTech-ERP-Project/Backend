@@ -18,7 +18,6 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "userdetails",schema = "public")
-
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@userid")
 public class UserDetails {
     @Id
@@ -113,7 +112,9 @@ public class UserDetails {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Payments> payments=new ArrayList<>();
 
-
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user_detail_id")
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<VacationRequest> vacationRequests=new ArrayList<>();
 
 }
 
