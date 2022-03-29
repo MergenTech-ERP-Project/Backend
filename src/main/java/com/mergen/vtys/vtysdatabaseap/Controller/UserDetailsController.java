@@ -61,10 +61,17 @@ public class UserDetailsController {
     }
 
     @PutMapping(value = "update/{id}")
+<<<<<<< HEAD
     public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody UserDetailsDto userDetailsDto) {
         String status = userDetailsService.Update(id, userDetailsDto);
         log.info("User Details Updated Status - {}",status);
         return ResponseEntity.ok("TC No:" + userDetailsDto.getTc_no() + " updated!");
+=======
+    public ResponseEntity<String> updateUserDetails(@PathVariable Long id, @RequestBody UserDetails userDetails) {
+        String status = userDetailsService.Update(id, userDetails);
+        log.info("User Detail Updated Status - {}", status);
+        return ResponseEntity.ok("TC: "+ userDetails.getTc_no()+ " updated!");
+>>>>>>> ff08235 (spring security with pre defined users)
     }
 
     @DeleteMapping(value = "remove/{id}")

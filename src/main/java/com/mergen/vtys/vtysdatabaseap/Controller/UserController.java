@@ -30,7 +30,6 @@ public class UserController {
 
     private  final UserDetailsService userDetailsService;
 
-
     public UserController(UserService userService, ActivityService activityService, UserRepository userRepository, UserDetailsService userDetailsService) {
         this.userService = userService;
         this.activityService = activityService;
@@ -79,7 +78,13 @@ public class UserController {
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
         UserDto status = userService.Create(userDto);
         log.info("User Added Status - {}",status);
+<<<<<<< HEAD
         return ResponseEntity.status(HttpStatus.CREATED).body(userDto);
+=======
+        UserDetails userDetails = new UserDetails();
+        userDetails.setId(user.getId());
+        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+>>>>>>> ff08235 (spring security with pre defined users)
     }
 
     @PutMapping(value = "/update/{id}")
