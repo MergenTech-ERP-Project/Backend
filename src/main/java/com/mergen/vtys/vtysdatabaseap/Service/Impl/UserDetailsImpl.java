@@ -1,7 +1,5 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
 import com.mergen.vtys.vtysdatabaseap.Dto.UserDetailsDto;
-import com.mergen.vtys.vtysdatabaseap.Dto.UserDto;
-import com.mergen.vtys.vtysdatabaseap.Model.User;
 import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
@@ -9,11 +7,14 @@ import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+<<<<<<< HEAD
 import org.modelmapper.ModelMapper;
+=======
+import org.springframework.http.ResponseEntity;
+>>>>>>> ff08235 (spring security with pre defined users)
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -26,11 +27,31 @@ public class UserDetailsImpl implements UserDetailsService {
     private final ModelMapper modelMapper;
 
     @Override
+<<<<<<< HEAD
     public UserDetailsDto getUserDetailsById(Long id){
         Optional<UserDetails> userDetails = userDetailsRepository.findById(id);
         if (userDetails.isPresent())
             return modelMapper.map(userDetails.get(), UserDetailsDto.class);
-        throw new IllegalArgumentException(id + " Fail" + " And Get User Details by ID Fail!");
+        throw new IllegalArgumentException("ID:" + id + " Fail" + " And Get User Details by ID Fail!");
+=======
+    public Optional<UserDetails> getUserDetailsById(Long id){
+        Optional<UserDetails> userDetails = Optional.ofNullable(userDetailsRepository.findById(id).orElseThrow(() -> new IllegalStateException("Find by Id Internal Error")));
+
+        return userDetails;
+    }
+
+
+    @Override
+    public UserDetails Create(UserDetails model) {
+
+        if(userDetailsRepository.existsByEmail(model.getTc_no())){
+            throw new IllegalArgumentException("TC No Saved Before");
+        }
+        else
+        userDetailsRepository.save(model);
+
+        return model;
+>>>>>>> ff08235 (spring security with pre defined users)
     }
 
     @Override
@@ -46,11 +67,22 @@ public class UserDetailsImpl implements UserDetailsService {
     public String Update(Long id, UserDetailsDto model) {
         UserDetails userDetails = modelMapper.map(model,UserDetails.class);
         Optional<UserDetails> _userDetails = userDetailsRepository.findById(id);
+<<<<<<< HEAD
         if(_userDetails.isPresent()){
             if(id.equals(model.getId())) {
                 userDetailsRepository.save(userDetails);
                 return "TC No:" + userDetails.getTc_no() + " Updated!";}}
         throw new IllegalArgumentException(model + " Update Option Fail!");
+=======
+        if (_userDetails.isPresent()) {
+            if (id == model.getId()) {
+                model.setId(_userDetails.get().getId());
+                userDetailsRepository.save(model);
+                return model.getTc_no() + " Updated!";
+            }
+        }
+         throw new IllegalArgumentException("Update Option Fail!");
+>>>>>>> ff08235 (spring security with pre defined users)
     }
 
     @Override

@@ -3,22 +3,18 @@ package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
 import com.mergen.vtys.vtysdatabaseap.Dto.UserDto;
-import com.mergen.vtys.vtysdatabaseap.Model.User;
-import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.ActivityService;
 import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
 import com.mergen.vtys.vtysdatabaseap.Service.UserService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @CrossOrigin(origins = "*")
@@ -33,7 +29,6 @@ public class UserController {
     private final UserService userService;
 
     private  final UserDetailsService userDetailsService;
-
 
     public UserController(UserService userService, ActivityService activityService, UserRepository userRepository, UserDetailsService userDetailsService) {
         this.userService = userService;
@@ -83,7 +78,13 @@ public class UserController {
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
         UserDto status = userService.Create(userDto);
         log.info("User Added Status - {}",status);
+<<<<<<< HEAD
         return ResponseEntity.status(HttpStatus.CREATED).body(userDto);
+=======
+        UserDetails userDetails = new UserDetails();
+        userDetails.setId(user.getId());
+        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+>>>>>>> ff08235 (spring security with pre defined users)
     }
 
     @PutMapping(value = "/update/{id}")

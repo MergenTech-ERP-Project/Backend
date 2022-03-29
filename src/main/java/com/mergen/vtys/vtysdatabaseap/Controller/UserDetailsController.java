@@ -2,21 +2,14 @@ package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
 import com.mergen.vtys.vtysdatabaseap.Dto.UserDetailsDto;
-import com.mergen.vtys.vtysdatabaseap.Model.User;
-import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
-import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @CrossOrigin(origins = "*")
@@ -68,10 +61,17 @@ public class UserDetailsController {
     }
 
     @PutMapping(value = "update/{id}")
+<<<<<<< HEAD
     public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody UserDetailsDto userDetailsDto) {
         String status = userDetailsService.Update(id, userDetailsDto);
         log.info("User Details Updated Status - {}",status);
         return ResponseEntity.ok("TC No:" + userDetailsDto.getTc_no() + " updated!");
+=======
+    public ResponseEntity<String> updateUserDetails(@PathVariable Long id, @RequestBody UserDetails userDetails) {
+        String status = userDetailsService.Update(id, userDetails);
+        log.info("User Detail Updated Status - {}", status);
+        return ResponseEntity.ok("TC: "+ userDetails.getTc_no()+ " updated!");
+>>>>>>> ff08235 (spring security with pre defined users)
     }
 
     @DeleteMapping(value = "remove/{id}")

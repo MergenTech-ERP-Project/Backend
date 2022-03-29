@@ -18,7 +18,6 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("activetouser")
-@RequiredArgsConstructor
 @Slf4j
 public class ActiveToUserController {
 

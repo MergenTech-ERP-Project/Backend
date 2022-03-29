@@ -81,19 +81,19 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                 <constraints primaryKey="true"/>
             </column>
             <column name="company_name" type="varchar(50)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <column name="company_phone" type="varchar(20)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="domain_name" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="mersis_no" type="varchar(30)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="sgk_company_no" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="company_id_from_career" type="tinyint">
                 <constraints nullable="true"/>
@@ -241,22 +241,22 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                 <constraints primaryKey="true"/>
             </column>
             <column name="salary" type="varchar(50)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <column name="currency" type="varchar(20)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="salary_type" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="payment_scheme" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="commute_support_fee" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="food_support_fee" type="varchar(50)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="user_id" type="tinyint">
                 <constraints nullable="true"/>
@@ -367,13 +367,13 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
    <changeSet id="2255lpl" author="fatih">
        <createTable tableName="usercareer">
            <column name="id" type="tinyint">
-               <constraints primaryKey="true"></constraints>
+               <constraints primaryKey="true"/>
            </column>
            <column name="company_id" type="tinyint">
-               <constraints nullable="true" ></constraints>
+               <constraints nullable="true"/>
            </column>
            <column name="career_id" type="tinyint">
-               <constraints nullable="true"></constraints>
+               <constraints nullable="true"/>
            </column>
        </createTable>
    </changeSet>
