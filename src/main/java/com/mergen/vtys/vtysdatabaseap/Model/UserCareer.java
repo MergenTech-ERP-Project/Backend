@@ -9,7 +9,6 @@ import javax.persistence.*;
 public class UserCareer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
     private Long id;
 
     @Column

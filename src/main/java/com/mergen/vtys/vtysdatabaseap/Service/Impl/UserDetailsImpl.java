@@ -1,5 +1,4 @@
 package com.mergen.vtys.vtysdatabaseap.Service.Impl;
-import com.mergen.vtys.vtysdatabaseap.Dto.UserDetailsDto;
 import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
 import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
@@ -7,16 +6,13 @@ import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-<<<<<<< HEAD
-import org.modelmapper.ModelMapper;
-=======
 import org.springframework.http.ResponseEntity;
->>>>>>> ff08235 (spring security with pre defined users)
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @Data
@@ -24,16 +20,9 @@ import java.util.stream.Collectors;
 public class UserDetailsImpl implements UserDetailsService {
 
     private final UserDetailsRepository userDetailsRepository;
-    private final ModelMapper modelMapper;
+
 
     @Override
-<<<<<<< HEAD
-    public UserDetailsDto getUserDetailsById(Long id){
-        Optional<UserDetails> userDetails = userDetailsRepository.findById(id);
-        if (userDetails.isPresent())
-            return modelMapper.map(userDetails.get(), UserDetailsDto.class);
-        throw new IllegalArgumentException("ID:" + id + " Fail" + " And Get User Details by ID Fail!");
-=======
     public Optional<UserDetails> getUserDetailsById(Long id){
         Optional<UserDetails> userDetails = Optional.ofNullable(userDetailsRepository.findById(id).orElseThrow(() -> new IllegalStateException("Find by Id Internal Error")));
 
@@ -51,29 +40,11 @@ public class UserDetailsImpl implements UserDetailsService {
         userDetailsRepository.save(model);
 
         return model;
->>>>>>> ff08235 (spring security with pre defined users)
     }
 
     @Override
-    public UserDetailsDto Create(UserDetailsDto model) {
-        UserDetails userDetails = modelMapper.map(model,UserDetails.class);
-        boolean _userDetails = userDetailsRepository.existsByEmail(model.getTc_no());
-        if(!_userDetails)
-            return modelMapper.map(userDetailsRepository.save(userDetails),UserDetailsDto.class);
-        throw new IllegalArgumentException(model + " Create Option Fail!");
-    }
-
-    @Override
-    public String Update(Long id, UserDetailsDto model) {
-        UserDetails userDetails = modelMapper.map(model,UserDetails.class);
+    public String  Update(Long id, UserDetails model) {
         Optional<UserDetails> _userDetails = userDetailsRepository.findById(id);
-<<<<<<< HEAD
-        if(_userDetails.isPresent()){
-            if(id.equals(model.getId())) {
-                userDetailsRepository.save(userDetails);
-                return "TC No:" + userDetails.getTc_no() + " Updated!";}}
-        throw new IllegalArgumentException(model + " Update Option Fail!");
-=======
         if (_userDetails.isPresent()) {
             if (id == model.getId()) {
                 model.setId(_userDetails.get().getId());
@@ -82,37 +53,33 @@ public class UserDetailsImpl implements UserDetailsService {
             }
         }
          throw new IllegalArgumentException("Update Option Fail!");
->>>>>>> ff08235 (spring security with pre defined users)
     }
 
     @Override
     public String Delete(Long id) {
         Optional<UserDetails> userDetails = userDetailsRepository.findById(id);
+
         if(userDetails.isPresent()){
             userDetailsRepository.deleteById(id);
             return id.toString();}
-        else throw new IllegalArgumentException(" Delete Option Fail!");
+        else
+            throw new IllegalArgumentException(" Delete Option Fail!");
     }
 
     @Override
-    public List<UserDetailsDto> getUserDetailsList() {
-        List<UserDetails> userDetailsList = (List<UserDetails>) userDetailsRepository.findAll();
-        return userDetailsList.stream().map(userDetails -> modelMapper.map(userDetails,UserDetailsDto.class)).collect(Collectors.toList());
+    public List<UserDetails> getUserDetailsList() {
+        return userDetailsRepository.findAll();
     }
 
     @Override
-    public UserDetailsDto findTcNo(String tc_no){
-        Optional<UserDetails> userDetails = userDetailsRepository.findTcNo(tc_no);
-        if (userDetails.isPresent())
-            return modelMapper.map(userDetails.get(),UserDetailsDto.class);
-        throw new IllegalArgumentException("TC No:" + tc_no + " Auth Fail");
+    public   Optional<UserDetails>findTcNo(String tc_no){
+        return Optional.ofNullable(userDetailsRepository.findTcNo(tc_no)
+                .orElseThrow(() -> new IllegalStateException("Find by Tc_no Internal Error")));
     }
 
     @Override
-    public UserDetailsDto FindByUserid(Long user_id){
-        Optional<UserDetails> userDetails = userDetailsRepository.FindByUserid(user_id);
-        if (userDetails.isPresent())
-            return modelMapper.map(userDetails.get(),UserDetailsDto.class);
-        throw new IllegalArgumentException("User id:" + user_id + " Auth Fail");
+    public  Optional<UserDetails>FindByUserid(Long user_id){
+        return Optional.ofNullable(userDetailsRepository.FindByUserid(user_id)
+                .orElseThrow(() -> new IllegalStateException("Find by  User_Id Internal Error")));
     }
 }

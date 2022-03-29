@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +44,7 @@ public class CompanyController {
     }
 
     @PostMapping(value = "/new")
-    public ResponseEntity<Company> createCompany(@RequestBody Company company) {
+    public ResponseEntity<Company> createCompany(@RequestBody Company company) throws ParseException {
         Company status = companyService.Create(company);
         log.info("Company Added Status - {}",status);
         return  ResponseEntity.status(HttpStatus.CREATED).body(company);

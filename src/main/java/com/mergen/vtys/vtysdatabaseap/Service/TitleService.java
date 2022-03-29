@@ -11,4 +11,5 @@ public interface TitleService  extends HelperService<Title> {
     List<Title> getTitleList();
     Optional<Title> getTitleByID(Long id);
     List<Optional<Title>> getDepartmentId(@Param("department_id") Long department_id);
+
 }

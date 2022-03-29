@@ -12,11 +12,26 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="id" type="int">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="name" type="varchar(30)">
+            <column name="username" type="varchar(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(30)">
                 <constraints nullable="true"/>
             </column>
-            <column name="password" type="varchar(30)">
-                <constraints nullable="true"/>
+        </createTable>
+
+    </changeSet>
+    <changeSet id="28.03.2022" author="Fatih">
+
+        <createTable tableName="user_m">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="varchar(150)">
+                <constraints nullable="false"/>
             </column>
             <column name="email" type="varchar(30)">
                 <constraints nullable="true"/>
@@ -28,9 +43,9 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                 <constraints nullable="true"/>
             </column>
 
-
         </createTable>
-
+    </changeSet>
+    <changeSet id="20565645" author="Fatih">
         <createTable tableName="activity">
             <column name="id" type="tinyint">
                 <constraints primaryKey="true"/>
@@ -81,19 +96,19 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                 <constraints primaryKey="true"/>
             </column>
             <column name="company_name" type="varchar(50)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="company_phone" type="varchar(20)">
-                <constraints nullable="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="domain_name" type="varchar(50)">
-                <constraints nullable="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="mersis_no" type="varchar(30)">
-                <constraints nullable="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="sgk_company_no" type="varchar(50)">
-                <constraints nullable="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="company_id_from_career" type="tinyint">
                 <constraints nullable="true"/>
@@ -241,22 +256,22 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                 <constraints primaryKey="true"/>
             </column>
             <column name="salary" type="varchar(50)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="currency" type="varchar(20)">
-                <constraints nullable="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="salary_type" type="varchar(50)">
-                <constraints nullable="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="payment_scheme" type="varchar(50)">
-                <constraints nullable="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="commute_support_fee" type="varchar(50)">
-                <constraints nullable="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="food_support_fee" type="varchar(50)">
-                <constraints nullable="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="user_id" type="tinyint">
                 <constraints nullable="true"/>
@@ -367,15 +382,99 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
    <changeSet id="2255lpl" author="fatih">
        <createTable tableName="usercareer">
            <column name="id" type="tinyint">
-               <constraints primaryKey="true"/>
+               <constraints primaryKey="true"></constraints>
            </column>
            <column name="company_id" type="tinyint">
-               <constraints nullable="true"/>
+               <constraints nullable="true" ></constraints>
            </column>
            <column name="career_id" type="tinyint">
-               <constraints nullable="true"/>
+               <constraints nullable="true"></constraints>
            </column>
        </createTable>
    </changeSet>
 
+    <changeSet id="2255l323pl" author="fatih">
+        <createTable tableName="roles">
+            <column name="id" type="tinyint">
+                <constraints primaryKey="true"></constraints>
+            </column>
+            <column name="name" type="varchar(150)">
+                <constraints nullable="true" ></constraints>
+            </column>
+        </createTable>
+    </changeSet>
+<!--    INSERT INTO roles(name) VALUES('ROLE_USER');-->
+<!--    INSERT INTO roles(name) VALUES('ROLE_MODERATOR');-->
+<!--    INSERT INTO roles(name) VALUES('ROLE_ADMIN');-->
+    <changeSet author="fatih" id="service-1.2.1-2019-01-09-01">
+        <createSequence sequenceName="runtime_name_seq" dataType="bigint" incrementBy="1" maxValue="10000" minValue="1" startValue="1"/>
+    </changeSet>
+    <changeSet author="fatih" id="service-1.1-2019-01-09-01">
+
+        <insert tableName="roles">
+            <column name="id" valueSequenceNext="runtime_name_seq"/>
+            <column name="name" value="ROLE_USER"/>
+        </insert>
+        <insert tableName="roles">
+            <column name="id" valueSequenceNext="runtime_name_seq"/>
+            <column name="name" value="ROLE_MODERATOR"/>
+        </insert>
+        <insert tableName="roles">
+            <column name="id" valueSequenceNext="runtime_name_seq"/>
+            <column name="name" value="ROLE_ADMIN"/>
+        </insert>
+    </changeSet>
+    <changeSet author="fatih" id="service-1.1-2022-03-18">
+        <createTable tableName="vacation_request">
+            <column name="id" type="tinyint">
+                <constraints primaryKey="true"></constraints>
+            </column>
+            <column name="sicil_no" type="varchar(150)">
+                <constraints nullable="true" ></constraints>
+            </column>
+            <column name="start_date" type="varchar(150)">
+                <constraints nullable="true" ></constraints>
+            </column>
+            <column name="work_start_date" type="varchar(150)">
+                <constraints nullable="true" ></constraints>
+            </column>
+            <column name="vacation_request_status" type="varchar(150)">
+                <constraints nullable="true" ></constraints>
+            </column>
+            <column name="vacation_type" type="varchar(150)">
+                <constraints nullable="true" ></constraints>
+            </column>
+            <column name="permission_save_id" type="bigint">
+                <constraints nullable="true" ></constraints>
+            </column>
+            <column name="recognizant" type="varchar(50)">
+                <constraints nullable="true" ></constraints>
+            </column>
+            <column name="working_day_number" type="bigint">
+                <constraints nullable="true"></constraints>
+            </column>
+            <column name="user_detail_id" type="bigint">
+                <constraints nullable="true"></constraints>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="fatih" id="service-1.1-2022-03-23-vacation">
+        <createTable tableName="vacation_accrual">
+            <column name="id" type="tinyint">
+                <constraints primaryKey="true"></constraints>
+            </column>
+            <column name="sicil_no" type="varchar(150)">
+                <constraints nullable="true" ></constraints>
+            </column>
+            <column name="permisiion_code" type="varchar(150)">
+                <constraints nullable="true" ></constraints>
+            </column>
+            <column name="number_of_vacation_days" type="bigint">
+                <constraints nullable="true" ></constraints>
+            </column>
+            <column name="accrual_date" type="varchar(150)">
+                <constraints nullable="true" ></constraints>
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>

@@ -14,8 +14,8 @@ public enum BloodType {
     bPlus(4),
     bMinus(5),
     abPlus(6),
-    abMinus(7),
-    none(8);
+    abMinus(7);
+
     private final int id;
 
 }

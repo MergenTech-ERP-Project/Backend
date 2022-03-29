@@ -5,6 +5,7 @@ import com.mergen.vtys.vtysdatabaseap.Model.Department;
 import com.mergen.vtys.vtysdatabaseap.Model.Title;
 import com.mergen.vtys.vtysdatabaseap.Repository.TitleRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.TitleService;
+import liquibase.pro.packaged.T;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.query.Param;
@@ -60,11 +61,14 @@ public class TitleServiceImpl implements TitleService {
             throw new IllegalArgumentException(" Delete Option Fail!");
     }
 
-    @Override
-    public List<Optional<Title>> getDepartmentId(@Param("department_id") Long department_id){
-        List<Optional<Title>> titlelist = titleRepository.getDepartmentId(department_id);
-        return titlelist;
-    }
+
+  @Override
+  public List<Optional<Title>> getDepartmentId(@Param("department_id") Long department_id){
+      List<Optional<Title>> titlelist = titleRepository.getDepartmentId(department_id);
+     return titlelist;
+  }
+
+
 
 
 }
