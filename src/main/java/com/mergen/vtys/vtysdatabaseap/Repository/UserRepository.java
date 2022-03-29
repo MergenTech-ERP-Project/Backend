@@ -16,10 +16,10 @@ public interface UserRepository extends CrudRepository<User, Long> {
     Optional<User> findNameAndPassword(String name, String password);
     @Query(value = "SELECT * from public.user u Where u.email = ?1 and u.password = ?2", nativeQuery = true)
     Optional<User> findEmailAndPassword(String email,String password);
-    @Query(value = "SELECT * from public.user u Where u.email = ?1 and u.name = ?2", nativeQuery = true)
-    Optional<User> findEmailAndName(String email,String name);
 
+    Boolean existsByUsername(String username);
+    Boolean existsByEmail(String email);
 
-
+    Optional<User> findByUsername(String username);
 }
 

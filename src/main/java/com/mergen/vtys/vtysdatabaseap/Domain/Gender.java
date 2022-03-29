@@ -6,10 +6,10 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Gender {
-    none(0),
-    male (1),
-    female (2),
-    unspecified(3);
+
+    male (0),
+    female (1),
+    unspecified(2);
 
     private final int id;
 

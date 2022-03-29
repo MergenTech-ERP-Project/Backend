@@ -5,10 +5,12 @@ import com.mergen.vtys.vtysdatabaseap.Model.Title;
 import com.mergen.vtys.vtysdatabaseap.Service.TitleService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +41,7 @@ public class TitleController {
     }
 
     @PostMapping(value = "/new")
-    public ResponseEntity<Title> createTitle(@RequestBody Title title) {
+    public ResponseEntity<Title> createTitle(@RequestBody Title title) throws ParseException {
         Title status = titleService.Create(title);
         log.info("title Added Status - {}",status);
         return  ResponseEntity.status(HttpStatus.CREATED).body(title);
@@ -63,4 +65,5 @@ public class TitleController {
         log.info("Title Got by Department id Status - {}", status);
         return ResponseEntity.ok(status);
     }
-}
+
+    }

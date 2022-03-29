@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +41,7 @@ public class DepartmentController {
     }
 
     @PostMapping(value = "/new")
-    public ResponseEntity<Department> createDepartment(@RequestBody Department department) {
+    public ResponseEntity<Department> createDepartment(@RequestBody Department department) throws ParseException {
         Department status = departmentService.Create(department);
         log.info("deparment Added Status - {}",status);
         return  ResponseEntity.status(HttpStatus.CREATED).body(department);

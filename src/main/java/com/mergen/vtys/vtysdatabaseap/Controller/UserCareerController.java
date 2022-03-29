@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +42,7 @@ public class UserCareerController {
     }
 
     @PostMapping(value = "/new")
-    public ResponseEntity<UserCareer> createUserCrareer(@RequestBody UserCareer usercareer) {
+    public ResponseEntity<UserCareer> createUserCrareer(@RequestBody UserCareer usercareer) throws ParseException {
          UserCareer status = userCareerService.Create(usercareer);
         log.info("title Added Status - {}",status);
         return  ResponseEntity.status(HttpStatus.CREATED).body(usercareer);

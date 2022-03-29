@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.crypto.spec.OAEPParameterSpec;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,7 +49,7 @@ public class PaymentsController {
     }
 
     @PostMapping(value = "new")
-    public ResponseEntity<Payments> createPayments(@RequestBody Payments payments){
+    public ResponseEntity<Payments> createPayments(@RequestBody Payments payments) throws ParseException {
         Payments status = paymentsService.Create(payments);
         log.info("Payments Added Status - {}",status);
         return  ResponseEntity.status(HttpStatus.CREATED).body(payments);
