@@ -14,7 +14,9 @@ import com.mergen.vtys.vtysdatabaseap.C.Security.Load_pay.Response.JwtResponse;
 import com.mergen.vtys.vtysdatabaseap.C.Security.Load_pay.Response.MessageResponse;
 import com.mergen.vtys.vtysdatabaseap.C.Security.Load_pay.Response.TokenRefreshResponse;
 import com.mergen.vtys.vtysdatabaseap.Model.User;
-import com.mergen.vtys.vtysdatabaseap.Repository.UserRepository;
+import com.mergen.vtys.vtysdatabaseap.Model.UserM;
+import com.mergen.vtys.vtysdatabaseap.Repository.UserMRepository;
+import liquibase.pro.packaged.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -48,6 +50,9 @@ public class AuthController {
 
     @Autowired
     RefreshTokenService refreshTokenService;
+
+    @Autowired
+    UserMRepository userMRepository;
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -116,6 +121,13 @@ public class AuthController {
 
         user.setRoles(roles);
         userRepository.save(user);
+
+
+        UserM userM = new UserM();
+        userM.setId(user.getId());
+        userM.setUsername(user.getUsername());
+        userM.setEmail(user.getEmail());
+        userMRepository.save(userM);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }

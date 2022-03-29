@@ -30,10 +30,6 @@ public class User{
     @Column
     private String email ;
     @Column
-    private String title;
-    @Column
-    private String cellphone;
-    @Column
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -42,18 +38,6 @@ public class User{
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-
-    //@JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user_ids")
-    @Fetch(value = FetchMode.SUBSELECT)
-    //@JsonManagedReference(value = "user_json_managed")
-    private List<ActiveToUser> activeToUsers=new ArrayList<>();
-
-
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user_id")
-    @Fetch(value = FetchMode.SUBSELECT)
-    //@JsonManagedReference(value = "user_json_managed")
-    private List<UserDetails> userDetails=new ArrayList<>();
 
     public User(String username, String email, String password) {
         this.username = username;

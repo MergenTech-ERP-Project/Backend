@@ -93,7 +93,7 @@ public class VacationRequestServiceImpl implements VacationRequestService {
             vacationRequestRepository.getById(id).setWorking_day_number(vacation_numb*14);
         }
 
-        return "fadaa";
+        return "";
     }
     @Override
     public String GetDate_of_Start(@PathVariable() Long id){

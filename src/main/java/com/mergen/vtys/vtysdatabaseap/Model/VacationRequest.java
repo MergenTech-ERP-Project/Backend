@@ -37,17 +37,17 @@ public class VacationRequest {
     @Column
     private Long user_detail_id;
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public void setVacation_request_status(String vacation_request_status) {
-        this.vacation_request_status = vacation_request_status;
-    }
-
-    public void setIsAuthorizedForClasifiedData(String vacation_request_status) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Optional<? extends GrantedAuthority> role_admin = authentication.getAuthorities().stream().filter(role -> role.getAuthority().equals("ROLE_ADMIN")).findAny();
-        role_admin.orElseThrow(() -> new IllegalStateException("LIAR"));
-       this.vacation_request_status =vacation_request_status;
-    }
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+//    public void setVacation_request_status(String vacation_request_status) {
+//        this.vacation_request_status = vacation_request_status;
+//    }
+//
+//    public void setIsAuthorizedForClasifiedData(String vacation_request_status) {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        Optional<? extends GrantedAuthority> role_admin = authentication.getAuthorities().stream().filter(role -> role.getAuthority().equals("ROLE_ADMIN")).findAny();
+//        role_admin.orElseThrow(() -> new IllegalStateException("LIAR"));
+//       this.vacation_request_status =vacation_request_status;
+//    }
 }
 
     
