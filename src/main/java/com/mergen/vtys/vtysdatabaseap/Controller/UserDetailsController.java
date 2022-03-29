@@ -1,15 +1,21 @@
 package com.mergen.vtys.vtysdatabaseap.Controller;
 
 
-import com.mergen.vtys.vtysdatabaseap.Dto.UserDetailsDto;
+import com.mergen.vtys.vtysdatabaseap.Model.User;
+import com.mergen.vtys.vtysdatabaseap.Model.UserDetails;
+import com.mergen.vtys.vtysdatabaseap.Repository.UserDetailsRepository;
 import com.mergen.vtys.vtysdatabaseap.Service.UserDetailsService;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @CrossOrigin(origins = "*")
@@ -25,53 +31,53 @@ public class UserDetailsController {
     }
 
     @GetMapping(value = "/list")
-    public ResponseEntity<List<UserDetailsDto>> getUserList(){
-        List<UserDetailsDto> userList = userDetailsService.getUserDetailsList();
-        log.info("All Users Returned - {}", userList);
-        return ResponseEntity.ok(userList);
+    public ResponseEntity<List<UserDetails>> getUserDetailsList() {
+        List<UserDetails> userDetailsList = userDetailsService.getUserDetailsList();
+        log.info("All User Details Returned - {}", userDetailsList);
+        return ResponseEntity.ok(userDetailsList);
     }
 
 
-    @GetMapping(value = "/list/{id}")
-    public ResponseEntity<UserDetailsDto> getUserById(@PathVariable Long id){
-        UserDetailsDto status = userDetailsService.getUserDetailsById(id);
-        log.info("User Details Got by ID Status - {}",status);
-        return ResponseEntity.ok(status);
-    }
-
-    @GetMapping(value = "/find/tc:{tc_no}")
-    public ResponseEntity<UserDetailsDto> findByTcNo(@PathVariable() String tc_no) {
-        UserDetailsDto status = userDetailsService.findTcNo(tc_no);
-        log.info("User Details Got by Tc_No Status - {}", status);
-        return ResponseEntity.ok(status);
-    }
-
-    @GetMapping(value = "/find/userid:{user_id}")
-    public ResponseEntity<UserDetailsDto> findbyUserId(@PathVariable() Long user_id) {
-        UserDetailsDto status = userDetailsService.FindByUserid(user_id);
-        log.info("User Details Got by User_id Status - {}", status);
+    @GetMapping(value = "list/{id}")
+    public ResponseEntity<Optional<UserDetails>> getUserDetailsById(@PathVariable Long id) {
+        Optional<UserDetails> status = userDetailsService.getUserDetailsById(id);
+        log.info("User Detail Got by Name Status - {}", status);
         return ResponseEntity.ok(status);
     }
 
     @PostMapping(value = "/new")
-    public ResponseEntity<UserDetailsDto> createUser(@RequestBody UserDetailsDto userDetailsDto){
-        UserDetailsDto status = userDetailsService.Create(userDetailsDto);
-        log.info("User Details Added Status - {}",status);
-        return ResponseEntity.status(HttpStatus.CREATED).body(userDetailsDto);
+    public ResponseEntity<UserDetails> createUserDetails(@RequestBody UserDetails userDetails) throws ParseException {
+        UserDetails status = userDetailsService.Create(userDetails);
+        log.info("User Detail Added Status - {}", status);
+        return ResponseEntity.status(HttpStatus.CREATED).body(status);
     }
 
     @PutMapping(value = "update/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody UserDetailsDto userDetailsDto) {
-        String status = userDetailsService.Update(id, userDetailsDto);
-        log.info("User Details Updated Status - {}",status);
-        return ResponseEntity.ok("TC No:" + userDetailsDto.getTc_no() + " updated!");
+    public ResponseEntity<String> updateUserDetails(@PathVariable Long id, @RequestBody UserDetails userDetails) {
+        String status = userDetailsService.Update(id, userDetails);
+        log.info("User Detail Updated Status - {}", status);
+        return ResponseEntity.ok("TC: "+ userDetails.getTc_no()+ " updated!");
     }
 
     @DeleteMapping(value = "remove/{id}")
-    public ResponseEntity<String> deleteUserDetails(@PathVariable() Long id){
+    public ResponseEntity<String> deleteUserDetails(@PathVariable() Long id) {
         String status = userDetailsService.Delete(id);
-        log.info("User Details Deleted Status - {}",status);
+        log.info("User Detail Deleted Status - {}", status);
         return ResponseEntity.ok(id + " th deleted!");
+    }
+
+    @GetMapping(value = "/find/tc:{tc_no}")
+    public ResponseEntity<Optional<UserDetails>> findByTcNo(@PathVariable() String tc_no) {
+        Optional<UserDetails> status = userDetailsService.findTcNo(tc_no);
+        log.info("User Detail Got by Tc_No Status - {}", status);
+        return ResponseEntity.ok(status);
+    }
+
+    @GetMapping(value = "/find/user:{user_id}")
+    public ResponseEntity<Optional<UserDetails>> findbyUserId(@PathVariable() Long user_id) {
+        Optional<UserDetails> status = userDetailsService.FindByUserid(user_id);
+        log.info("User Detail Got by User_id Status - {}", status);
+        return ResponseEntity.ok(status);
     }
 
 }

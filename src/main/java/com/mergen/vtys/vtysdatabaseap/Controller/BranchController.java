@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 @Data
@@ -45,7 +46,7 @@ public class BranchController {
     }
 
     @PostMapping(value = "new")
-    public ResponseEntity<Branch> createBranch(@RequestBody Branch branch) {
+    public ResponseEntity<Branch> createBranch(@RequestBody Branch branch) throws ParseException {
         Branch status = branchService.Create(branch);
         log.info("Branch Added Status - {}",status);
         return  ResponseEntity.status(HttpStatus.CREATED).body(branch);

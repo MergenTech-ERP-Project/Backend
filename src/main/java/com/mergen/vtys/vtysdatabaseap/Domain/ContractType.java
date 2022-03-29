@@ -8,8 +8,8 @@ import lombok.Getter;
 public enum ContractType {
 
     timely (0),
-    indenfinite (1),
-    none(3);
+    indenfinite (1);
+
     private final int id;
 
 }

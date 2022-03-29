@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +44,7 @@ public class CareerController {
     }
 
     @PostMapping(value = "/new")
-    public ResponseEntity<Career> createCareer(@RequestBody Career career){
+    public ResponseEntity<Career> createCareer(@RequestBody Career career) throws ParseException {
         Career status = careerService.Create(career);
         log.info("Career Added Status - {}",status);
         return ResponseEntity.status(HttpStatus.CREATED).body(status);

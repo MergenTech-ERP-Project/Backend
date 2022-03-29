@@ -12,13 +12,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 @Data
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("activetouser")
-@RequiredArgsConstructor
 @Slf4j
 public class ActiveToUserController {
 
@@ -57,7 +57,7 @@ public class ActiveToUserController {
     }
 
     @PostMapping(value = "new")
-    public ResponseEntity<ActiveToUser> CreateActiveoUser(@RequestBody ActiveToUser activetouser) {
+    public ResponseEntity<ActiveToUser> CreateActiveoUser(@RequestBody ActiveToUser activetouser) throws ParseException {
         ActiveToUser status = activeToUserService.Create(activetouser);
         log.info("ActiveToUser Added Status - {}",status);
         return ResponseEntity.status(HttpStatus.CREATED).body(activetouser);

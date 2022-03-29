@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 @Data
@@ -45,7 +46,7 @@ public class ActivityController {
     }
 
     @PostMapping(value = "new")
-    public ResponseEntity<Activity> createActivity(@RequestBody Activity activity) {
+    public ResponseEntity<Activity> createActivity(@RequestBody Activity activity) throws ParseException {
         Activity status = activityService.Create(activity);
         log.info("Activity Added Status - {}",status);
         return ResponseEntity.status(HttpStatus.CREATED).body(activity);
