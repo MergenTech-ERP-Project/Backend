@@ -1,5 +1,6 @@
 package com.mergen.vtys.vtysdatabaseap.Controller;
 
+import com.mergen.vtys.vtysdatabaseap.Dto.DepartmentDto;
 import com.mergen.vtys.vtysdatabaseap.Model.Branch;
 import com.mergen.vtys.vtysdatabaseap.Model.Company;
 import com.mergen.vtys.vtysdatabaseap.Model.Department;
@@ -27,30 +28,30 @@ public class DepartmentController {
     }
 
     @GetMapping(value = "/list")
-    public ResponseEntity<List<Department>> getDepartmentList(){
-        List<Department> departmentList = departmentService.getDepartmentList();
+    public ResponseEntity<List<DepartmentDto>> getDepartmentList(){
+        List<DepartmentDto> departmentList = departmentService.getDepartmentList();
         log.info("All Departments Returned - {}",departmentList);
        return ResponseEntity.ok(departmentList);
     }
     @GetMapping(value = "/list/{id}")
-    public ResponseEntity<Optional<Department>> getDepartmentByID(@PathVariable Long id) {
-        Optional<Department> status = departmentService.getDepartmentByID(id);
+    public ResponseEntity<DepartmentDto> getDepartmentByID(@PathVariable Long id) {
+        DepartmentDto status = departmentService.getDepartmentByID(id);
         log.info("Department Got by ID Status - {}",status);
         return ResponseEntity.ok(status);
     }
 
     @PostMapping(value = "/new")
-    public ResponseEntity<Department> createDepartment(@RequestBody Department department) {
-        Department status = departmentService.Create(department);
-        log.info("deparment Added Status - {}",status);
-        return  ResponseEntity.status(HttpStatus.CREATED).body(department);
+    public ResponseEntity<DepartmentDto> createDepartment(@RequestBody DepartmentDto departmentDto) {
+        DepartmentDto status = departmentService.Create(departmentDto);
+        log.info("Department Added Status - {}",status);
+        return  ResponseEntity.status(HttpStatus.CREATED).body(departmentDto);
     }
 
     @PutMapping(value = "/update/{id}")
-    public ResponseEntity<String> updateDepartment(@PathVariable Long id, @RequestBody Department department){
-        String status = departmentService.Update(id,department);
+    public ResponseEntity<String> updateDepartment(@PathVariable Long id, @RequestBody DepartmentDto departmentDto){
+        String status = departmentService.Update(id,departmentDto);
         log.info("Department Updated Status - {}",status);
-        return ResponseEntity.ok(department.getDepartment_name() + " updated!");
+        return ResponseEntity.ok(departmentDto.getDepartment_name() + " updated!");
     }
     @DeleteMapping(value = "/remove/{id}")
     public ResponseEntity<String> deleteDeparment(@PathVariable() Long id) {
@@ -59,8 +60,8 @@ public class DepartmentController {
         return ResponseEntity.ok( id + "th Department deleted!");
     }
     @GetMapping(value = "/find/branch:{branch_id}")
-    public ResponseEntity<List<Optional<Department>>> getBranchId(@PathVariable() Long branch_id) {
-        List<Optional<Department>> status = departmentService.getBranchId(branch_id);
+    public ResponseEntity<List<DepartmentDto>> getBranchId(@PathVariable() Long branch_id) {
+        List<DepartmentDto> status = departmentService.getDepartmentsByBranchId(branch_id);
         log.info("Department Got by Branch id Status - {}", status);
         return ResponseEntity.ok(status);
     }
