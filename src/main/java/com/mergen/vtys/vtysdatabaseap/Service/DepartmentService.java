@@ -1,11 +1,9 @@
 package com.mergen.vtys.vtysdatabaseap.Service;
 
 import com.mergen.vtys.vtysdatabaseap.Dto.DepartmentDto;
-import com.mergen.vtys.vtysdatabaseap.Model.Department;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
-import java.util.Optional;
 
 
 public interface DepartmentService extends HelperService<DepartmentDto>{

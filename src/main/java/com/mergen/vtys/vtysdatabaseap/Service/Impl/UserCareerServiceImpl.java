@@ -64,4 +64,3 @@ public class UserCareerServiceImpl implements UserCareerService {
 
 }
 
-    

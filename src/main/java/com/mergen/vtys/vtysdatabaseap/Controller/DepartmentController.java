@@ -1,9 +1,6 @@
 package com.mergen.vtys.vtysdatabaseap.Controller;
 
 import com.mergen.vtys.vtysdatabaseap.Dto.DepartmentDto;
-import com.mergen.vtys.vtysdatabaseap.Model.Branch;
-import com.mergen.vtys.vtysdatabaseap.Model.Company;
-import com.mergen.vtys.vtysdatabaseap.Model.Department;
 import com.mergen.vtys.vtysdatabaseap.Service.DepartmentService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -11,8 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @CrossOrigin(origins = "*")
@@ -41,7 +38,7 @@ public class DepartmentController {
     }
 
     @PostMapping(value = "/new")
-    public ResponseEntity<DepartmentDto> createDepartment(@RequestBody DepartmentDto departmentDto) {
+    public ResponseEntity<DepartmentDto> createDepartment(@RequestBody DepartmentDto departmentDto) throws ParseException {
         DepartmentDto status = departmentService.Create(departmentDto);
         log.info("Department Added Status - {}",status);
         return  ResponseEntity.status(HttpStatus.CREATED).body(departmentDto);
