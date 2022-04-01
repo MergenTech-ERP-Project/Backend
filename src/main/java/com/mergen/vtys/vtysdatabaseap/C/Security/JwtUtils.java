@@ -19,20 +19,35 @@ public class JwtUtils {
 
     @Value("${mergen.app.jwtExpirationMs}")
     private int jwtExpirationMs;
+// for username login
+//    public String generateJwtToken(UserDetailsImpl userPrincipal) {
+//        return generateTokenFromUsername(userPrincipal.getUsername());
+//    }
+        public String generateJwtToken(UserDetailsImpl userPrincipal) {
+        return generateTokenFromEmail(userPrincipal.getEmail());
+   }
 
-    public String generateJwtToken(UserDetailsImpl userPrincipal) {
-        return generateTokenFromUsername(userPrincipal.getUsername());
-    }
-
-    public String generateTokenFromUsername(String username) {
+   //for username login
+   /* public String generateTokenFromUsername(String username) {
         return Jwts.builder().setSubject(username).setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs)).signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
-    }
+    }*/
 
-    public String getUserNameFromJwtToken(String token) {
+        public String generateTokenFromEmail(String email) {
+            return Jwts.builder().setSubject(email).setIssuedAt(new Date())
+                    .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs)).signWith(SignatureAlgorithm.HS512, jwtSecret)
+                    .compact();
+        }
+
+    // for username login
+/*    public String getUserNameFromJwtToken(String token) {
         return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
-    }
+    }*/
+
+public String getEmailFromJwtToken(String token){
+        return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
+}
 
     public boolean validateJwtToken(String authToken) {
         try {
