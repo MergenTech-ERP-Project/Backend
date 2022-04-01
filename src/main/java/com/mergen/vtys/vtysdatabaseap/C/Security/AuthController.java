@@ -140,7 +140,8 @@ public class AuthController {
                 .map(refreshTokenService::verifyExpiration)
                 .map(RefreshToken::getUser)
                 .map(user -> {
-                    String token = jwtUtils.generateTokenFromUsername(user.getUsername());
+                   // String token = jwtUtils.generateTokenFromUsername(user.getUsername()); for email login
+                    String token = jwtUtils.generateTokenFromEmail(user.getEmail());
                     return ResponseEntity.ok(new TokenRefreshResponse(token, requestRefreshToken));
                 })
                 .orElseThrow(() -> new TokenRefreshException(requestRefreshToken,
