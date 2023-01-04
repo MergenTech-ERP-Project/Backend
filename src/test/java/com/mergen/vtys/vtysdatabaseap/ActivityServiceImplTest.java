@@ -31,10 +31,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
-import static java.util.stream.Stream.builder;
-import static net.bytebuddy.matcher.ElementMatchers.is;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.hibernate.cfg.AvailableSettings.URL;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
