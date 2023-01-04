@@ -3,7 +3,7 @@ package com.mergen.vtys.vtysdatabaseap.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.GenericGenerator;
@@ -15,6 +15,9 @@ import java.util.List;
 @Entity
 @Table(name= "activity", schema="public")
 @Data
+@AllArgsConstructor
+@RequiredArgsConstructor
+@Builder
 public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_one_generator")
@@ -46,6 +49,17 @@ public class Activity {
  //   @JsonManagedReference(value = "activity_json")
     private List<ActiveToUser> activity_enrolled=new ArrayList<>();
 
+    public Activity(Long id, String name, String place, String datetime, String organizator) {
+        this.id = id;
+        this.name = name;
+        this.place = place;
+        this.datetime = datetime;
+        this.organizator = organizator;
+    }
+
+    public Activity(Long id) {
+        this.id = id;
+    }
 
 
 //
